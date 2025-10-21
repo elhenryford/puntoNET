@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Henry\\Desktop\\probando.NET\\ProyectoPuntoNET\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\probando.net\\proyectopuntonet\\components\\pages\\atleta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:components\\pages\\atleta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\probando.net\\proyectopuntonet\\models\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:models\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\probando.net\\proyectopuntonet\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\probando.net\\proyectopuntonet\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
@@ -14,8 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Atleta.cs",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\probando.NET\\ProyectoPuntoNET\\Models\\Atleta.cs",
+              "RelativeDocumentMoniker": "Models\\Atleta.cs",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\probando.NET\\ProyectoPuntoNET\\Models\\Atleta.cs",
+              "RelativeToolTip": "Models\\Atleta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T02:52:56.899Z",
+              "IsPinned": true
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -23,6 +48,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Atleta.razor",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\probando.NET\\ProyectoPuntoNET\\Components\\Pages\\Atleta.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Atleta.razor",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\probando.NET\\ProyectoPuntoNET\\Components\\Pages\\Atleta.razor",
+              "RelativeToolTip": "Components\\Pages\\Atleta.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T02:50:26.543Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\probando.NET\\ProyectoPuntoNET\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\probando.NET\\ProyectoPuntoNET\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T02:45:54.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\probando.NET\\ProyectoPuntoNET\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
@@ -30,8 +80,7 @@
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
               "ViewState": "AgIAAAYAAAAAAAAAAAAUwBIAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-20T23:57:59.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-20T23:57:59.963Z"
             }
           ]
         }

@@ -9,6 +9,11 @@
         <ValidationSummary />
 
         <div class="mb-3">
+            <label>Numero:</label>
+            <InputNumber TValue="int" @bind-Value="atleta.Numero" class="form-control" />
+        </div>
+
+        <div class="mb-3">
             <label>Nombre:</label>
             <InputText @bind-Value="atleta.Nombre" class="form-control" />
         </div>
@@ -36,7 +41,7 @@
                 }
             </ul>
         </div>
-
+        
         <button type="submit" class="btn btn-primary">Guardar</button>
     </EditForm>
 </div>
