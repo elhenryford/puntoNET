@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProyectoPuntoNET")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5cde0336b0b92bc976f64d185c0eb31c1a5aa69")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProyectoPuntoNET")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProyectoPuntoNET")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
