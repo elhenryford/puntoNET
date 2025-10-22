@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\franc\\Desktop\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj": {}
+    "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj": {}
   },
   "projects": {
-    "C:\\Users\\franc\\Desktop\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj": {
+    "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\franc\\Desktop\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj",
+        "projectUniqueName": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj",
         "projectName": "ProyectoPuntoNET",
-        "projectPath": "C:\\Users\\franc\\Desktop\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj",
+        "projectPath": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj",
         "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\franc\\Desktop\\ProyectoPuntoNET\\obj\\",
+        "outputPath": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -68,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
