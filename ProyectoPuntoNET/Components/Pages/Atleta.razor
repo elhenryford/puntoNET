@@ -1,19 +1,15 @@
 ﻿@page "/atleta"
 @inherits Microsoft.AspNetCore.Components.ComponentBase
-
+@rendermode InteractiveServer
 <h3>Registro de Atleta</h3>
+<p role="status">Numero: @currentCount</p>
 
 <div class="card p-3 shadow-sm mt-3">
     <EditForm Model="@atleta" OnValidSubmit="@GuardarAtleta">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-        <div class="mb-3">
-            <label>Numero:</label>
-            <InputNumber TValue="int" @bind-Value="atleta.Numero" class="form-control" />
-        </div>
-
-        <div class="mb-3">
+               <div class="mb-3">
             <label>Nombre:</label>
             <InputText @bind-Value="atleta.Nombre" class="form-control" />
         </div>
@@ -64,9 +60,19 @@
     {
         atleta.Discapacidades?.Remove(discapacidad);
     }
+    // Variable única y segura para concurrencia
+    private static int currentCount = 1;
 
     private void GuardarAtleta()
     {
-        Console.WriteLine($"Atleta guardado: {atleta.Nombre}, Edad: {atleta.Edad}, Discapacidades: {string.Join(", ", atleta.Discapacidades ?? new List<string>())}");
+        // Incremento atómico y usamos directamente currentCount
+        System.Threading.Interlocked.Increment(ref currentCount);
+
+        Console.WriteLine($"Atleta guardado: {atleta.Nombre}, Edad: {atleta.Edad}, Discapacidades: {string.Join(", ", atleta.Discapacidades ?? new List<string>())}, Número: {currentCount}");
+        // Limpiar formulario
+        atleta = new ProyectoPuntoNET.Models.Atleta(); // Reinicia el objeto atleta
+        nuevaDiscapacidad = string.Empty;             // Limpia el campo de nueva discapacidad
     }
+
 }
+
