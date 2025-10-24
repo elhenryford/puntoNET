@@ -1,0 +1,71 @@
+﻿@page "/carreras/delete"
+@using Microsoft.EntityFrameworkCore
+@using ProyectoPuntoNET.Model
+@inject IDbContextFactory<ProyectoPuntoNET.Data.ProyectoPuntoNETContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Delete</PageTitle>
+
+<h1>Delete</h1>
+
+<p>Are you sure you want to delete this?</p>
+<div>
+    <h2>Carrera</h2>
+    <hr />
+    @if (carrera is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">nombre</dt>
+            <dd class="col-sm-10">@carrera.nombre</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">fecha</dt>
+            <dd class="col-sm-10">@carrera.fecha</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">cantidadPuntosControl</dt>
+            <dd class="col-sm-10">@carrera.cantidadPuntosControl</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">cuposDisponibles</dt>
+            <dd class="col-sm-10">@carrera.cuposDisponibles</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">mapa</dt>
+            <dd class="col-sm-10">@carrera.mapa</dd>
+        </dl>
+        <EditForm method="post" Model="carrera" OnValidSubmit="DeleteCarrera" FormName="delete" Enhance>
+            <button type="submit" class="btn btn-danger" disabled="@(carrera is null)">Delete</button> |
+            <a href="/carreras">Back to List</a>
+        </EditForm>
+    }
+</div>
+
+@code {
+    private Carrera? carrera;
+
+    [SupplyParameterFromQuery]
+    private int idCarrera { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        carrera = await context.Carrera.FirstOrDefaultAsync(m => m.idCarrera == idCarrera);
+
+        if (carrera is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    private async Task DeleteCarrera()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Carrera.Remove(carrera!);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/carreras");
+    }
+}

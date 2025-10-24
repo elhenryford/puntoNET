@@ -1,7 +1,10 @@
-﻿namespace ProyectoPuntoNET.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProyectoPuntoNET.Model
 {
     public class Carrera
     {
+        [Key]
         public int idCarrera { get; set; }
         public string nombre { get; set; }
         public DateOnly fecha { get; set; }

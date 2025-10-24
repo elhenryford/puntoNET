@@ -1,0 +1,40 @@
+﻿@page "/carreras"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using ProyectoPuntoNET.Model
+@using ProyectoPuntoNET.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<ProyectoPuntoNET.Data.ProyectoPuntoNETContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="carreras/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.Carrera">
+    <PropertyColumn Property="carrera => carrera.nombre" />
+    <PropertyColumn Property="carrera => carrera.fecha" />
+    <PropertyColumn Property="carrera => carrera.cantidadPuntosControl" />
+    <PropertyColumn Property="carrera => carrera.cuposDisponibles" />
+    <PropertyColumn Property="carrera => carrera.mapa" />
+
+    <TemplateColumn Context="carrera">
+        <a href="@($"carreras/edit?idcarrera={carrera.idCarrera}")">Edit</a> |
+        <a href="@($"carreras/details?idcarrera={carrera.idCarrera}")">Details</a> |
+        <a href="@($"carreras/delete?idcarrera={carrera.idCarrera}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private ProyectoPuntoNETContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

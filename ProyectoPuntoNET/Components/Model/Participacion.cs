@@ -1,7 +1,10 @@
-﻿namespace ProyectoPuntoNET.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProyectoPuntoNET.Model
 {
     public class Participacion
     {
+        [Key]
         public int idParticipacion { get; set; }
         public Atleta atleta { get; set; }
         public Carrera carrera { get; set; }
