@@ -1,27 +1,27 @@
 ﻿@page "/atleta"
+@using Microsoft.AspNetCore.Components.Forms
 @inherits Microsoft.AspNetCore.Components.ComponentBase
-@rendermode InteractiveServer
 <h3>Registro de Atleta</h3>
-<p role="status">Numero: @currentCount</p>
+<p role="status">Número: @currentCount</p>
 
 <div class="card p-3 shadow-sm mt-3">
     <EditForm Model="@atleta" OnValidSubmit="@GuardarAtleta">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-               <div class="mb-3">
+        <div class="mb-3">
             <label>Nombre:</label>
-            <InputText @bind-Value="atleta.Nombre" class="form-control" />
+            <InputText @bind="atleta.Nombre" class="form-control" />
         </div>
 
         <div class="mb-3">
             <label>Edad:</label>
-            <InputNumber TValue="int" @bind-Value="atleta.Edad" class="form-control" />
+            <InputNumber TValue="int" @bind-="atleta.Edad" class="form-control" />
         </div>
 
         <div class="mb-3">
             <label>Discapacidades:</label>
-            <InputText @bind-Value="nuevaDiscapacidad" class="form-control" placeholder="Agregar una discapacidad" />
+            <InputText @bind="nuevaDiscapacidad" class="form-control" placeholder="Agregar una discapacidad" />
             <button type="button" class="btn btn-secondary mt-2" @onclick="AgregarDiscapacidad">Agregar</button>
 
             <ul class="list-group mt-2">
@@ -43,12 +43,14 @@
 </div>
 
 @code {
-    private ProyectoPuntoNET.Models.Atleta atleta = new ProyectoPuntoNET.Models.Atleta();
+    private ProyectoPuntoNET.Data.Atleta atleta = new ProyectoPuntoNET.Data.Atleta
+    {
+        Discapacidades = new List<string>()
+    };
     private string nuevaDiscapacidad = string.Empty;
 
     private void AgregarDiscapacidad()
     {
-        atleta.Discapacidades ??= new List<string>();
         if (!string.IsNullOrWhiteSpace(nuevaDiscapacidad))
         {
             atleta.Discapacidades.Add(nuevaDiscapacidad.Trim());
@@ -58,21 +60,22 @@
 
     private void QuitarDiscapacidad(string discapacidad)
     {
-        atleta.Discapacidades?.Remove(discapacidad);
+        atleta.Discapacidades.Remove(discapacidad);
     }
+
     // Variable única y segura para concurrencia
     private static int currentCount = 1;
 
     private void GuardarAtleta()
     {
-        // Incremento atómico y usamos directamente currentCount
         System.Threading.Interlocked.Increment(ref currentCount);
 
-        Console.WriteLine($"Atleta guardado: {atleta.Nombre}, Edad: {atleta.Edad}, Discapacidades: {string.Join(", ", atleta.Discapacidades ?? new List<string>())}, Número: {currentCount}");
+        Console.WriteLine($"Atleta guardado: {atleta.Nombre}, Edad: {atleta.Edad}, Discapacidades: {string.Join(", ", atleta.Discapacidades)}, Número: {currentCount}");
         // Limpiar formulario
-        atleta = new ProyectoPuntoNET.Models.Atleta(); // Reinicia el objeto atleta
-        nuevaDiscapacidad = string.Empty;             // Limpia el campo de nueva discapacidad
+        atleta = new ProyectoPuntoNET.Data.Atleta
+        {
+            Discapacidades = new List<string>()
+        };
+        nuevaDiscapacidad = string.Empty;
     }
-
 }
-
