@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\franc\\documents\\github\\puntonet\\proyectopuntonet\\components\\pages\\participacionpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:components\\pages\\participacionpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\franc\\documents\\github\\puntonet\\proyectopuntonet\\components\\pages\\carrerapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:components\\pages\\carrerapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\franc\\documents\\github\\puntonet\\proyectopuntonet\\components\\pages\\atletapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:components\\pages\\atletapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\franc\\documents\\github\\puntonet\\proyectopuntonet\\proyectopuntonet.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:proyectopuntonet.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\franc\\documents\\github\\puntonet\\proyectopuntonet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\franc\\documents\\github\\puntonet\\proyectopuntonet\\components\\model\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:components\\model\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\franc\\documents\\github\\puntonet\\proyectopuntonet\\components\\pages\\atletapages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:components\\pages\\atletapages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\franc\\documents\\github\\puntonet\\proyectopuntonet\\components\\model\\participacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,86 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.razor",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Pages\\CarreraPages\\Create.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\CarreraPages\\Create.razor",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Pages\\CarreraPages\\Create.razor",
-              "RelativeToolTip": "Components\\Pages\\CarreraPages\\Create.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-23T22:40:20.488Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Edit.razor",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Pages\\AtletaPages\\Edit.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\AtletaPages\\Edit.razor",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Pages\\AtletaPages\\Edit.razor",
-              "RelativeToolTip": "Components\\Pages\\AtletaPages\\Edit.razor",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABcAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-23T22:25:04.974Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.razor",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Pages\\AtletaPages\\Create.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\AtletaPages\\Create.razor",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Pages\\AtletaPages\\Create.razor",
-              "RelativeToolTip": "Components\\Pages\\AtletaPages\\Create.razor",
-              "ViewState": "AgIAABEAAAAAAAAAAAAtwB8AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-23T22:24:03.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Participacion.cs",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Participacion.cs",
-              "RelativeDocumentMoniker": "Components\\Model\\Participacion.cs",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Participacion.cs",
-              "RelativeToolTip": "Components\\Model\\Participacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T22:23:00.346Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Carrera.cs",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Carrera.cs",
-              "RelativeDocumentMoniker": "Components\\Model\\Carrera.cs",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Carrera.cs",
-              "RelativeToolTip": "Components\\Model\\Carrera.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T22:22:20.144Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Atleta.cs",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Atleta.cs",
-              "RelativeDocumentMoniker": "Components\\Model\\Atleta.cs",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Atleta.cs",
-              "RelativeToolTip": "Components\\Model\\Atleta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T21:38:56.512Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -121,6 +47,93 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Create.razor",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Pages\\ParticipacionPages\\Create.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\ParticipacionPages\\Create.razor",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Pages\\ParticipacionPages\\Create.razor",
+              "RelativeToolTip": "Components\\Pages\\ParticipacionPages\\Create.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-24T23:50:31.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.razor",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Pages\\CarreraPages\\Create.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\CarreraPages\\Create.razor",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Pages\\CarreraPages\\Create.razor",
+              "RelativeToolTip": "Components\\Pages\\CarreraPages\\Create.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-24T23:47:48.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProyectoPuntoNET.csproj",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj",
+              "RelativeDocumentMoniker": "ProyectoPuntoNET.csproj",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj",
+              "RelativeToolTip": "ProyectoPuntoNET.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-24T01:44:04.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T22:40:45.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Participacion.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Participacion.cs",
+              "RelativeDocumentMoniker": "Components\\Model\\Participacion.cs",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Participacion.cs",
+              "RelativeToolTip": "Components\\Model\\Participacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T22:23:00.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Carrera.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Carrera.cs",
+              "RelativeDocumentMoniker": "Components\\Model\\Carrera.cs",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Carrera.cs",
+              "RelativeToolTip": "Components\\Model\\Carrera.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T22:22:20.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Atleta.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Atleta.cs",
+              "RelativeDocumentMoniker": "Components\\Model\\Atleta.cs",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\ProyectoPuntoNET\\Components\\Model\\Atleta.cs",
+              "RelativeToolTip": "Components\\Model\\Atleta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T21:38:56.512Z"
             }
           ]
         }

@@ -16,5 +16,6 @@ namespace ProyectoPuntoNET.Data
 
         public DbSet<ProyectoPuntoNET.Model.Atleta> Atleta { get; set; } = default!;
         public DbSet<ProyectoPuntoNET.Model.Carrera> Carrera { get; set; } = default!;
+        public DbSet<ProyectoPuntoNET.Model.Participacion> Participacion { get; set; } = default!;
     }
 }

@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("dd7c118b-d38e-4b84-9a4c-2fa00f6a80a4")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProyectoPuntoNET")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b44d179cf232ed39fd61ced1b6eadb6008abc6b4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7077e208b03949f86a91aef91f43b14e02450160")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProyectoPuntoNET")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProyectoPuntoNET")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
