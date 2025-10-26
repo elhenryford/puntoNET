@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WlJ+aWa5dig=",
+  "dgSpecHash": "uZ9xiczMMvk=",
   "success": true,
   "projectFilePath": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\ProyectoPuntoNET.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Henry\\.nuget\\packages\\microsoft.data.sqlite\\9.0.10\\microsoft.data.sqlite.9.0.10.nupkg.sha512",
     "C:\\Users\\Henry\\.nuget\\packages\\microsoft.data.sqlite.core\\9.0.10\\microsoft.data.sqlite.core.9.0.10.nupkg.sha512",
     "C:\\Users\\Henry\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.10\\microsoft.entityframeworkcore.9.0.10.nupkg.sha512",
     "C:\\Users\\Henry\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.10\\microsoft.entityframeworkcore.abstractions.9.0.10.nupkg.sha512",
