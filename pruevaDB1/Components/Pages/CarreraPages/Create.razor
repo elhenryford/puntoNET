@@ -1,0 +1,64 @@
+﻿@page "/carreras/create"
+@using Microsoft.EntityFrameworkCore
+@using pruevaDB1.Components.Model
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Carrera</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Carrera" OnValidSubmit="AddCarrera" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">nombre:</label> 
+                <InputText id="nombre" @bind-Value="Carrera.Nombre" class="form-control" /> 
+                <ValidationMessage For="() => Carrera.Nombre" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="fecha" class="form-label">fecha:</label> 
+                <InputDate id="fecha" @bind-Value="Carrera.Fecha" class="form-control" /> 
+                <ValidationMessage For="() => Carrera.Fecha" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="cantidadpuntoscontrol" class="form-label">cantidadPuntosControl:</label> 
+                <InputNumber id="cantidadpuntoscontrol" @bind-Value="Carrera.CantidadPuntosControl" class="form-control" /> 
+                <ValidationMessage For="() => Carrera.CantidadPuntosControl" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="cuposdisponibles" class="form-label">cuposDisponibles:</label> 
+                <InputNumber id="cuposdisponibles" @bind-Value="Carrera.CuposDisponibles" class="form-control" /> 
+                <ValidationMessage For="() => Carrera.CuposDisponibles" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="mapa" class="form-label">mapa:</label> 
+                <InputText id="mapa" @bind-Value="Carrera.Mapa" class="form-control" /> 
+                <ValidationMessage For="() => Carrera.Mapa" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/carreras">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Carrera Carrera { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddCarrera()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Carrera.Add(Carrera);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/carreras");
+    }
+}
