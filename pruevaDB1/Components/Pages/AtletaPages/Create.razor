@@ -10,23 +10,23 @@
 
 <h3>Crear Atleta</h3>
 
-<EditForm Model="@form" OnValidSubmit="AddAtleta" FormName="CrearAtletaForm">
+<EditForm Model="Atleta" method="post" OnValidSubmit=" AddAtleta" FormName="create" Enhance>
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <InputText id="nombre" @bind-Value="form.nombre" class="form-control" />
+        <InputText id="nombre" class="form-control" @bind-Value="Atleta.Nombre" />
     </div>
 
     <div class="mb-3">
         <label for="edad" class="form-label">Edad</label>
-        <InputNumber id="edad" @bind-Value="form.edad" class="form-control" />
+        <InputNumber id="edad" class="form-control" @bind-Value="Atleta.Edad" />
     </div>
 
     <div class="mb-3">
         <label for="discapacidades" class="form-label">Discapacidades</label>
-        <InputText id="discapacidades" @bind-Value="form.disc" class="form-control" />
+        <InputText id="discapacidades" class="form-control" @bind-Value="Atleta.Discapacidades" />
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -37,23 +37,26 @@
 </div>
 
 @code {
-    private AtletaForm form = new();
+
+    private InputText nombresInput;
+    private InputNumber<int> edadesInput;
+    private InputText discapacidadesInput;
+    private Atleta Atleta = new();
 
     // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddAtleta()
     {
         using var context = DbFactory.CreateDbContext();
-
-        var atleta = new Atleta { Nombre = form.nombre, Edad = form.edad, Discapacidades=form.disc };
-        context.Atleta.Add(atleta);
+        //var atleta = new Atleta { Nombre = nombresInput.ToString(), Edad = edadesInput.Value, Discapacidades = discapacidadesInput.ToString() };
+        context.Atleta.Add(Atleta);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/atleta");
     }
 
     private class AtletaForm
     {
-        public string nombre { get; set; } = string.Empty;
-        public int edad { get; set; }
-        public string disc { get; set; } = string.Empty;
+        public string Nombre { get; set; } = "";
+        public int Edad { get; set; }
+        public string Discapacidades { get; set; } = "";
     }
 }
