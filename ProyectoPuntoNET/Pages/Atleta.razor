@@ -1,0 +1,81 @@
+﻿@page "/atleta"
+@using Microsoft.AspNetCore.Components.Forms
+@inherits Microsoft.AspNetCore.Components.ComponentBase
+<h3>Registro de Atleta</h3>
+<p role="status">Número: @currentCount</p>
+
+<div class="card p-3 shadow-sm mt-3">
+    <EditForm Model="@atleta" OnValidSubmit="@GuardarAtleta">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label>Nombre:</label>
+            <InputText @bind="atleta.Nombre" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Edad:</label>
+            <InputNumber TValue="int" @bind-="atleta.Edad" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Discapacidades:</label>
+            <InputText @bind="nuevaDiscapacidad" class="form-control" placeholder="Agregar una discapacidad" />
+            <button type="button" class="btn btn-secondary mt-2" @onclick="AgregarDiscapacidad">Agregar</button>
+
+            <ul class="list-group mt-2">
+                @if (atleta.Discapacidades?.Count > 0)
+                {
+                    @foreach (var d in atleta.Discapacidades)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            @d
+                            <button type="button" class="btn btn-sm btn-danger" @onclick="@(() => QuitarDiscapacidad(d))">X</button>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </EditForm>
+</div>
+
+@code {
+    private ProyectoPuntoNET.Data.Atleta atleta = new ProyectoPuntoNET.Data.Atleta
+    {
+        Discapacidades = new List<string>()
+    };
+    private string nuevaDiscapacidad = string.Empty;
+
+    private void AgregarDiscapacidad()
+    {
+        if (!string.IsNullOrWhiteSpace(nuevaDiscapacidad))
+        {
+            atleta.Discapacidades.Add(nuevaDiscapacidad.Trim());
+            nuevaDiscapacidad = string.Empty;
+        }
+    }
+
+    private void QuitarDiscapacidad(string discapacidad)
+    {
+        atleta.Discapacidades.Remove(discapacidad);
+    }
+
+    // Variable única y segura para concurrencia
+    private static int currentCount = 1;
+
+    private void GuardarAtleta()
+    {
+        System.Threading.Interlocked.Increment(ref currentCount);
+
+        Console.WriteLine($"Atleta guardado: {atleta.Nombre}, Edad: {atleta.Edad}, Discapacidades: {string.Join(", ", atleta.Discapacidades)}, Número: {currentCount}");
+        // Limpiar formulario
+        atleta = new ProyectoPuntoNET.Data.Atleta
+        {
+            Discapacidades = new List<string>()
+        };
+        nuevaDiscapacidad = string.Empty;
+    }
+}

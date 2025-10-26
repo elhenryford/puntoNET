@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "ContainingType": "ProyectoPuntoNET.Controller.ChipWebhookController",
+    "Method": "Capture",
+    "RelativePath": "api/ChipWebhook/capture",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "payload",
+        "Type": "ProyectoPuntoNET.Controller.ChipWebhookController\u002BChipPayload",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
