@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\proyectopuntonet\\controller\\chipwebhookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:controller\\chipwebhookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\proyectopuntonet\\pages\\atleta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:pages\\atleta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\proyectopuntonet\\data\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:data\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\proyectopuntonet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\proyectopuntonet\\data\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:data\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\proyectopuntonet\\data\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:data\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\proyectopuntonet\\data\\chipevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:data\\chipevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\proyectopuntonet\\controller\\chipwebhookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:controller\\chipwebhookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,6 +47,67 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Atleta.razor",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Pages\\Atleta.razor",
+              "RelativeDocumentMoniker": "Pages\\Atleta.razor",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Pages\\Atleta.razor",
+              "RelativeToolTip": "Pages\\Atleta.razor",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAE4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-27T01:01:05.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ChipEvent.cs",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\ChipEvent.cs",
+              "RelativeDocumentMoniker": "Data\\ChipEvent.cs",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\ChipEvent.cs",
+              "RelativeToolTip": "Data\\ChipEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T00:58:25.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Evento.cs",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\Evento.cs",
+              "RelativeDocumentMoniker": "Data\\Evento.cs",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\Evento.cs",
+              "RelativeToolTip": "Data\\Evento.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T00:57:14.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Atleta.cs",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\Atleta.cs",
+              "RelativeDocumentMoniker": "Data\\Atleta.cs",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\Atleta.cs",
+              "RelativeToolTip": "Data\\Atleta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T22:38:24.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T21:56:07.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ChipWebhookController.cs",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Controller\\ChipWebhookController.cs",
               "RelativeDocumentMoniker": "Controller\\ChipWebhookController.cs",
@@ -42,32 +115,7 @@
               "RelativeToolTip": "Controller\\ChipWebhookController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T08:43:32.68Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Models.cs",
-              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\Models.cs",
-              "RelativeDocumentMoniker": "Data\\Models.cs",
-              "ToolTip": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\Models.cs",
-              "RelativeToolTip": "Data\\Models.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA2wBIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T07:48:15.658Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Atleta.razor",
-              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Pages\\Atleta.razor",
-              "RelativeDocumentMoniker": "Pages\\Atleta.razor",
-              "ToolTip": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Pages\\Atleta.razor",
-              "RelativeToolTip": "Pages\\Atleta.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-25T06:58:43.174Z"
+              "WhenOpened": "2025-10-25T08:43:32.68Z"
             }
           ]
         }

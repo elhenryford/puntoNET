@@ -1,10 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using ProyectoPuntoNET.Components;
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProyectoPuntoNET.Data;
+using Microsoft.AspNetCore.Components;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
