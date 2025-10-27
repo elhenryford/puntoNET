@@ -1,0 +1,50 @@
+﻿@page "/atleta/create"
+@using Microsoft.EntityFrameworkCore
+@using pruevaDB1.Components.Model
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h3>Crear Atleta</h3>
+
+<EditForm Model="atleta" method="post" OnValidSubmit=" AddAtleta" FormName="create" Enhance>
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <InputText id="nombre" class="form-control" @bind-Value="atleta.Nombre" />
+    </div>
+
+    <div class="mb-3">
+        <label for="edad" class="form-label">Edad</label>
+        <InputNumber id="edad" class="form-control" @bind-Value="atleta.Edad" />
+    </div>
+
+    <div class="mb-3">
+        <label for="discapacidades" class="form-label">Discapacidades</label>
+        <InputText id="discapacidades" class="form-control" @bind-Value="atleta.Discapacidades" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</EditForm>
+
+<div>
+    <a href="/atleta">Volver a la lista</a>
+</div>
+
+@code {
+    private Atleta atleta = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddAtleta()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Atleta.Add(atleta);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/atleta");
+    }
+}
