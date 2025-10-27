@@ -7,7 +7,7 @@
 <p role="status">Número: @currentCount</p>
 
 <div class="card p-3 shadow-sm mt-3">
-    <EditForm Model="@atleta" OnValidSubmit="@GuardarAtleta">
+    <EditForm Model="@atleta" OnValidSubmit="@GuardarAtleta" @formname="CrearAtletaForm">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
