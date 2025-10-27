@@ -37,26 +37,14 @@
 </div>
 
 @code {
-
-    private InputText nombresInput;
-    private InputNumber<int> edadesInput;
-    private InputText discapacidadesInput;
     private Atleta atleta = new();
 
     // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddAtleta()
     {
         using var context = DbFactory.CreateDbContext();
-        //var atleta = new Atleta { Nombre = nombresInput.ToString(), Edad = edadesInput.Value, Discapacidades = discapacidadesInput.ToString() };
         context.Atleta.Add(atleta);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/atleta");
-    }
-
-    private class AtletaForm
-    {
-        public string Nombre { get; set; } = "";
-        public int Edad { get; set; }
-        public string Discapacidades { get; set; } = "";
     }
 }
