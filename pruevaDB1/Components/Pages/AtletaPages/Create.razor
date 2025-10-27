@@ -10,23 +10,23 @@
 
 <h3>Crear Atleta</h3>
 
-<EditForm Model="Atleta" method="post" OnValidSubmit=" AddAtleta" FormName="create" Enhance>
+<EditForm Model="atleta" method="post" OnValidSubmit=" AddAtleta" FormName="create" Enhance>
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <InputText id="nombre" class="form-control" @bind-Value="Atleta.Nombre" />
+        <InputText id="nombre" class="form-control" @bind-Value="atleta.Nombre" />
     </div>
 
     <div class="mb-3">
         <label for="edad" class="form-label">Edad</label>
-        <InputNumber id="edad" class="form-control" @bind-Value="Atleta.Edad" />
+        <InputNumber id="edad" class="form-control" @bind-Value="atleta.Edad" />
     </div>
 
     <div class="mb-3">
         <label for="discapacidades" class="form-label">Discapacidades</label>
-        <InputText id="discapacidades" class="form-control" @bind-Value="Atleta.Discapacidades" />
+        <InputText id="discapacidades" class="form-control" @bind-Value="atleta.Discapacidades" />
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -41,14 +41,14 @@
     private InputText nombresInput;
     private InputNumber<int> edadesInput;
     private InputText discapacidadesInput;
-    private Atleta Atleta = new();
+    private Atleta atleta = new();
 
     // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddAtleta()
     {
         using var context = DbFactory.CreateDbContext();
         //var atleta = new Atleta { Nombre = nombresInput.ToString(), Edad = edadesInput.Value, Discapacidades = discapacidadesInput.ToString() };
-        context.Atleta.Add(Atleta);
+        context.Atleta.Add(atleta);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/atleta");
     }
