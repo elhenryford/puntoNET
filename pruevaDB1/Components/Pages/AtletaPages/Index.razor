@@ -28,14 +28,10 @@
 
 @code {
     private pruevaDB1Context context = default!;
-    private List<Atleta> atletas = new();
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         context = DbFactory.CreateDbContext();
-        atletas = await context.Atleta
-            .AsNoTracking()   // 🔥 esto evita que EF cree proxies con referencias
-            .ToListAsync();
     }
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();

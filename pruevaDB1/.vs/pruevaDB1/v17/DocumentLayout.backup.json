@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\carrerapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\carrerapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\carrerapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\carrerapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\atletapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\atletapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\atletapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\atletapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\AtletaPages\\Index.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\AtletaPages\\Index.razor",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\AtletaPages\\Index.razor",
+              "RelativeToolTip": "Components\\Pages\\AtletaPages\\Index.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-27T19:57:06.477Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -35,14 +48,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Create.razor",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\CarreraPages\\Create.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\CarreraPages\\Create.razor",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\CarreraPages\\Create.razor",
-              "RelativeToolTip": "Components\\Pages\\CarreraPages\\Create.razor",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAB4AAABnAAAAAAAAAA==",
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\CarreraPages\\Index.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\CarreraPages\\Index.razor",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\CarreraPages\\Index.razor",
+              "RelativeToolTip": "Components\\Pages\\CarreraPages\\Index.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAcwCIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-27T19:37:25.443Z",
+              "WhenOpened": "2025-10-27T19:57:17.513Z",
               "EditorCaption": ""
             },
             {
@@ -53,22 +66,9 @@
               "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
               "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABcAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-10-27T19:35:08.265Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Create.razor",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\AtletaPages\\Create.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\AtletaPages\\Create.razor",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\AtletaPages\\Create.razor",
-              "RelativeToolTip": "Components\\Pages\\AtletaPages\\Create.razor",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAACkAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-27T19:33:22.325Z",
               "EditorCaption": ""
             }
           ]
