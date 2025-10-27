@@ -1,0 +1,54 @@
+﻿@page "/atleta/details"
+@using Microsoft.EntityFrameworkCore
+@using ProyectoPuntoNET.Data
+@inject IDbContextFactory<ProyectoPuntoNET.Data.ProyectoPuntoNETContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>Atleta</h2>
+    <hr />
+    @if (atleta is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">Nombre</dt>
+            <dd class="col-sm-10">@atleta.Nombre</dd>
+            <dt class="col-sm-2">Edad</dt>
+            <dd class="col-sm-10">@atleta.Edad</dd>
+            <dt class="col-sm-2">ChipId</dt>
+            <dd class="col-sm-10">@atleta.ChipId</dd>
+            <dt class="col-sm-2">Categoria</dt>
+            <dd class="col-sm-10">@atleta.Categoria</dd>
+            <dt class="col-sm-2">EventoId</dt>
+            <dd class="col-sm-10">@atleta.EventoId</dd>
+        </dl>
+        <div>
+            <a href="@($"/atleta/edit?numero={atleta.Numero}")">Edit</a> |
+            <a href="@($"/atleta")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private Atleta? atleta;
+
+    [SupplyParameterFromQuery]
+    private int Numero { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        atleta = await context.Atleta.FirstOrDefaultAsync(m => m.Numero == Numero);
+
+        if (atleta is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

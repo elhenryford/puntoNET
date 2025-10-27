@@ -5,7 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProyectoPuntoNET.Data;
 using Microsoft.AspNetCore.Components;
-
+using ProyectoPuntoNET;
+using ProyectoPuntoNET.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +14,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=app.db"));
 
+builder.Services.AddQuickGridEntityFrameworkAdapter();
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 // Blazor Server
 builder.Services.AddRazorPages();
+builder.Services.AddDbContextFactory<ProyectoPuntoNETContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("ProyectoPuntoNETContext") ?? throw new InvalidOperationException("Connection string 'ProyectoPuntoNETContext' not found.")));
 builder.Services.AddServerSideBlazor();
 
 // Application services
@@ -23,6 +30,9 @@ builder.Services.AddHostedService(provider => provider.GetRequiredService<Number
 
 // Controllers for API endpoints
 builder.Services.AddControllers();
+
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
 
 var app = builder.Build();
 
@@ -38,6 +48,7 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     app.UseHsts();
+    app.UseMigrationsEndPoint();
 }
 
 app.UseHttpsRedirection();
@@ -48,5 +59,7 @@ app.UseAntiforgery();
 app.MapControllers();
 app.MapBlazorHub();              // Blazor Server hub
 app.MapFallbackToPage("/_Host"); // fallback page (_Host.cshtml)
+
+app.MapRazorComponents<App>();
 
 app.Run();

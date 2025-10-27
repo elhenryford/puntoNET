@@ -1,0 +1,109 @@
+﻿@page "/atleta/edit"
+@using Microsoft.EntityFrameworkCore
+@using ProyectoPuntoNET.Data
+@inject IDbContextFactory<ProyectoPuntoNET.Data.ProyectoPuntoNETContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h2>Atleta</h2>
+<hr />
+@if (Atleta is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Atleta" OnValidSubmit="UpdateAtleta" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary role="alert"/>
+                <input type="hidden" name="Atleta.Numero" value="@Atleta.Numero" />
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <InputText id="nombre" @bind-Value="Atleta.Nombre" class="form-control" aria-required="true"/>
+                    <ValidationMessage For="() => Atleta.Nombre" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="edad" class="form-label">Edad:</label>
+                    <InputNumber id="edad" @bind-Value="Atleta.Edad" class="form-control" aria-required="true"/>
+                    <ValidationMessage For="() => Atleta.Edad" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="chipid" class="form-label">ChipId:</label>
+                    <InputText id="chipid" @bind-Value="Atleta.ChipId" class="form-control" />
+                    <ValidationMessage For="() => Atleta.ChipId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="categoria" class="form-label">Categoria:</label>
+                    <InputText id="categoria" @bind-Value="Atleta.Categoria" class="form-control" />
+                    <ValidationMessage For="() => Atleta.Categoria" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="eventoid" class="form-label">EventoId:</label>
+                    <InputNumber id="eventoid" @bind-Value="Atleta.EventoId" class="form-control" />
+                    <ValidationMessage For="() => Atleta.EventoId" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/atleta">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int Numero { get; set; }
+
+    [SupplyParameterFromForm]
+    private Atleta? Atleta { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        Atleta ??= await context.Atleta.FirstOrDefaultAsync(m => m.Numero == Numero);
+
+        if (Atleta is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more information, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task UpdateAtleta()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(Atleta!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!AtletaExists(Atleta!.Numero))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/atleta");
+    }
+
+    private bool AtletaExists(int numero)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.Atleta.Any(e => e.Numero == numero);
+    }
+}

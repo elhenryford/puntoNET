@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\proyectopuntonet\\components\\pages\\atletapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:components\\pages\\atletapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|c:\\users\\henry\\desktop\\proyectopuntonet\\pages\\atleta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5954BC3D-2768-40DE-92D6-B0A77496683B}|ProyectoPuntoNET.csproj|solutionrelative:pages\\atleta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -47,19 +51,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Create.razor",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Components\\Pages\\AtletaPages\\Create.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\AtletaPages\\Create.razor",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Components\\Pages\\AtletaPages\\Create.razor",
+              "RelativeToolTip": "Components\\Pages\\AtletaPages\\Create.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-27T19:06:41.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Atleta.razor",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Pages\\Atleta.razor",
               "RelativeDocumentMoniker": "Pages\\Atleta.razor",
               "ToolTip": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Pages\\Atleta.razor",
               "RelativeToolTip": "Pages\\Atleta.razor",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAE4AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAE4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-10-27T01:01:05.577Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ChipEvent.cs",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\ChipEvent.cs",
               "RelativeDocumentMoniker": "Data\\ChipEvent.cs",
@@ -71,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Evento.cs",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\Evento.cs",
               "RelativeDocumentMoniker": "Data\\Evento.cs",
@@ -83,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Atleta.cs",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Data\\Atleta.cs",
               "RelativeDocumentMoniker": "Data\\Atleta.cs",
@@ -95,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -103,11 +120,12 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T21:56:07.709Z"
+              "WhenOpened": "2025-10-26T21:56:07.709Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ChipWebhookController.cs",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\ProyectoPuntoNET\\Controller\\ChipWebhookController.cs",
               "RelativeDocumentMoniker": "Controller\\ChipWebhookController.cs",
