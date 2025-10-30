@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pruevaDB1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3063ec24b85f4f2104aa9091b3c65af6b772d04")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d441ba591bdb9b15058195c1ea84e754c3fd5b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("pruevaDB1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pruevaDB1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
