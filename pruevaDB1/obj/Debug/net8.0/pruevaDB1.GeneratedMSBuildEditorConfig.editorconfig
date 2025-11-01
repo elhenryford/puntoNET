@@ -52,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Inscribirse.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xJbnNjcmliaXJzZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcQ3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

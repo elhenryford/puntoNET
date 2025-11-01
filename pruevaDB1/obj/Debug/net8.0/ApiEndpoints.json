@@ -1,1 +1,55 @@
-[]
+[
+  {
+    "ContainingType": "pruevaDB1.Components.Controllers.ParticipacionController",
+    "Method": "DeleteConfirmed",
+    "RelativePath": "Participacion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "pruevaDB1.Components.Controllers.ParticipacionController",
+    "Method": "GetCarreras",
+    "RelativePath": "Participacion/GetCarreras",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAtleta",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "pruevaDB1.Components.Controllers.ParticipacionController",
+    "Method": "Inscribirse",
+    "RelativePath": "Participacion/Inscribirse",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAtleta",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idCarrera",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

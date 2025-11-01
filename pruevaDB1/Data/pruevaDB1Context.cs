@@ -16,5 +16,6 @@ namespace pruevaDB1.Data
 
         public DbSet<Atleta> Atleta { get; set; } = default!;
         public DbSet<Carrera> Carrera { get; set; } = default!;
+        public DbSet<pruevaDB1.Components.Model.Participacion> Participacion { get; set; } = default!;
     }
 }

@@ -7,6 +7,7 @@
 @using pruevaDB1.Data
 @inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
 
+
 <PageTitle>Login</PageTitle>
 
 <h3>Iniciar Sesión</h3>
@@ -53,7 +54,8 @@
             {
                 if (atleta.mail == loginData.Username && atleta.password == loginData.Password)
                 {
-                    NavigationManager.NavigateTo($"/atleta/details?idatleta={atleta.IdAtleta}");
+                    //HttpContext.Session.SetInt32("usr", atleta.IdAtleta);
+                    NavigationManager.NavigateTo($"/atleta/inscribirse/{atleta.IdAtleta}");
                     return;
                 }
             }
