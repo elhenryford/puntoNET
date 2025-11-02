@@ -43,7 +43,8 @@ namespace pruevaDB1.Components.Controllers
         [HttpGet("GetCarreras")]
         public async Task<IActionResult> GetCarreras(int idAtleta)
         {
-            var carreras = await _context.Carrera.ToListAsync();
+            List<Carrera> carreras = await _context.Carrera.ToListAsync();
+            //Atleta atleta = await _context.Atleta.fi
             return Ok(carreras);
         }
 
