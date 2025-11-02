@@ -1,37 +1,42 @@
-﻿using pruevaDB1.Components;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using pruevaDB1.Data;
+using pruevaDB1.Data.Services;
+using pruevaDB1.Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContextFactory<pruevaDB1Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("pruevaDB1Context") ?? throw new InvalidOperationException("Connection string 'pruevaDB1Context' not found.")));
 
-builder.Services.AddQuickGridEntityFrameworkAdapter();
+builder.Services.AddDbContext<SportEventContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SportEventContext")));
 
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+// Cola y procesador
+builder.Services.AddSingleton<QueueService>();
+builder.Services.AddHostedService<QueueProcessorService>();
 
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+builder.Services.AddSignalR();
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-    app.UseMigrationsEndPoint();
+    app.UseExceptionHandler("/Error");
 }
 
-app.UseHttpsRedirection();
-
 app.UseStaticFiles();
-app.UseAntiforgery();
+app.UseRouting();
 
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
+
+// Endpoint para simular lecturas de chips
+app.MapPost("/api/registrar-paso", (int chipId, int puntoId, QueueService queue) =>
+{
+    queue.Enqueue(new EventoChip { ChipId = chipId, PuntoControlId = puntoId });
+    return Results.Ok(new { message = "Evento encolado correctamente" });
+});
 
 app.Run();

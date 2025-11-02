@@ -2,109 +2,135 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ProyectoPuntoNET.Data;
+using pruevaDB1.Data;
 
 #nullable disable
 
 namespace ProyectoPuntoNET.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(pruevaDB1Context))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.11");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "9.0.10")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            modelBuilder.Entity("ProyectoPuntoNET.Data.Atleta", b =>
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("pruevaDB1.Components.Model.Atleta", b =>
                 {
-                    b.Property<int>("Numero")
+                    b.Property<int>("IdAtleta")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
-                    b.Property<string>("Categoria")
-                        .HasColumnType("TEXT");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAtleta"));
 
-                    b.Property<string>("ChipId")
-                        .HasColumnType("TEXT");
+                    b.Property<string>("Discapacidades")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Edad")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
-                    b.Property<int?>("EventoId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdAtleta");
+
+                    b.ToTable("Atleta");
+                });
+
+            modelBuilder.Entity("pruevaDB1.Components.Model.Carrera", b =>
+                {
+                    b.Property<int>("IdCarrera")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCarrera"));
+
+                    b.Property<int>("CantidadPuntosControl")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CuposDisponibles")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("Fecha")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Mapa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Numero");
+                    b.HasKey("IdCarrera");
 
-                    b.HasIndex("EventoId");
-
-                    b.ToTable("Atletas");
+                    b.ToTable("Carrera");
                 });
 
-            modelBuilder.Entity("ProyectoPuntoNET.Data.ChipEvent", b =>
+            modelBuilder.Entity("pruevaDB1.Components.Model.Participacion", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("IdParticipacion")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
-                    b.Property<int?>("AthleteId")
-                        .HasColumnType("INTEGER");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdParticipacion"));
 
-                    b.Property<int?>("AtletaNumero")
-                        .HasColumnType("INTEGER");
+                    b.Property<int>("AtletaIdAtleta")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Checkpoint")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CarreraIdCarrera")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ChipId")
-                        .HasColumnType("TEXT");
+                    b.Property<TimeSpan>("TiempoFinal")
+                        .HasColumnType("time");
 
-                    b.Property<DateTime>("Timestamp")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AtletaNumero");
-
-                    b.ToTable("ChipEvents");
-                });
-
-            modelBuilder.Entity("ProyectoPuntoNET.Data.Evento", b =>
-                {
-                    b.Property<int>("EventoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Nombre")
+                    b.PrimitiveCollection<string>("Tiempos")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EventoId");
+                    b.HasKey("IdParticipacion");
 
-                    b.ToTable("Eventos");
+                    b.HasIndex("AtletaIdAtleta");
+
+                    b.HasIndex("CarreraIdCarrera");
+
+                    b.ToTable("Participacion");
                 });
 
-            modelBuilder.Entity("ProyectoPuntoNET.Data.Atleta", b =>
+            modelBuilder.Entity("pruevaDB1.Components.Model.Participacion", b =>
                 {
-                    b.HasOne("ProyectoPuntoNET.Data.Evento", "Evento")
-                        .WithMany()
-                        .HasForeignKey("EventoId");
+                    b.HasOne("pruevaDB1.Components.Model.Atleta", "Atleta")
+                        .WithMany("Participaciones")
+                        .HasForeignKey("AtletaIdAtleta")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Evento");
-                });
-
-            modelBuilder.Entity("ProyectoPuntoNET.Data.ChipEvent", b =>
-                {
-                    b.HasOne("ProyectoPuntoNET.Data.Atleta", "Atleta")
-                        .WithMany()
-                        .HasForeignKey("AtletaNumero");
+                    b.HasOne("pruevaDB1.Components.Model.Carrera", "Carrera")
+                        .WithMany("Corredores")
+                        .HasForeignKey("CarreraIdCarrera")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Atleta");
+
+                    b.Navigation("Carrera");
+                });
+
+            modelBuilder.Entity("pruevaDB1.Components.Model.Atleta", b =>
+                {
+                    b.Navigation("Participaciones");
+                });
+
+            modelBuilder.Entity("pruevaDB1.Components.Model.Carrera", b =>
+                {
+                    b.Navigation("Corredores");
                 });
 #pragma warning restore 612, 618
         }
