@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Components\\Controllers\\ParticipacionController.cs",
               "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Controllers\\ParticipacionController.cs",
               "RelativeToolTip": "Components\\Controllers\\ParticipacionController.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAuwC4AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAIwDkAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-02T17:02:36.916Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "Components\\Pages\\AtletaPages\\Inscribirse.razor",
               "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-02T17:02:26.257Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-02T17:02:26.257Z"
             },
             {
               "$type": "Document",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "Components\\Model\\Atleta.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T17:01:32.181Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-02T17:01:32.181Z"
             }
           ]
         }
