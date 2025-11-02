@@ -43,8 +43,18 @@ namespace pruevaDB1.Components.Controllers
         [HttpGet("GetCarreras")]
         public async Task<IActionResult> GetCarreras(int idAtleta)
         {
-            List<Carrera> carreras = await _context.Carrera.ToListAsync();
-            //Atleta atleta = await _context.Atleta.fi
+            List<Carrera> carreritas = await _context.Carrera.ToListAsync();
+            List<Carrera> carreras = new List<Carrera>();
+            Atleta atleta = await _context.Atleta.FindAsync(idAtleta);
+            foreach (var carrera in carreritas)
+            {
+                bool yaInscripto = await _context.Participacion
+                    .AnyAsync(p => p.Atleta.IdAtleta == idAtleta && carrera.Corredores.Count < carrera.CuposDisponibles);
+                if (!yaInscripto)
+                {
+                    carreras.Add(carrera);
+                }
+            }
             return Ok(carreras);
         }
 
