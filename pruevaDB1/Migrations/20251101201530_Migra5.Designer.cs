@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using pruevaDB1.Data;
 
@@ -11,9 +12,11 @@ using pruevaDB1.Data;
 namespace pruevaDB1.Migrations
 {
     [DbContext(typeof(pruevaDB1Context))]
-    partial class pruevaDB1ContextModelSnapshot : ModelSnapshot
+    [Migration("20251101201530_Migra5")]
+    partial class Migra5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

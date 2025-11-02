@@ -15,6 +15,18 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddControllers();
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7111/") });
+
+//para session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10); 
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,6 +42,11 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+
+//para sesion
+app.UseSession();
+
+app.MapControllers();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

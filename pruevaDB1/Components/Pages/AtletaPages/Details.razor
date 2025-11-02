@@ -1,9 +1,9 @@
 ﻿@page "/atleta/details"
 @using Microsoft.EntityFrameworkCore
 @using pruevaDB1.Components.Model
-@using pruevaDB1.Components.Model
 @inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
 @inject NavigationManager NavigationManager
+
 
 <PageTitle>Details</PageTitle>
 
@@ -18,11 +18,13 @@
     }
     else {
         <dl class="row">
-            <dt class="col-sm-2">nombre</dt>
+            <dt class="col-sm-2">Nombre</dt>
             <dd class="col-sm-10">@atleta.Nombre</dd>
-            <dt class="col-sm-2">edad</dt>
+            <dt class="col-sm-2">Email</dt>
+            <dd class="col-sm-10">@atleta.mail</dd>
+            <dt class="col-sm-2">Edad</dt>
             <dd class="col-sm-10">@atleta.Edad</dd>
-            <dt class="col-sm-2">discapacidades</dt>
+            <dt class="col-sm-2">Discapacidades</dt>
             <dd class="col-sm-10">@atleta.Discapacidades</dd>
         </dl>
         <div>
