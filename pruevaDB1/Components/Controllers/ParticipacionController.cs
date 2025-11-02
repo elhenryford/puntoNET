@@ -49,10 +49,10 @@ namespace pruevaDB1.Components.Controllers
             foreach (var carrera in carreritas)
             {
                 bool yaInscripto = await _context.Participacion
-                    .AnyAsync(p => p.Atleta.IdAtleta == idAtleta && carrera.Corredores.Count<carrera.CuposDisponibles);
+                    .AnyAsync(p => p.Atleta.IdAtleta == idAtleta && p.Carrera.IdCarrera == carrera.IdCarrera);
                 if (!yaInscripto)
                 {
-                    carreras.Add(carrera);
+                    if(carrera.Corredores.Count < carrera.CuposDisponibles) { carreras.Add(carrera); }
                 }
             }
             return Ok(carreras);
