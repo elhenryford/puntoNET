@@ -8,7 +8,7 @@ namespace pruevaDB1.Components.Model
         [Key]
         public int IdCarrera { get; set; }
         public string Nombre { get; set; }
-        public DateOnly Fecha { get; set; }
+        public DateTime Fecha { get; set; }
         public int CantidadPuntosControl { get; set; }
         public int CuposDisponibles { get; set; }
         public string Mapa { get; set; }

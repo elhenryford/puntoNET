@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using pruevaDB1.Components.Model;
 using pruevaDB1.Data;
+using static pruevaDB1.Components.Pages.AtletaPages.Inscribirse;
 
 namespace pruevaDB1.Components.Controllers
 {
@@ -43,8 +39,8 @@ namespace pruevaDB1.Components.Controllers
         [HttpGet("GetCarreras")]
         public async Task<IActionResult> GetCarreras(int idAtleta)
         {
-            List<Carrera> carreritas = await _context.Carrera.ToListAsync();
-            List<Carrera> carreras = new List<Carrera>();
+            List<Model.Carrera> carreritas = await _context.Carrera.ToListAsync();
+            List<Model.Carrera> carreras = new List<Model.Carrera>();
             Atleta atleta = await _context.Atleta.FindAsync(idAtleta);
             foreach (var carrera in carreritas)
             {
@@ -56,6 +52,32 @@ namespace pruevaDB1.Components.Controllers
                 }
             }
             return Ok(carreras);
+        }
+
+        [HttpPost("LlamarSensor")]
+        public async Task<IActionResult> LlamarSensor(int idChip)
+        {
+            Participacion p = await _context.Participacion.FindAsync(idChip);
+            int idAtleta = p.Atleta.IdAtleta;
+            int idCarrera = p.Carrera.IdCarrera;
+            foreach (var carrera in await _context.Carrera.ToListAsync()){
+                if(carrera.IdCarrera == idCarrera)
+                {
+                    foreach (var participacion in carrera.Corredores)
+                    {
+                        if(participacion.Atleta.IdAtleta == idAtleta)
+                        {
+                            TimeSpan newTime = DateTime.Now.TimeOfDay - carrera.Fecha.TimeOfDay;
+                            if (participacion.Tiempos.Count < (carrera.CantidadPuntosControl - 1))
+                            {
+                                participacion.Tiempos.Add(newTime);
+                            }else { participacion.TiempoFinal = newTime; }
+                            _context.Update(participacion);
+                        }
+                    }
+                }
+            }
+            return Ok("Sensor llamado");
         }
 
         // POST: Particiapcion/Delete/5

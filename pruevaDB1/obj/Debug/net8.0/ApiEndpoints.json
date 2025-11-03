@@ -51,5 +51,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "pruevaDB1.Components.Controllers.ParticipacionController",
+    "Method": "LlamarSensor",
+    "RelativePath": "Participacion/LlamarSensor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idChip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
