@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using pruevaDB1.Components.Model;
 using pruevaDB1.Data;
+using System.Collections.Concurrent;
 using static pruevaDB1.Components.Pages.AtletaPages.Inscribirse;
 
 namespace pruevaDB1.Components.Controllers
@@ -54,7 +55,23 @@ namespace pruevaDB1.Components.Controllers
             return Ok(carreras);
         }
 
+        private static readonly ConcurrentDictionary<int, SemaphoreSlim> _locks = new();
         [HttpPost("LlamarSensor")]
+        public async Task<IActionResult> LlamarSensorLocked(int idChip)
+        {
+            var sem = _locks.GetOrAdd(idChip, _ => new SemaphoreSlim(1, 1));
+
+            await sem.WaitAsync();
+            try
+            {
+                return await LlamarSensor(idChip);
+            }
+            finally
+            {
+                sem.Release();
+            }
+        }
+
         public async Task<IActionResult> LlamarSensor(int idChip)
         {
             Participacion p = await _context.Participacion.FindAsync(idChip);
