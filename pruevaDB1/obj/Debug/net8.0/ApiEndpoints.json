@@ -1,8 +1,24 @@
 [
   {
-    "ContainingType": "pruevaDB1.Components.Controllers.ParticipacionController",
+    "ContainingType": "pruevaDB1.Components.Controllers.InscripcionController",
+    "Method": "LlamarSensor",
+    "RelativePath": "Inscripcion",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idChip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "pruevaDB1.Components.Controllers.InscripcionController",
     "Method": "DeleteConfirmed",
-    "RelativePath": "Participacion",
+    "RelativePath": "Inscripcion",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -16,9 +32,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "pruevaDB1.Components.Controllers.ParticipacionController",
+    "ContainingType": "pruevaDB1.Components.Controllers.InscripcionController",
     "Method": "GetCarreras",
-    "RelativePath": "Participacion/GetCarreras",
+    "RelativePath": "Inscripcion/GetCarreras",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -32,9 +48,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "pruevaDB1.Components.Controllers.ParticipacionController",
+    "ContainingType": "pruevaDB1.Components.Controllers.InscripcionController",
     "Method": "Inscribirse",
-    "RelativePath": "Participacion/Inscribirse",
+    "RelativePath": "Inscripcion/Inscribirse",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -53,9 +69,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "pruevaDB1.Components.Controllers.ParticipacionController",
-    "Method": "LlamarSensor",
-    "RelativePath": "Participacion/LlamarSensor",
+    "ContainingType": "pruevaDB1.Components.Controllers.InscripcionController",
+    "Method": "LlamarSensorLocked",
+    "RelativePath": "Inscripcion/LlamarSensor",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

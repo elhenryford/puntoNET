@@ -1,0 +1,50 @@
+﻿@page "/carreras/details"
+@using Microsoft.EntityFrameworkCore
+@using pruevaDB1.Components.Model
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>Carrera</h2>
+    <hr />
+    @if (carrera is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">Nombre</dt>
+            <dd class="col-sm-10">@carrera.Nombre</dd>
+            <dt class="col-sm-2">Fecha</dt>
+            <dd class="col-sm-10">@carrera.Fecha</dd>
+            <dt class="col-sm-2">Ubicacion</dt>
+            <dd class="col-sm-10">@carrera.Ubicacion</dd>
+        </dl>
+        <div>
+            <a href="@($"/carreras/edit?idcarrera={carrera.IdCarrera}")">Edit</a> |
+            <a href="@($"/carreras")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private Carrera? carrera;
+
+    [SupplyParameterFromQuery]
+    private int IdCarrera { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        carrera = await context.Carrera.FirstOrDefaultAsync(m => m.IdCarrera == IdCarrera);
+
+        if (carrera is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}
