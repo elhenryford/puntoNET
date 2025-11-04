@@ -9,13 +9,18 @@ namespace pruevaDB1.Components.Model
         public int IdCarrera { get; set; }
         public string Nombre { get; set; }
         public DateTime Fecha { get; set; }
-        public int CantidadPuntosControl { get; set; }
-        public int CuposDisponibles { get; set; }
-        public string Mapa { get; set; }
+        public string Ubicacion { get; set; }
 
         [JsonIgnore]
-        public List<Participacion>? Corredores { get; set; }
+        public List<Inscripcion>? Corredores { get; set; }
 
-        public Carrera() { this.Corredores = []; }    
+        [JsonIgnore]
+        public List<PuntosdeControl>? PuntosControl { get; set; }
+
+
+        public Carrera() { 
+            this.Corredores = new List<Inscripcion>();
+            this.PuntosControl = new List<PuntosdeControl>();
+        }    
     }
 }

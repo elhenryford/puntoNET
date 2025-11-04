@@ -588,4 +588,5 @@ C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\refint\pruev
 C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\pruevaDB1.pdb
 C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\pruevaDB1.genruntimeconfig.cache
 C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\ref\pruevaDB1.dll
-C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\pruevaDB1.RazorAssemblyInfo.cache
+C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\pruevaDB1.RazorAssemblyInfo.cs

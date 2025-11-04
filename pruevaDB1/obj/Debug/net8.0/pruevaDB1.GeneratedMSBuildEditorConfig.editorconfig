@@ -32,50 +32,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Create.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xDcmVhdGUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Delete.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xEZWxldGUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Details.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xEZXRhaWxzLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Edit.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xFZGl0LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xJbmRleC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Inscribirse.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xJbnNjcmliaXJzZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Create.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcQ3JlYXRlLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Delete.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcRGVsZXRlLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Details.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcRGV0YWlscy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Edit.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcRWRpdC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcSW5kZXgucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -111,3 +67,47 @@ build_metadata.AdditionalFiles.CssScope = b-muz6kqx2nl
 [C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-rpc5h6d00l
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/AtletaPages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdGxldGFQYWdlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

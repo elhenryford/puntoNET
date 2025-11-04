@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\controllers\\participacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\controllers\\participacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\model\\carrera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\model\\carrera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\model\\participacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\model\\participacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\atletapages\\inscribirse.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\atletapages\\inscribirse.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\model\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\model\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\model\\tiemposparciales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\model\\tiemposparciales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\model\\puntosdecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\model\\puntosdecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\model\\inscripcion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\model\\inscripcion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,66 +39,54 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Carrera.cs",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\Carrera.cs",
-              "RelativeDocumentMoniker": "Components\\Model\\Carrera.cs",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\Carrera.cs",
-              "RelativeToolTip": "Components\\Model\\Carrera.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
+              "Title": "TiemposParciales.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\TiemposParciales.cs",
+              "RelativeDocumentMoniker": "Components\\Model\\TiemposParciales.cs",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\TiemposParciales.cs",
+              "RelativeToolTip": "Components\\Model\\TiemposParciales.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T22:06:15.076Z",
+              "WhenOpened": "2025-11-04T19:21:01.143Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Participacion.cs",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\Participacion.cs",
-              "RelativeDocumentMoniker": "Components\\Model\\Participacion.cs",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\Participacion.cs",
-              "RelativeToolTip": "Components\\Model\\Participacion.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Title": "PuntosdeControl.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\PuntosdeControl.cs",
+              "RelativeDocumentMoniker": "Components\\Model\\PuntosdeControl.cs",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\PuntosdeControl.cs",
+              "RelativeToolTip": "Components\\Model\\PuntosdeControl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T22:02:51.008Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ParticipacionController.cs",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Controllers\\ParticipacionController.cs",
-              "RelativeDocumentMoniker": "Components\\Controllers\\ParticipacionController.cs",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Controllers\\ParticipacionController.cs",
-              "RelativeToolTip": "Components\\Controllers\\ParticipacionController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowCkAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T17:02:36.916Z",
+              "WhenOpened": "2025-11-04T19:20:36.389Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Inscribirse.razor",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\AtletaPages\\Inscribirse.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\AtletaPages\\Inscribirse.razor",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\AtletaPages\\Inscribirse.razor",
-              "RelativeToolTip": "Components\\Pages\\AtletaPages\\Inscribirse.razor",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-02T17:02:26.257Z",
+              "Title": "Inscripcion.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\Inscripcion.cs",
+              "RelativeDocumentMoniker": "Components\\Model\\Inscripcion.cs",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\Inscripcion.cs",
+              "RelativeToolTip": "Components\\Model\\Inscripcion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T23:42:15.234Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Atleta.cs",
               "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\Atleta.cs",
               "RelativeDocumentMoniker": "Components\\Model\\Atleta.cs",
               "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Model\\Atleta.cs",
               "RelativeToolTip": "Components\\Model\\Atleta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T17:01:32.181Z"
+              "WhenOpened": "2025-11-02T17:01:32.181Z",
+              "EditorCaption": ""
             }
           ]
         }

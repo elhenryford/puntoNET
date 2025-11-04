@@ -9,14 +9,14 @@ namespace pruevaDB1.Components.Model
         public int IdAtleta { get; set; }
         public string Nombre { get; set; }
         public int Edad { get; set; }
-        public string Discapacidades { get; set; }
+        public string? Discapacidades { get; set; }
         public string mail { get; set; }
         public string password { get; set; }
 
         [JsonIgnore]
-        public List<Participacion>? Participaciones { get; set; }
+        public List<Inscripcion>? Participaciones { get; set; }
 
-        public Atleta() { this.Participaciones = []; }
+        public Atleta() { this.Participaciones = new List<Inscripcion>(); }
 
 
     }
