@@ -55,7 +55,7 @@
                 if (atleta.mail == loginData.Username && atleta.password == loginData.Password)
                 {
                     //HttpContext.Session.SetInt32("usr", atleta.IdAtleta);
-                    NavigationManager.NavigateTo($"/atleta/inscribirse/{atleta.IdAtleta}");
+                    NavigationManager.NavigateTo($"/atleta/inscribirse?idatleta={atleta.IdAtleta}");
                     return;
                 }
             }
