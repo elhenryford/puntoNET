@@ -61,4 +61,26 @@
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/atleta");
     }
+    private Inscripcion inscripcion = new();
+
+    private async Task GuardarInscripcion()
+    {
+        using var context = DbFactory.CreateDbContext();
+
+        // Generar número de dorsal automáticamente
+        inscripcion.NumeroDorsal = GenerarNumeroDorsal(context);
+
+        context.Inscripciones.Add(inscripcion);
+        await context.SaveChangesAsync();
+
+        NavigationManager.NavigateTo("/inscripciones");
+    }
+
+    private int GenerarNumeroDorsal(Data.pruevaDB1Context context)
+    {
+        int max = context.Inscripciones.Any()
+            ? context.Inscripciones.Max(i => i.NumeroDorsal)
+            : 100; // empieza desde 101
+        return max + 1;
+    }
 }

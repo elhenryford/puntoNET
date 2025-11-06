@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Henry\\Desktop\\pruevaDB1\\Migrations\\20251106024912_FixCascadeDelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251106024912_FixCascadeDelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\data\\pruevadb1context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:data\\pruevadb1context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\components\\pages\\inscripcionpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\inscripcionpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\components\\model\\puntocontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\model\\puntocontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Henry\\Desktop\\pruevaDB1\\Migrations\\20251106022611_pruevaDB1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251106022611_pruevaDB1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\components\\pages\\carrerapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\carrerapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\components\\pages\\atletapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\atletapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\components\\pages\\inscripcionpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\inscripcionpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,79 +35,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20251106024912_FixCascadeDelete.cs",
-              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Migrations\\20251106024912_FixCascadeDelete.cs",
-              "RelativeDocumentMoniker": "Migrations\\20251106024912_FixCascadeDelete.cs",
-              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Migrations\\20251106024912_FixCascadeDelete.cs",
-              "RelativeToolTip": "Migrations\\20251106024912_FixCascadeDelete.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T02:49:12.961Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PuntoControl.cs",
-              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Model\\PuntoControl.cs",
-              "RelativeDocumentMoniker": "Components\\Model\\PuntoControl.cs",
-              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Model\\PuntoControl.cs",
-              "RelativeToolTip": "Components\\Model\\PuntoControl.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T02:39:12.676Z",
+              "WhenOpened": "2025-11-06T23:04:37.68Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "pruevaDB1Context.cs",
-              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Data\\pruevaDB1Context.cs",
-              "RelativeDocumentMoniker": "Data\\pruevaDB1Context.cs",
-              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Data\\pruevaDB1Context.cs",
-              "RelativeToolTip": "Data\\pruevaDB1Context.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAkwCsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T02:29:58.539Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "20251106022611_pruevaDB1.cs",
-              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Migrations\\20251106022611_pruevaDB1.cs",
-              "RelativeDocumentMoniker": "Migrations\\20251106022611_pruevaDB1.cs",
-              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Migrations\\20251106022611_pruevaDB1.cs",
-              "RelativeToolTip": "Migrations\\20251106022611_pruevaDB1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T02:26:13.164Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Create.razor",
-              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\CarreraPages\\Create.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\CarreraPages\\Create.razor",
-              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\CarreraPages\\Create.razor",
-              "RelativeToolTip": "Components\\Pages\\CarreraPages\\Create.razor",
-              "ViewState": "AgIAACgAAAAAAAAAAAAQwDAAAAAYAAAAAAAAAA==",
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\InscripcionPages\\Index.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\InscripcionPages\\Index.razor",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\InscripcionPages\\Index.razor*",
+              "RelativeToolTip": "Components\\Pages\\InscripcionPages\\Index.razor*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-06T02:24:17.801Z",
+              "WhenOpened": "2025-11-06T23:03:55.138Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Create.razor",
-              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\AtletaPages\\Create.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\AtletaPages\\Create.razor",
-              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\AtletaPages\\Create.razor",
-              "RelativeToolTip": "Components\\Pages\\AtletaPages\\Create.razor",
-              "ViewState": "AgIAADIAAAAAAAAAAAD4vzsAAAAXAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Edit.razor",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\InscripcionPages\\Edit.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\InscripcionPages\\Edit.razor",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\InscripcionPages\\Edit.razor*",
+              "RelativeToolTip": "Components\\Pages\\InscripcionPages\\Edit.razor*",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAQwDcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-06T02:23:48.082Z",
+              "WhenOpened": "2025-11-06T23:03:33.273Z",
               "EditorCaption": ""
             }
           ]

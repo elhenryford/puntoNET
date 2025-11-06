@@ -1,4 +1,3 @@
-using pruevaDB1.Data.Models;
 using System.ComponentModel.DataAnnotations;
 namespace pruevaDB1.Components.Model
 {

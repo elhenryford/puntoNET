@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Inscripcion = pruevaDB1.Data.Models.Inscripcion;
 
 namespace pruevaDB1.Data
 {
