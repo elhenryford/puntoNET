@@ -1,0 +1,38 @@
+﻿@page "/inscripcions"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using pruevaDB1.Data.Models
+@using pruevaDB1.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="inscripcions/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.Inscripciones">
+    <PropertyColumn Property="inscripcion => inscripcion.NumeroDorsal" />
+    <PropertyColumn Property="inscripcion => inscripcion.AtletaId" />
+    <PropertyColumn Property="inscripcion => inscripcion.CarreraId" />
+
+    <TemplateColumn Context="inscripcion">
+        <a href="@($"inscripcions/edit?idinscripcion={inscripcion.IdInscripcion}")">Edit</a> |
+        <a href="@($"inscripcions/details?idinscripcion={inscripcion.IdInscripcion}")">Details</a> |
+        <a href="@($"inscripcions/delete?idinscripcion={inscripcion.IdInscripcion}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private pruevaDB1Context context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

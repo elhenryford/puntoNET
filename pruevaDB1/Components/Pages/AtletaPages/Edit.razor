@@ -23,17 +23,27 @@ else
                 <ValidationSummary role="alert"/>
                 <input type="hidden" name="Atleta.IdAtleta" value="@Atleta.IdAtleta" />
                 <div class="mb-3">
-                    <label for="nombre" class="form-label">nombre:</label>
-                    <InputText id="nombre" @bind-Value="Atleta.Nombre" class="form-control" />
-                    <ValidationMessage For="() => Atleta.Nombre" class="text-danger" />
+                    <label for="mail" class="form-label">Mail:</label>
+                    <InputText id="mail" @bind-Value="Atleta.Mail" class="form-control" aria-required="true"/>
+                    <ValidationMessage For="() => Atleta.Mail" class="text-danger" />
                 </div>
                 <div class="mb-3">
-                    <label for="edad" class="form-label">edad:</label>
-                    <InputNumber id="edad" @bind-Value="Atleta.Edad" class="form-control" />
+                    <label for="edad" class="form-label">Edad:</label>
+                    <InputNumber id="edad" @bind-Value="Atleta.Edad" class="form-control" aria-required="true"/>
                     <ValidationMessage For="() => Atleta.Edad" class="text-danger" />
                 </div>
                 <div class="mb-3">
-                    <label for="discapacidades" class="form-label">discapacidades:</label>
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <InputText id="nombre" @bind-Value="Atleta.Nombre" class="form-control" aria-required="true"/>
+                    <ValidationMessage For="() => Atleta.Nombre" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <InputText id="password" @bind-Value="Atleta.Password" class="form-control" />
+                    <ValidationMessage For="() => Atleta.Password" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="discapacidades" class="form-label">Discapacidades:</label>
                     <InputText id="discapacidades" @bind-Value="Atleta.Discapacidades" class="form-control" />
                     <ValidationMessage For="() => Atleta.Discapacidades" class="text-danger" />
                 </div>
@@ -49,7 +59,7 @@ else
 
 @code {
     [SupplyParameterFromQuery]
-    private int idAtleta { get; set; }
+    private int IdAtleta { get; set; }
 
     [SupplyParameterFromForm]
     private Atleta? Atleta { get; set; }
@@ -57,7 +67,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        Atleta ??= await context.Atleta.FirstOrDefaultAsync(m => m.IdAtleta == idAtleta);
+        Atleta ??= await context.Atletas.FirstOrDefaultAsync(m => m.IdAtleta == IdAtleta);
 
         if (Atleta is null)
         {
@@ -94,6 +104,6 @@ else
     private bool AtletaExists(int idatleta)
     {
         using var context = DbFactory.CreateDbContext();
-        return context.Atleta.Any(e => e.IdAtleta == idatleta);
+        return context.Atletas.Any(e => e.IdAtleta == idatleta);
     }
 }

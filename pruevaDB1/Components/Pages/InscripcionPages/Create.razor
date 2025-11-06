@@ -1,0 +1,54 @@
+﻿@page "/inscripcions/create"
+@using Microsoft.EntityFrameworkCore
+@using pruevaDB1.Data.Models
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Inscripcion</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Inscripcion" OnValidSubmit="AddInscripcion" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="numerodorsal" class="form-label">NumeroDorsal:</label> 
+                <InputNumber id="numerodorsal" @bind-Value="Inscripcion.NumeroDorsal" class="form-control" aria-required="true"/> 
+                <ValidationMessage For="() => Inscripcion.NumeroDorsal" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="atletaid" class="form-label">AtletaId:</label> 
+                <InputNumber id="atletaid" @bind-Value="Inscripcion.AtletaId" class="form-control" /> 
+                <ValidationMessage For="() => Inscripcion.AtletaId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="carreraid" class="form-label">CarreraId:</label> 
+                <InputNumber id="carreraid" @bind-Value="Inscripcion.CarreraId" class="form-control" /> 
+                <ValidationMessage For="() => Inscripcion.CarreraId" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/inscripcions">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Inscripcion Inscripcion { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddInscripcion()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Inscripciones.Add(Inscripcion);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/inscripcions");
+    }
+}

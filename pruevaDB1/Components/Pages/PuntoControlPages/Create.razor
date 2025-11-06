@@ -1,0 +1,54 @@
+﻿@page "/puntocontrols/create"
+@using Microsoft.EntityFrameworkCore
+@using pruevaDB1.Components.Model
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>PuntoControl</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="PuntoControl" OnValidSubmit="AddPuntoControl" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label> 
+                <InputText id="nombre" @bind-Value="PuntoControl.Nombre" class="form-control" aria-required="true"/> 
+                <ValidationMessage For="() => PuntoControl.Nombre" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="orden" class="form-label">Orden:</label> 
+                <InputNumber id="orden" @bind-Value="PuntoControl.Orden" class="form-control" /> 
+                <ValidationMessage For="() => PuntoControl.Orden" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="carreraid" class="form-label">CarreraId:</label> 
+                <InputNumber id="carreraid" @bind-Value="PuntoControl.CarreraId" class="form-control" /> 
+                <ValidationMessage For="() => PuntoControl.CarreraId" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/puntocontrols">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private PuntoControl PuntoControl { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddPuntoControl()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.PuntosDeControl.Add(PuntoControl);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/puntocontrols");
+    }
+}

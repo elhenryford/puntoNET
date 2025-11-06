@@ -18,24 +18,16 @@
     }
     else {
         <dl class="row">
-            <dt class="col-sm-2">nombre</dt>
+            <dt class="col-sm-2">Nombre</dt>
             <dd class="col-sm-10">@carrera.Nombre</dd>
         </dl>
         <dl class="row">
-            <dt class="col-sm-2">fecha</dt>
+            <dt class="col-sm-2">Fecha</dt>
             <dd class="col-sm-10">@carrera.Fecha</dd>
         </dl>
         <dl class="row">
-            <dt class="col-sm-2">cantidadPuntosControl</dt>
-            <dd class="col-sm-10">@carrera.CantidadPuntosControl</dd>
-        </dl>
-        <dl class="row">
-            <dt class="col-sm-2">cuposDisponibles</dt>
-            <dd class="col-sm-10">@carrera.CuposDisponibles</dd>
-        </dl>
-        <dl class="row">
-            <dt class="col-sm-2">mapa</dt>
-            <dd class="col-sm-10">@carrera.Mapa</dd>
+            <dt class="col-sm-2">Ubicacion</dt>
+            <dd class="col-sm-10">@carrera.Ubicacion</dd>
         </dl>
         <EditForm method="post" Model="carrera" OnValidSubmit="DeleteCarrera" FormName="delete" Enhance>
             <button type="submit" class="btn btn-danger" disabled="@(carrera is null)">Delete</button> |
@@ -48,12 +40,12 @@
     private Carrera? carrera;
 
     [SupplyParameterFromQuery]
-    private int idCarrera { get; set; }
+    private int IdCarrera { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        carrera = await context.Carrera.FirstOrDefaultAsync(m => m.IdCarrera == idCarrera);
+        carrera = await context.Carreras.FirstOrDefaultAsync(m => m.IdCarrera == IdCarrera);
 
         if (carrera is null)
         {
@@ -64,7 +56,7 @@
     private async Task DeleteCarrera()
     {
         using var context = DbFactory.CreateDbContext();
-        context.Carrera.Remove(carrera!);
+        context.Carreras.Remove(carrera!);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/carreras");
     }

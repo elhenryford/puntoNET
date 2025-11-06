@@ -1,0 +1,38 @@
+﻿@page "/puntocontrols"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using pruevaDB1.Components.Model
+@using pruevaDB1.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="puntocontrols/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.PuntosDeControl">
+    <PropertyColumn Property="puntocontrol => puntocontrol.Nombre" />
+    <PropertyColumn Property="puntocontrol => puntocontrol.Orden" />
+    <PropertyColumn Property="puntocontrol => puntocontrol.CarreraId" />
+
+    <TemplateColumn Context="puntocontrol">
+        <a href="@($"puntocontrols/edit?idpunto={puntocontrol.IdPunto}")">Edit</a> |
+        <a href="@($"puntocontrols/details?idpunto={puntocontrol.IdPunto}")">Details</a> |
+        <a href="@($"puntocontrols/delete?idpunto={puntocontrol.IdPunto}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private pruevaDB1Context context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

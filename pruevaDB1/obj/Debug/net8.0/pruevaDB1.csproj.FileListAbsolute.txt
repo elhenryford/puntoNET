@@ -588,6 +588,8 @@ C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\refint\pruev
 C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\pruevaDB1.pdb
 C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\pruevaDB1.genruntimeconfig.cache
 C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\ref\pruevaDB1.dll
+C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\pruevaDB1.RazorAssemblyInfo.cache
+C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\pruevaDB1.RazorAssemblyInfo.cs
 C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Henry\Desktop\pruevaDB1\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Henry\Desktop\pruevaDB1\bin\Debug\net8.0\appsettings.json
@@ -866,6 +868,8 @@ C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\pruevaDB1.AssemblyInfoInputs.c
 C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\pruevaDB1.AssemblyInfo.cs
 C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\pruevaDB1.csproj.CoreCompileInputs.cache
 C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\pruevaDB1.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\pruevaDB1.RazorAssemblyInfo.cache
+C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\pruevaDB1.RazorAssemblyInfo.cs
 C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -909,9 +913,3 @@ C:\Users\Henry\Desktop\pruevaDB1\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis
 C:\Users\Henry\Desktop\pruevaDB1\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Henry\Desktop\pruevaDB1\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
-C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\pruevaDB1.RazorAssemblyInfo.cache
-C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\pruevaDB1.RazorAssemblyInfo.cs
-C:\Users\Henry\Desktop\pruevaDB1\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
-C:\Users\Henry\Desktop\pruevaDB1\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
-C:\Users\Henry\Desktop\pruevaDB1\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
-C:\Users\Henry\Desktop\pruevaDB1\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll

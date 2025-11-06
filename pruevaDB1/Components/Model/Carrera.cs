@@ -1,21 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-
+using pruevaDB1.Data.Models;
+using System.ComponentModel.DataAnnotations;
 namespace pruevaDB1.Components.Model
 {
     public class Carrera
     {
         [Key]
         public int IdCarrera { get; set; }
+        [Required]
         public string Nombre { get; set; } = string.Empty;
-        public DateOnly Fecha { get; set; }
-        public int CantidadPuntosControl { get; set; }
-        public int CuposDisponibles { get; set; }
-        public string? Mapa { get; set; }
+        public DateTime Fecha { get; set; }
+        public string Ubicacion { get; set; } = string.Empty;
 
-        [JsonIgnore]
-        public List<Participacion>? Corredores { get; set; }
-
-        public Carrera() { this.Corredores = []; }    
+        public ICollection<PuntoControl> PuntosDeControl { get; set; } = new List<PuntoControl>();
+        public ICollection<Inscripcion> Inscripciones { get; set; } = new List<Inscripcion>();
     }
 }

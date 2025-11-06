@@ -23,29 +23,19 @@ else
                 <ValidationSummary role="alert"/>
                 <input type="hidden" name="Carrera.IdCarrera" value="@Carrera.IdCarrera" />
                 <div class="mb-3">
-                    <label for="nombre" class="form-label">nombre:</label>
-                    <InputText id="nombre" @bind-Value="Carrera.Nombre" class="form-control" />
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <InputText id="nombre" @bind-Value="Carrera.Nombre" class="form-control" aria-required="true"/>
                     <ValidationMessage For="() => Carrera.Nombre" class="text-danger" />
                 </div>
                 <div class="mb-3">
-                    <label for="fecha" class="form-label">fecha:</label>
+                    <label for="fecha" class="form-label">Fecha:</label>
                     <InputDate id="fecha" @bind-Value="Carrera.Fecha" class="form-control" />
                     <ValidationMessage For="() => Carrera.Fecha" class="text-danger" />
                 </div>
                 <div class="mb-3">
-                    <label for="cantidadpuntoscontrol" class="form-label">cantidadPuntosControl:</label>
-                    <InputNumber id="cantidadpuntoscontrol" @bind-Value="Carrera.CantidadPuntosControl" class="form-control" />
-                    <ValidationMessage For="() => Carrera.CantidadPuntosControl" class="text-danger" />
-                </div>
-                <div class="mb-3">
-                    <label for="cuposdisponibles" class="form-label">cuposDisponibles:</label>
-                    <InputNumber id="cuposdisponibles" @bind-Value="Carrera.CuposDisponibles" class="form-control" />
-                    <ValidationMessage For="() => Carrera.CuposDisponibles" class="text-danger" />
-                </div>
-                <div class="mb-3">
-                    <label for="mapa" class="form-label">mapa:</label>
-                    <InputText id="mapa" @bind-Value="Carrera.Mapa" class="form-control" />
-                    <ValidationMessage For="() => Carrera.Mapa" class="text-danger" />
+                    <label for="ubicacion" class="form-label">Ubicacion:</label>
+                    <InputText id="ubicacion" @bind-Value="Carrera.Ubicacion" class="form-control" />
+                    <ValidationMessage For="() => Carrera.Ubicacion" class="text-danger" />
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </EditForm>
@@ -59,7 +49,7 @@ else
 
 @code {
     [SupplyParameterFromQuery]
-    private int idCarrera { get; set; }
+    private int IdCarrera { get; set; }
 
     [SupplyParameterFromForm]
     private Carrera? Carrera { get; set; }
@@ -67,7 +57,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        Carrera ??= await context.Carrera.FirstOrDefaultAsync(m => m.IdCarrera == idCarrera);
+        Carrera ??= await context.Carreras.FirstOrDefaultAsync(m => m.IdCarrera == IdCarrera);
 
         if (Carrera is null)
         {
@@ -104,6 +94,6 @@ else
     private bool CarreraExists(int idcarrera)
     {
         using var context = DbFactory.CreateDbContext();
-        return context.Carrera.Any(e => e.IdCarrera == idcarrera);
+        return context.Carreras.Any(e => e.IdCarrera == idcarrera);
     }
 }

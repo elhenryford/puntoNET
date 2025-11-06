@@ -1,5 +1,5 @@
 using System.Collections.Concurrent;
-using pruevaDB1.Data.Models;
+using pruevaDB1.Components.Model;
 
 namespace pruevaDB1.Data.Services
 {
