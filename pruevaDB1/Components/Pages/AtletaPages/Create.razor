@@ -57,7 +57,7 @@
     private async Task AddAtleta()
     {
         using var context = DbFactory.CreateDbContext();
-        context.Atleta.Add(Atleta);
+        context.Atletas.Add(Atleta);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/atleta");
     }

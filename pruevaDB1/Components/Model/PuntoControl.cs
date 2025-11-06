@@ -12,5 +12,7 @@ namespace pruevaDB1.Components.Model
         [ForeignKey("Carrera")]
         public int CarreraId { get; set; }
         public Carrera? Carrera { get; set; }
+        [Required]
+        public ICollection<TiempoParcial> TiemposParciales { get; set; }
     }
 }

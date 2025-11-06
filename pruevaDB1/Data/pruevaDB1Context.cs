@@ -10,7 +10,7 @@ namespace pruevaDB1.Data
 {
     public class pruevaDB1Context : DbContext
     {
-        public pruevaDB1Context (DbContextOptions<pruevaDB1Context> options)
+        public pruevaDB1Context(DbContextOptions<pruevaDB1Context> options)
             : base(options)
         {
         }
@@ -20,7 +20,29 @@ namespace pruevaDB1.Data
         public DbSet<Inscripcion> Inscripciones { get; set; }
         public DbSet<PuntoControl> PuntosDeControl { get; set; }
         public DbSet<TiempoParcial> TiemposParciales { get; set; }
-        public DbSet<Inscripcion> Participacion { get; set; } 
+        public DbSet<Inscripcion> Participacion { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Evitar ciclo de eliminación en cascada entre TiempoParcial y PuntoControl
+            modelBuilder.Entity<TiempoParcial>()
+                .HasOne(tp => tp.PuntoControl)
+                .WithMany(pc => pc.TiemposParciales)
+                .HasForeignKey(tp => tp.PuntoControlId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // (Opcional) también podés asegurar que Inscripcion se maneje igual si hay conflictos:
+            modelBuilder.Entity<TiempoParcial>()
+                .HasOne(tp => tp.Inscripcion)
+                .WithMany()
+                .HasForeignKey(tp => tp.InscripcionId)
+                .OnDelete(DeleteBehavior.NoAction);
+        }
+
+
 
     }
 }

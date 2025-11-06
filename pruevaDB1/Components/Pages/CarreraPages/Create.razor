@@ -47,7 +47,7 @@
     private async Task AddCarrera()
     {
         using var context = DbFactory.CreateDbContext();
-        context.Carrera.Add(Carrera);
+        context.Carreras.Add(Carrera);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/carreras");
     }
