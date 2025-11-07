@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace pruevaDB1.Migrations
 {
     /// <inheritdoc />
-    public partial class FixCascadeDelete : Migration
+    public partial class Migra1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -71,35 +71,14 @@ namespace pruevaDB1.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PuntosDeControl",
-                columns: table => new
-                {
-                    IdPunto = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Orden = table.Column<int>(type: "int", nullable: false),
-                    CarreraId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PuntosDeControl", x => x.IdPunto);
-                    table.ForeignKey(
-                        name: "FK_PuntosDeControl_Carreras_CarreraId",
-                        column: x => x.CarreraId,
-                        principalTable: "Carreras",
-                        principalColumn: "IdCarrera",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "TiemposParciales",
                 columns: table => new
                 {
                     IdTiempo = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     InscripcionId = table.Column<int>(type: "int", nullable: false),
-                    PuntoControlId = table.Column<int>(type: "int", nullable: false),
-                    HoraPaso = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    HoraPaso = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    InscripcionIdInscripcion = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -110,10 +89,10 @@ namespace pruevaDB1.Migrations
                         principalTable: "Inscripcion",
                         principalColumn: "IdInscripcion");
                     table.ForeignKey(
-                        name: "FK_TiemposParciales_PuntosDeControl_PuntoControlId",
-                        column: x => x.PuntoControlId,
-                        principalTable: "PuntosDeControl",
-                        principalColumn: "IdPunto");
+                        name: "FK_TiemposParciales_Inscripcion_InscripcionIdInscripcion",
+                        column: x => x.InscripcionIdInscripcion,
+                        principalTable: "Inscripcion",
+                        principalColumn: "IdInscripcion");
                 });
 
             migrationBuilder.CreateIndex(
@@ -127,19 +106,14 @@ namespace pruevaDB1.Migrations
                 column: "CarreraId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PuntosDeControl_CarreraId",
-                table: "PuntosDeControl",
-                column: "CarreraId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_TiemposParciales_InscripcionId",
                 table: "TiemposParciales",
                 column: "InscripcionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TiemposParciales_PuntoControlId",
+                name: "IX_TiemposParciales_InscripcionIdInscripcion",
                 table: "TiemposParciales",
-                column: "PuntoControlId");
+                column: "InscripcionIdInscripcion");
         }
 
         /// <inheritdoc />
@@ -150,9 +124,6 @@ namespace pruevaDB1.Migrations
 
             migrationBuilder.DropTable(
                 name: "Inscripcion");
-
-            migrationBuilder.DropTable(
-                name: "PuntosDeControl");
 
             migrationBuilder.DropTable(
                 name: "Atletas");

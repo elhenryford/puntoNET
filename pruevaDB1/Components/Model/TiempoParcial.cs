@@ -9,9 +9,6 @@ namespace pruevaDB1.Components.Model
         [ForeignKey("Inscripcion")]
         public int InscripcionId { get; set; }
         public Inscripcion? Inscripcion { get; set; }
-        [ForeignKey("PuntoControl")]
-        public int PuntoControlId { get; set; }
-        public PuntoControl? PuntoControl { get; set; }
         public DateTime HoraPaso { get; set; } = DateTime.Now;
     }
 }

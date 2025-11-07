@@ -51,7 +51,6 @@ public class QueueService : BackgroundService
             var tiempo = new TiempoParcial
             {
                 InscripcionId = inscripcion.IdInscripcion,
-                PuntoControlId = evento.PuntoId,
                 HoraPaso = DateTime.Now
             };
 

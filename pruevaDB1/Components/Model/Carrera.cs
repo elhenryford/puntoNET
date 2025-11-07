@@ -10,7 +10,6 @@ namespace pruevaDB1.Components.Model
         public DateTime Fecha { get; set; }
         public string Ubicacion { get; set; } = string.Empty;
 
-        public ICollection<PuntoControl> PuntosDeControl { get; set; } = new List<PuntoControl>();
         public ICollection<Inscripcion> Inscripciones { get; set; } = new List<Inscripcion>();
     }
 }

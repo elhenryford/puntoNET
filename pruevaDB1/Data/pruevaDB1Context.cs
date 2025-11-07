@@ -17,7 +17,6 @@ namespace pruevaDB1.Data
         public DbSet<Atleta> Atletas { get; set; }
         public DbSet<Carrera> Carreras { get; set; }
         public DbSet<Inscripcion> Inscripciones { get; set; }
-        public DbSet<PuntoControl> PuntosDeControl { get; set; }
         public DbSet<TiempoParcial> TiemposParciales { get; set; }
         public DbSet<Inscripcion> Participacion { get; set; }
 
@@ -28,9 +27,9 @@ namespace pruevaDB1.Data
 
             // Evitar ciclo de eliminación en cascada entre TiempoParcial y PuntoControl
             modelBuilder.Entity<TiempoParcial>()
-                .HasOne(tp => tp.PuntoControl)
+                .HasOne(tp => tp.Inscripcion)
                 .WithMany(pc => pc.TiemposParciales)
-                .HasForeignKey(tp => tp.PuntoControlId)
+                .HasForeignKey(tp => tp.InscripcionId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             // (Opcional) también podés asegurar que Inscripcion se maneje igual si hay conflictos:
