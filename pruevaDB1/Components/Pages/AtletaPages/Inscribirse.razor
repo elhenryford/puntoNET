@@ -1,0 +1,74 @@
+﻿@page "/atleta/inscribirse/{idAtleta:int}"
+@inject HttpClient Http
+
+<h3>Inscribirse en una carrera</h3>
+
+@if (carreras == null)
+{
+    <p>Cargando carreras...</p>
+}
+else
+{
+    <div class="mb-3">
+        <label for="carreraSelect" class="form-label">Seleccione una carrera:</label>
+        <select id="carreraSelect" class="form-select" @bind="idCarreraSeleccionada">
+            <option value="">-- Seleccione --</option>
+            @foreach (var carrera in carreras)
+            {
+                <option value="@carrera.IdCarrera">@carrera.Nombre</option>
+            }
+        </select>
+    </div>
+
+    <button class="btn btn-primary" @onclick="inscribirse">Inscribirse</button>
+
+    @if (!string.IsNullOrEmpty(mensaje))
+    {
+        <div class="alert alert-info mt-3">@mensaje</div>
+    }
+}
+
+@code {
+    [Parameter]
+    public int idAtleta { get; set; }   // ← este se llena con el valor de la URL
+
+    private List<Carrera>? carreras;
+    private int idCarreraSeleccionada;
+    private string? mensaje;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Cargar las carreras desde el controlador
+        carreras = await Http.GetFromJsonAsync<List<Carrera>>("/Particiapcion/GetCarreras");
+    }
+
+    private async Task inscribirse()
+    {
+        if (idCarreraSeleccionada == 0)
+        {
+            mensaje = "Por favor seleccione una carrera.";
+            return;
+        }
+
+        // Llamada al backend con el idAtleta de la URL
+        var response = await Http.PostAsJsonAsync(
+            $"/Particiapcion/Inscribirse?idAtleta={idAtleta}&idCarrera={idCarreraSeleccionada}",
+            new { }
+        );
+
+        if (response.IsSuccessStatusCode)
+        {
+            mensaje = "Inscripción exitosa!";
+        }
+        else
+        {
+            mensaje = "Error al inscribirse.";
+        }
+    }
+
+    public class Carrera
+    {
+        public int IdCarrera { get; set; }
+        public string Nombre { get; set; } = string.Empty;
+    }
+}

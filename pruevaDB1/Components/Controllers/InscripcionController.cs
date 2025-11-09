@@ -20,14 +20,45 @@ namespace pruevaDB1.Components.Controllers
         [HttpPost("Inscribirse")]
         public async Task<IActionResult> Inscribirse(int idAtleta, int idCarrera)
         {
-
+            Atleta atleta = await _context.Atletas.FindAsync(idAtleta);
+            Carrera carrera = await _context.Carreras.FindAsync(idCarrera);
+            Inscripcion ins = new Inscripcion
+            {
+                AtletaId = idAtleta,
+                Atleta = atleta,
+                CarreraId = idCarrera,
+                Carrera = carrera,
+                NumeroDorsal = carrera.Inscripciones.Count + 100
+            };
+            _context.Inscripciones.Add(ins);
             return Ok("Inscripción exitosa");
         }
 
         [HttpGet("GetCarreras")]
         public async Task<IActionResult> GetCarreras(int idAtleta)
         {
-            List<Model.Carrera> carreritas = await _context.Carreras.ToListAsync();
+            List<Model.Carrera> carreras = await _context.Carreras.ToListAsync();
+            List<Model.Carrera> carreritas = new List<Model.Carrera>();
+            Atleta atleta = await _context.Atletas.FindAsync(idAtleta);
+            foreach (var car in carreras)
+            {
+                if (car.Fecha > DateTime.Now)
+                {
+                    bool estaInscrito = false;
+                    foreach (var ins in atleta.Inscripciones)
+                    {
+                        if (ins.CarreraId == car.IdCarrera)
+                        {
+                            estaInscrito = true;
+                            break;
+                        }
+                    }
+                    if (!estaInscrito)
+                    {
+                        carreritas.Add(car);
+                    }
+                }
+            }
             return Ok(carreritas);
         }
 
