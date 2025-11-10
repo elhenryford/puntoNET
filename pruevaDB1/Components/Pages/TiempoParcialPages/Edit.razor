@@ -1,0 +1,99 @@
+﻿@page "/tiempoparcials/edit"
+@using Microsoft.EntityFrameworkCore
+@using pruevaDB1.Components.Model
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h2>TiempoParcial</h2>
+<hr />
+@if (TiempoParcial is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="TiempoParcial" OnValidSubmit="UpdateTiempoParcial" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary role="alert"/>
+                <input type="hidden" name="TiempoParcial.IdTiempo" value="@TiempoParcial.IdTiempo" />
+                <div class="mb-3">
+                    <label for="inscripcionid" class="form-label">InscripcionId:</label>
+                    <InputNumber id="inscripcionid" @bind-Value="TiempoParcial.InscripcionId" class="form-control" />
+                    <ValidationMessage For="() => TiempoParcial.InscripcionId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="puesto" class="form-label">Puesto:</label>
+                    <InputNumber id="puesto" @bind-Value="TiempoParcial.Puesto" class="form-control" />
+                    <ValidationMessage For="() => TiempoParcial.Puesto" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="horapaso" class="form-label">HoraPaso:</label>
+                    <InputDate id="horapaso" @bind-Value="TiempoParcial.HoraPaso" class="form-control" />
+                    <ValidationMessage For="() => TiempoParcial.HoraPaso" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/tiempoparcials">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int IdTiempo { get; set; }
+
+    [SupplyParameterFromForm]
+    private TiempoParcial? TiempoParcial { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        TiempoParcial ??= await context.TiempoParcial.FirstOrDefaultAsync(m => m.IdTiempo == IdTiempo);
+
+        if (TiempoParcial is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more information, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task UpdateTiempoParcial()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(TiempoParcial!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!TiempoParcialExists(TiempoParcial!.IdTiempo))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/tiempoparcials");
+    }
+
+    private bool TiempoParcialExists(int idtiempo)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.TiempoParcial.Any(e => e.IdTiempo == idtiempo);
+    }
+}

@@ -1,0 +1,119 @@
+﻿@page "/atleta/edit"
+@using Microsoft.EntityFrameworkCore
+@using pruevaDB1.Components.Model
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h2>Atleta</h2>
+<hr />
+@if (Atleta is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Atleta" OnValidSubmit="UpdateAtleta" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary role="alert"/>
+                <input type="hidden" name="Atleta.IdAtleta" value="@Atleta.IdAtleta" />
+                <div class="mb-3">
+                    <label for="mail" class="form-label">Mail:</label>
+                    <InputText id="mail" @bind-Value="Atleta.Mail" class="form-control" aria-required="true"/>
+                    <ValidationMessage For="() => Atleta.Mail" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <InputText id="password" @bind-Value="Atleta.Password" class="form-control" aria-required="true"/>
+                    <ValidationMessage For="() => Atleta.Password" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <InputText id="nombre" @bind-Value="Atleta.Nombre" class="form-control" aria-required="true"/>
+                    <ValidationMessage For="() => Atleta.Nombre" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="edad" class="form-label">Edad:</label>
+                    <InputNumber id="edad" @bind-Value="Atleta.Edad" class="form-control" aria-required="true"/>
+                    <ValidationMessage For="() => Atleta.Edad" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="numerodorsal" class="form-label">NumeroDorsal:</label>
+                    <InputNumber id="numerodorsal" @bind-Value="Atleta.NumeroDorsal" class="form-control" />
+                    <ValidationMessage For="() => Atleta.NumeroDorsal" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="chipid" class="form-label">ChipID:</label>
+                    <InputNumber id="chipid" @bind-Value="Atleta.ChipID" class="form-control" />
+                    <ValidationMessage For="() => Atleta.ChipID" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="discapacidades" class="form-label">Discapacidades:</label>
+                    <InputText id="discapacidades" @bind-Value="Atleta.Discapacidades" class="form-control" />
+                    <ValidationMessage For="() => Atleta.Discapacidades" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/atleta">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int IdAtleta { get; set; }
+
+    [SupplyParameterFromForm]
+    private Atleta? Atleta { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        Atleta ??= await context.Atletas.FirstOrDefaultAsync(m => m.IdAtleta == IdAtleta);
+
+        if (Atleta is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more information, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task UpdateAtleta()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(Atleta!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!AtletaExists(Atleta!.IdAtleta))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/atleta");
+    }
+
+    private bool AtletaExists(int idatleta)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.Atletas.Any(e => e.IdAtleta == idatleta);
+    }
+}
