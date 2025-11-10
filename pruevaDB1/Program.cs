@@ -7,25 +7,31 @@ using pruevaDB1.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔹 Base de datos
+// Base de datos
 builder.Services.AddDbContextFactory<pruevaDB1Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// 🔹 Registrar QueueService correctamente (única instancia)
 builder.Services.AddSingleton<QueueService>();
 builder.Services.AddHostedService(provider => provider.GetRequiredService<QueueService>());
 
-// 🔹 Razor / Blazor
+builder.Services.AddControllers();
+
+// Blazor .NET 8
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddSignalR();
-builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
 builder.Services.AddQuickGridEntityFrameworkAdapter();
-
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddAntiforgery();
+
+builder.Services.AddHttpClient("API", client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7111/");
+});
+
+builder.Services.AddScoped(sp =>
+    sp.GetRequiredService<IHttpClientFactory>().CreateClient("API"));
 
 var app = builder.Build();
 
@@ -38,15 +44,12 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAntiforgery();
 
-// 🔹 Controladores y Blazor
-app.MapControllers();
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
-
+// ✅ ÚNICO estilo Blazor en .NET 8
 app.MapRazorComponents<pruevaDB1.Components.App>()
     .AddInteractiveServerRenderMode();
 
-// 🔹 Bloque opcional para crear datos iniciales
+
+// Datos iniciales opcionales
 using (var scope = app.Services.CreateScope())
 {
     try
@@ -70,5 +73,6 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+app.MapControllers();
 
 app.Run();

@@ -22,7 +22,7 @@
             </div>        
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha:</label> 
-                <InputDate id="fecha" @bind-Value="Carrera.Fecha" class="form-control" /> 
+                <InputDate id="fecha" @bind-Value="Carrera.Fecha" class="form-control" min="@DateTime.Today.ToString("yyyy-MM-dd")" />
                 <ValidationMessage For="() => Carrera.Fecha" class="text-danger" /> 
             </div>        
             <div class="mb-3">

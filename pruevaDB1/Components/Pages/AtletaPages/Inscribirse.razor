@@ -1,5 +1,6 @@
 ﻿@page "/atleta/inscribirse/{idAtleta:int}"
 @inject HttpClient Http
+@inject NavigationManager Nav
 
 <h3>Inscribirse en una carrera</h3>
 
@@ -38,12 +39,14 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        // Cargar las carreras desde el controlador
-        carreras = await Http.GetFromJsonAsync<List<Carrera>>("/Particiapcion/GetCarreras");
+        //var baseUrl = Nav.BaseUri;
+        carreras = await Http.GetFromJsonAsync<List<Carrera>>(
+            $"Inscripcion/GetCarreras?idAtleta={idAtleta}");
     }
 
     private async Task inscribirse()
     {
+        //var baseUrl = Nav.BaseUri;
         if (idCarreraSeleccionada == 0)
         {
             mensaje = "Por favor seleccione una carrera.";
@@ -52,7 +55,7 @@ else
 
         // Llamada al backend con el idAtleta de la URL
         var response = await Http.PostAsJsonAsync(
-            $"/Particiapcion/Inscribirse?idAtleta={idAtleta}&idCarrera={idCarreraSeleccionada}",
+            $"Inscripcion/Inscribirse?idAtleta={idAtleta}&idCarrera={idCarreraSeleccionada}",
             new { }
         );
 

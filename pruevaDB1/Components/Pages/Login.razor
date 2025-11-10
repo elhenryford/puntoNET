@@ -6,6 +6,7 @@
 @using pruevaDB1.Components.Model
 @using pruevaDB1.Data
 @inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject HttpClient Http
 
 
 <PageTitle>Login</PageTitle>
@@ -17,7 +18,7 @@
     <div class="alert alert-danger">@ErrorMessage</div>
 }
 
-<EditForm Model="@loginData" OnValidSubmit="HandleLogin">
+<EditForm Model="@loginData" OnValidSubmit="HandleLogin" FormName="loginForm">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -55,6 +56,7 @@
                 if (atleta.Mail == loginData.Username && atleta.Password == loginData.Password)
                 {
                     //HttpContext.Session.SetInt32("usr", atleta.IdAtleta);
+                    //NavigationManager.NavigateTo($"/atleta/inscribirse/{atleta.IdAtleta}");
                     NavigationManager.NavigateTo($"/atleta/inscribirse/{atleta.IdAtleta}");
                     return;
                 }

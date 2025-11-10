@@ -42,7 +42,10 @@ namespace pruevaDB1.Components.Controllers
         {
             List<Model.Carrera> carreras = await _context.Carreras.ToListAsync();
             List<Model.Carrera> carreritas = new List<Model.Carrera>();
-            Atleta atleta = await _context.Atletas.FindAsync(idAtleta);
+            Atleta atleta = await _context.Atletas
+        .Include(a => a.Inscripciones)
+        .ToListAsync()
+        .ContinueWith(t => t.Result.FirstOrDefault(a => a.IdAtleta == idAtleta));
             foreach (var car in carreras)
             {
                 if (car.Fecha > DateTime.Now)
@@ -85,15 +88,6 @@ namespace pruevaDB1.Components.Controllers
         public async Task<IActionResult> LlamarSensor(int idChip)
         {
             return Ok("Sensor llamado");
-        }
-
-        // POST: Particiapcion/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
 
         private bool ParticipacionExists(int id)
