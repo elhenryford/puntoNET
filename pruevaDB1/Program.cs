@@ -1,54 +1,54 @@
-﻿using pruevaDB1.Components;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using pruevaDB1.Components.Model;
 using pruevaDB1.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Base de datos
 builder.Services.AddDbContextFactory<pruevaDB1Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("pruevaDB1Context") ?? throw new InvalidOperationException("Connection string 'pruevaDB1Context' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Cola registrada correctamente
+builder.Services.AddSingleton<QueueService>();
+builder.Services.AddHostedService(provider => provider.GetRequiredService<QueueService>());
 
-builder.Services.AddQuickGridEntityFrameworkAdapter();
+builder.Services.AddControllers();
 
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-// Add services to the container.
+// Blazor .NET 8
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddControllers();
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7111/") });
+builder.Services.AddSignalR();
+builder.Services.AddQuickGridEntityFrameworkAdapter();
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddAntiforgery();
 
-//para session
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession(options =>
+builder.Services.AddHttpClient("API", client =>
 {
-    options.IdleTimeout = TimeSpan.FromSeconds(10); 
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
+    client.BaseAddress = new Uri("https://localhost:7111/");
 });
+
+builder.Services.AddScoped(sp =>
+    sp.GetRequiredService<IHttpClientFactory>().CreateClient("API"));
+
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-    app.UseMigrationsEndPoint();
+    app.UseExceptionHandler("/Error");
 }
 
-app.UseHttpsRedirection();
-
 app.UseStaticFiles();
+app.UseRouting();
 app.UseAntiforgery();
 
-//para sesion
-app.UseSession();
-
-app.MapControllers();
-
-app.MapRazorComponents<App>()
+// ✅ ÚNICO estilo Blazor en .NET 8
+app.MapRazorComponents<pruevaDB1.Components.App>()
     .AddInteractiveServerRenderMode();
+app.MapControllers();
 
 app.Run();

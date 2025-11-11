@@ -4,7 +4,6 @@
 @inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
 @inject NavigationManager NavigationManager
 
-
 <PageTitle>Details</PageTitle>
 
 <h1>Details</h1>
@@ -18,12 +17,18 @@
     }
     else {
         <dl class="row">
+            <dt class="col-sm-2">Mail</dt>
+            <dd class="col-sm-10">@atleta.Mail</dd>
+            <dt class="col-sm-2">Password</dt>
+            <dd class="col-sm-10">@atleta.Password</dd>
             <dt class="col-sm-2">Nombre</dt>
             <dd class="col-sm-10">@atleta.Nombre</dd>
-            <dt class="col-sm-2">Email</dt>
-            <dd class="col-sm-10">@atleta.mail</dd>
             <dt class="col-sm-2">Edad</dt>
             <dd class="col-sm-10">@atleta.Edad</dd>
+            <dt class="col-sm-2">NumeroDorsal</dt>
+            <dd class="col-sm-10">@atleta.NumeroDorsal</dd>
+            <dt class="col-sm-2">ChipID</dt>
+            <dd class="col-sm-10">@atleta.ChipID</dd>
             <dt class="col-sm-2">Discapacidades</dt>
             <dd class="col-sm-10">@atleta.Discapacidades</dd>
         </dl>
@@ -38,12 +43,12 @@
     private Atleta? atleta;
 
     [SupplyParameterFromQuery]
-    private int idAtleta { get; set; }
+    private int IdAtleta { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        atleta = await context.Atleta.FirstOrDefaultAsync(m => m.IdAtleta == idAtleta);
+        atleta = await context.Atletas.FirstOrDefaultAsync(m => m.IdAtleta == IdAtleta);
 
         if (atleta is null)
         {

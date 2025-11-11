@@ -6,6 +6,11 @@
 @using pruevaDB1.Components.Model
 @using pruevaDB1.Data
 @inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+
+<h3>Usuario: @loginData.Username</h3>
 
 
 <PageTitle>Login</PageTitle>
@@ -17,7 +22,7 @@
     <div class="alert alert-danger">@ErrorMessage</div>
 }
 
-<EditForm Model="@loginData" OnValidSubmit="HandleLogin">
+<EditForm Model="@loginData" OnValidSubmit="HandleLogin" FormName="loginForm">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -35,38 +40,51 @@
 </EditForm>
 
 @code {
-    private LoginData loginData = new(); 
+
+    private LoginData loginData = new();
     private pruevaDB1Context context = default!;
     private string? ErrorMessage;
+    
 
     private async Task HandleLogin()
     {
-
         if (loginData.Username == "admin" && loginData.Password == "1234")
         {
             NavigationManager.NavigateTo("/carreras");
+            return;
+        }
+
+        context = DbFactory.CreateDbContext();
+
+        // Buscar atleta que coincida
+        var atleta = await context.Atletas
+            .FirstOrDefaultAsync(a => a.Mail == loginData.Username && a.Password == loginData.Password);
+
+        if (atleta != null)
+        {
+            // Buscar inscripción asociada (si existe)
+            var inscripcion = await context.Inscripciones
+                .FirstOrDefaultAsync(i => i.AtletaId == atleta.IdAtleta);
+
+            if (inscripcion != null)
+            {
+                // Redirigir a la inscripción existente
+                NavigationManager.NavigateTo("/login");
+                // $"/api/inscripcion/Inscribirse?idAtleta={atleta.IdAtleta}&idCarrera={inscripcion.CarreraId}");
+            }
         }
         else
         {
-            context = DbFactory.CreateDbContext();
-            List<Atleta> atletas = await context.Atleta.ToListAsync();
-            foreach (Atleta atleta in atletas)
-            {
-                if (atleta.mail == loginData.Username && atleta.password == loginData.Password)
-                {
-                    //HttpContext.Session.SetInt32("usr", atleta.IdAtleta);
-                    NavigationManager.NavigateTo($"/atleta/inscribirse/{atleta.IdAtleta}");
-                    return;
-                }
-            }
             ErrorMessage = "Usuario o contraseña incorrectos.";
         }
     }
-
     public class LoginData
     {
         public string? Username { get; set; }
 
         public string? Password { get; set; }
     }
+
+
+    
 }

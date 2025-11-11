@@ -39,8 +39,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         // Cargar las carreras desde el controlador
-        carreras = await Http.GetFromJsonAsync<List<Carrera>>($"/Participacion/GetCarreras?idAtleta={idAtleta}");
-
+        carreras = await Http.GetFromJsonAsync<List<Carrera>>("/Particiapcion/GetCarreras");
     }
 
     private async Task inscribirse()
@@ -53,7 +52,7 @@ else
 
         // Llamada al backend con el idAtleta de la URL
         var response = await Http.PostAsJsonAsync(
-            $"/Participacion/Inscribirse?idAtleta={idAtleta}&idCarrera={idCarreraSeleccionada}",
+            $"/Particiapcion/Inscribirse?idAtleta={idAtleta}&idCarrera={idCarreraSeleccionada}",
             new { }
         );
 

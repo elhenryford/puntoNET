@@ -5,12 +5,6 @@
 @inject NavigationManager NavigationManager
 
 <PageTitle>Create</PageTitle>
-@code{
-    public string TodayDate
-    {
-        get { return DateTime.Today.ToString("yyyy-MM-dd"); }
-    }
-}
 
 <h1>Create</h1>
 
@@ -22,29 +16,19 @@
             <DataAnnotationsValidator />
             <ValidationSummary class="text-danger" role="alert"/>
             <div class="mb-3">
-                <label for="nombre" class="form-label">nombre:</label> 
+                <label for="nombre" class="form-label">Nombre:</label> 
                 <InputText id="nombre" @bind-Value="Carrera.Nombre" class="form-control" /> 
                 <ValidationMessage For="() => Carrera.Nombre" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="fecha" class="form-label">fecha:</label> 
-                <InputDate id="fecha" @bind-Value="Carrera.Fecha" class="form-control" min="@TodayDate" />
+                <label for="fecha" class="form-label">Fecha:</label> 
+                <InputDate id="fecha" @bind-Value="Carrera.Fecha" class="form-control" /> 
                 <ValidationMessage For="() => Carrera.Fecha" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="cantidadpuntoscontrol" class="form-label">cantidadPuntosControl:</label> 
-                <InputNumber id="cantidadpuntoscontrol" @bind-Value="Carrera.CantidadPuntosControl" class="form-control" /> 
-                <ValidationMessage For="() => Carrera.CantidadPuntosControl" class="text-danger" /> 
-            </div>        
-            <div class="mb-3">
-                <label for="cuposdisponibles" class="form-label">cuposDisponibles:</label> 
-                <InputNumber id="cuposdisponibles" @bind-Value="Carrera.CuposDisponibles" class="form-control" /> 
-                <ValidationMessage For="() => Carrera.CuposDisponibles" class="text-danger" /> 
-            </div>        
-            <div class="mb-3">
-                <label for="mapa" class="form-label">mapa:</label> 
-                <InputText id="mapa" @bind-Value="Carrera.Mapa" class="form-control" /> 
-                <ValidationMessage For="() => Carrera.Mapa" class="text-danger" /> 
+                <label for="ubicacion" class="form-label">Ubicacion:</label> 
+                <InputText id="ubicacion" @bind-Value="Carrera.Ubicacion" class="form-control" /> 
+                <ValidationMessage For="() => Carrera.Ubicacion" class="text-danger" /> 
             </div>        
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
@@ -56,13 +40,14 @@
 </div>
 
 @code {
+    [SupplyParameterFromForm]
     private Carrera Carrera { get; set; } = new();
 
     // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddCarrera()
     {
         using var context = DbFactory.CreateDbContext();
-        context.Carrera.Add(Carrera);
+        context.Carreras.Add(Carrera);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/carreras");
     }
