@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\",
   "Documents": [
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\atletapages\\inscribirse.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\atletapages\\inscribirse.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -52,6 +53,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\model\\puntosdecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\model\\puntosdecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\data\\services\\queueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:data\\services\\queueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -61,6 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< Updated upstream
           "SelectedChildIndex": 3,
           "Children": [
             {
@@ -110,6 +116,21 @@
               "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-05T20:44:50.946Z",
+=======
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QueueService.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Data\\Services\\QueueService.cs",
+              "RelativeDocumentMoniker": "Data\\Services\\QueueService.cs",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Data\\Services\\QueueService.cs",
+              "RelativeToolTip": "Data\\Services\\QueueService.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAcwHEAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T21:19:10.64Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
             },
             {

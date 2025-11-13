@@ -17,12 +17,31 @@ namespace pruevaDB1.Components.Controllers
             _context = context;
         }
 
+<<<<<<< Updated upstream
         [HttpPost("Inscribirse")]
         public async Task<IActionResult> Inscribirse(int idAtleta, int idCarrera)
         {
 
             return Ok("Inscripción exitosa");
         }
+=======
+        /*esto es asi xq en login no puedo llevarlo a inscribirse lo tengo 
+          que dejar en login para que pruebe denuevo*/
+         /*[HttpPost("Inscribirse")]
+          public async Task<IActionResult> Inscribirse(int idAtleta, int idCarrera)
+              Atleta atleta = await _context.Atleta.FindAsync(idAtleta);
+              Carrera carrera = await _context.Carrera.FindAsync(idCarrera);
+              Inscripcion ins = new Inscripcion
+              {
+                  AtletaId = idAtleta,
+                  CarreraId = idCarrera,
+                  NumeroDorsal = carrera.Inscripciones.Count + 100, 
+                  ChipId = atleta.ChipID
+              };
+              _context.Inscripciones.Add(ins);
+              return Ok("Inscripción exitosa");
+          }*/
+>>>>>>> Stashed changes
 
         [HttpGet("GetCarreras")]
         public async Task<IActionResult> GetCarreras(int idAtleta)
@@ -33,14 +52,14 @@ namespace pruevaDB1.Components.Controllers
 
         private static readonly ConcurrentDictionary<int, SemaphoreSlim> _locks = new();
         [HttpPost("LlamarSensor")]
-        public async Task<IActionResult> LlamarSensorLocked(int idChip)
+        public async Task<IActionResult> LlamarSensorLocked(int idChip, int idCarrera)
         {
             var sem = _locks.GetOrAdd(idChip, _ => new SemaphoreSlim(1, 1));
 
             await sem.WaitAsync();
             try
             {
-                return await LlamarSensor(idChip);
+                return await LlamarSensor(idChip, idCarrera);
             }
             finally
             {
@@ -48,8 +67,51 @@ namespace pruevaDB1.Components.Controllers
             }
         }
 
-        public async Task<IActionResult> LlamarSensor(int idChip)
+        public async Task<IActionResult> LlamarSensor(int idChip, int idCarrera)
         {
+            Carrera carrrera = await _context.Carreras.FindAsync(idCarrera);
+            Inscripcion inscripcion = null;
+            //encuentra la inscripcion del chip
+            foreach (var ins in carrrera.Inscripciones)
+            {
+                if (ins.ChipId == idChip)
+                {
+                    inscripcion = ins;
+                    break;
+                }
+            }
+            //crea el tiempo
+            TiempoParcial tp = new TiempoParcial
+            {
+                InscripcionId = inscripcion.IdInscripcion,
+                Puesto = inscripcion.TiemposParciales.Count + 1,
+                NumeroDorsal = inscripcion.NumeroDorsal,
+                ChipID = inscripcion.ChipId,
+                HoraPaso = DateTime.Now - carrrera.HoraInicio
+            };
+            //await _context.TiempoParciales.AddAsync(tp);
+            inscripcion.TiemposParciales.Add(tp);
+            //si fue el ultimo sensor, resuelve lo del puesto
+            if (tp.Puesto == carrrera.cantSensores)
+            {
+                if (carrrera.inscGanador == null)
+                {
+                    carrrera.inscGanador = inscripcion.IdInscripcion;
+                    //cartel de ganador
+                }
+                inscripcion.TiempoTotal = tp.HoraPaso;
+                int pos= 0;
+                foreach (var ins in carrrera.Inscripciones)
+                {
+                    if(ins.Posicion > pos)
+                    {
+                        pos = ins.Posicion;
+                    }
+                }
+                inscripcion.Posicion = pos + 1;
+            }
+
+            await _context.SaveChangesAsync();
             return Ok("Sensor llamado");
         }
 

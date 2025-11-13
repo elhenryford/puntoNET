@@ -15,7 +15,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pruevaDB1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48f5a8a53fa6326687ddaeeb80d44b701c5fe8a9")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+393abe74c513cacca0c25699f5241bb3de056ad4")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("pruevaDB1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pruevaDB1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

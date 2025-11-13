@@ -9,6 +9,7 @@ namespace pruevaDB1.Components.Model
         public int IdCarrera { get; set; }
         public string Nombre { get; set; }
         public DateTime Fecha { get; set; }
+<<<<<<< Updated upstream
         public string Ubicacion { get; set; }
 
         [JsonIgnore]
@@ -22,5 +23,12 @@ namespace pruevaDB1.Components.Model
             this.Corredores = new List<Inscripcion>();
             this.PuntosControl = new List<PuntosdeControl>();
         }    
+=======
+        public DateTime HoraInicio { get; set; }
+        public string Ubicacion { get; set; } = string.Empty;
+        public int cantSensores { get; set; }
+        public int inscGanador { get; set; } = 0;
+        public ICollection<Inscripcion> Inscripciones { get; set; } = new List<Inscripcion>();
+>>>>>>> Stashed changes
     }
 }

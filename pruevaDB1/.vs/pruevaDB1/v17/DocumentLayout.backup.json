@@ -3,14 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\",
   "Documents": [
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\atletapages\\inscribirse.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\atletapages\\inscribirse.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+=======
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\carrerapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\carrerapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+>>>>>>> Stashed changes
     },
     {
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\atletapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\atletapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -52,6 +58,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\model\\puntosdecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\model\\puntosdecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\carrerapages\\indexadmin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\carrerapages\\indexadmin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+>>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -61,6 +75,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< Updated upstream
           "SelectedChildIndex": 3,
           "Children": [
             {
@@ -74,10 +89,26 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-05T21:07:17.762Z",
+=======
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IndexAdmin.razor",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\CarreraPages\\IndexAdmin.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\CarreraPages\\IndexAdmin.razor",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\CarreraPages\\IndexAdmin.razor",
+              "RelativeToolTip": "Components\\Pages\\CarreraPages\\IndexAdmin.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-11T22:11:23.148Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 5,
               "Title": "dbo.Atleta [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/pruevaDB1Context_ccec885b_b668_47bd_acc9_94e387a8575e/True/SqlTable/dbo.Atleta.sql",
@@ -110,6 +141,43 @@
               "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-05T20:44:50.946Z",
+=======
+              "DocumentIndex": 0,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\CarreraPages\\Index.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\CarreraPages\\Index.razor",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\CarreraPages\\Index.razor",
+              "RelativeToolTip": "Components\\Pages\\CarreraPages\\Index.razor",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-11T22:08:18.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\Login.razor",
+              "RelativeToolTip": "Components\\Pages\\Login.razor",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-11T22:07:31.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-11T22:06:00.597Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
             },
             {
@@ -119,6 +187,7 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+<<<<<<< Updated upstream
             },
             {
               "$type": "Document",
@@ -234,6 +303,8 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-04T19:20:36.389Z"
+=======
+>>>>>>> Stashed changes
             }
           ]
         }

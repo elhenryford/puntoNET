@@ -72,6 +72,12 @@ namespace pruevaDB1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("cantSensores")
+                        .HasColumnType("int");
+
+                    b.Property<int>("inscGanador")
+                        .HasColumnType("int");
+
                     b.HasKey("IdCarrera");
 
                     b.ToTable("Carrera");
@@ -98,6 +104,9 @@ namespace pruevaDB1.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("NumeroDorsal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("posicion")
                         .HasColumnType("int");
 
                     b.HasKey("IdInscripcion");
