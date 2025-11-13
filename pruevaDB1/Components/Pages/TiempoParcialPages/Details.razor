@@ -1,0 +1,54 @@
+﻿@page "/tiempoparcials/details"
+@using Microsoft.EntityFrameworkCore
+@using pruevaDB1.Components.Model
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>TiempoParcial</h2>
+    <hr />
+    @if (tiempoparcial is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">InscripcionId</dt>
+            <dd class="col-sm-10">@tiempoparcial.InscripcionId</dd>
+            <dt class="col-sm-2">Puesto</dt>
+            <dd class="col-sm-10">@tiempoparcial.Puesto</dd>
+            <dt class="col-sm-2">NumeroDorsal</dt>
+            <dd class="col-sm-10">@tiempoparcial.NumeroDorsal</dd>
+            <dt class="col-sm-2">ChipID</dt>
+            <dd class="col-sm-10">@tiempoparcial.ChipID</dd>
+            <dt class="col-sm-2">HoraPaso</dt>
+            <dd class="col-sm-10">@tiempoparcial.HoraPaso</dd>
+        </dl>
+        <div>
+            <a href="@($"/tiempoparcials/edit?idtiempo={tiempoparcial.IdTiempo}")">Edit</a> |
+            <a href="@($"/tiempoparcials")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private TiempoParcial? tiempoparcial;
+
+    [SupplyParameterFromQuery]
+    private int IdTiempo { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        tiempoparcial = await context.TiempoParcial.FirstOrDefaultAsync(m => m.IdTiempo == IdTiempo);
+
+        if (tiempoparcial is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

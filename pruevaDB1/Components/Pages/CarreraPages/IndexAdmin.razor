@@ -1,0 +1,38 @@
+﻿@page "/carrerasAdmin"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using pruevaDB1.Components.Model
+@using pruevaDB1.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+   <!-- <a href="carreras/create">Create New</a> -->
+</p>
+
+<QuickGrid Class="table" Items="context.Carreras">
+    <PropertyColumn Property="carrera => carrera.Nombre" />
+    <PropertyColumn Property="carrera => carrera.Fecha" />
+    <PropertyColumn Property="carrera => carrera.Ubicacion" />
+
+    <TemplateColumn Context="carrera">
+        <a href="@($"carreras/edit?idcarrera={carrera.IdCarrera}")">Edit</a> |
+        <a href="@($"carreras/details?idcarrera={carrera.IdCarrera}")">Details</a> |
+        <a href="@($"carreras/delete?idcarrera={carrera.IdCarrera}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private pruevaDB1Context context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

@@ -1,0 +1,119 @@
+﻿@page "/atleta/create"
+@using Microsoft.EntityFrameworkCore
+@using pruevaDB1.Components.Model
+@using pruevaDB1.Data
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create Atleta</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Atleta" OnValidSubmit="AddAtleta" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <InputText id="nombre" @bind-Value="Atleta.Nombre" class="form-control" />
+                <ValidationMessage For="() => Atleta.Nombre" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad:</label>
+                <InputNumber id="edad" @bind-Value="Atleta.Edad" class="form-control" />
+                <ValidationMessage For="() => Atleta.Edad" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="discapacidades" class="form-label">Discapacidades:</label>
+                <InputText id="discapacidades" @bind-Value="Atleta.Discapacidades" class="form-control" />
+                <ValidationMessage For="() => Atleta.Discapacidades" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="mail" class="form-label">mail:</label>
+                <InputText id="mail" @bind-Value="Atleta.Mail" class="form-control" />
+                <ValidationMessage For="() => Atleta.Mail" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">password:</label>
+                <InputText id="password" @bind-Value="Atleta.Password" class="form-control" />
+                <ValidationMessage For="() => Atleta.Password" class="text-danger" />
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+
+
+<div>
+    <a href="/atleta">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Atleta Atleta { get; set; } = new();
+
+    private async Task AddAtleta()
+    {
+        using var context = DbFactory.CreateDbContext();
+
+        // Generar valores
+        Atleta.NumeroDorsal = GenerarNumeroDorsal();
+        Atleta.ChipID = GenerarChipId();
+
+        // 1️⃣ Agregamos el atleta primero
+        context.Atletas.Add(Atleta);
+        await context.SaveChangesAsync(); // Aquí se genera el IdAtleta
+
+        // 2️⃣ Ahora sí, creamos la inscripción asociada al atleta guardado
+        var inscripcion = new Inscripcion
+        {
+            NumeroDorsal = Atleta.NumeroDorsal,
+            AtletaId = Atleta.IdAtleta,      // Ya tiene Id
+            ChipId = Atleta.ChipID,
+            CarreraId = await ObtenerPrimeraCarreraIdAsync(context)
+        };
+
+        if (inscripcion.CarreraId == 0)
+            throw new Exception("No hay ninguna carrera registrada en la base de datos.");
+
+        // Relación bidireccional
+        Atleta.Inscripciones ??= new List<Inscripcion>();
+        Atleta.Inscripciones.Add(inscripcion);
+
+        context.Inscripciones.Add(inscripcion);
+        await context.SaveChangesAsync();
+
+        // 3️⃣ Limpiar formulario
+        Atleta = new Atleta();
+        StateHasChanged();
+    }
+
+    private async Task<int> ObtenerPrimeraCarreraIdAsync(pruevaDB1Context context)
+    {
+        var id = await context.Carreras
+            .Select(c => c.IdCarrera)
+            .FirstOrDefaultAsync();
+
+        return id;
+    }
+
+    private int GenerarNumeroDorsal()
+    {
+        using var context = DbFactory.CreateDbContext();
+        int max = context.Inscripciones.Any()
+            ? context.Inscripciones.Max(i => i.NumeroDorsal)
+            : 100;
+        return max + 1;
+    }
+
+    private int GenerarChipId()
+    {
+        using var context = DbFactory.CreateDbContext();
+        int max = context.Inscripciones.Any()
+            ? context.Inscripciones.Max(i => i.ChipId)
+            : 0;
+        return max + 1;
+    }
+}
