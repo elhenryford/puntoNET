@@ -64,6 +64,6 @@
         using var context = DbFactory.CreateDbContext();
         context.Carreras.Add(Carrera);
         await context.SaveChangesAsync();
-        NavigationManager.NavigateTo("/carreras");
+        NavigationManager.NavigateTo("/carrerasAdmin");
     }
 }

@@ -65,16 +65,8 @@
         
         context.Atletas.Add(Atleta);
         await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/atleta");
 
-    }
-
-    private async Task<int> ObtenerPrimeraCarreraIdAsync(pruevaDB1Context context)
-    {
-        var id = await context.Carreras
-            .Select(c => c.IdCarrera)
-            .FirstOrDefaultAsync();
-
-        return id;
     }
 
     private int GenerarNumeroDorsal()

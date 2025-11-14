@@ -24,9 +24,7 @@
     <PropertyColumn Property="atleta => atleta.Discapacidades" />
 
     <TemplateColumn Context="atleta">
-        <a href="@($"atleta/edit?idatleta={atleta.IdAtleta}")">Edit</a> |
-        <a href="@($"atleta/details?idatleta={atleta.IdAtleta}")">Details</a> |
-        <a href="@($"atleta/delete?idatleta={atleta.IdAtleta}")">Delete</a>
+        <a href="@($"atleta/details?idatleta={atleta.IdAtleta}")">Details</a>
     </TemplateColumn>
 </QuickGrid>
 

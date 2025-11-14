@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\franc\\documents\\github\\puntonet\\pruevadb1\\components\\pages\\carrerapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\carrerapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -23,19 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.razor",
-              "DocumentMoniker": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\CarreraPages\\Create.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\CarreraPages\\Create.razor",
-              "ToolTip": "C:\\Users\\franc\\Documents\\GitHub\\puntoNET\\pruevaDB1\\Components\\Pages\\CarreraPages\\Create.razor",
-              "RelativeToolTip": "Components\\Pages\\CarreraPages\\Create.razor",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-14T17:44:40.87Z",
-              "EditorCaption": ""
             }
           ]
         }
