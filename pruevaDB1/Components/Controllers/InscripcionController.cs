@@ -19,20 +19,24 @@ namespace pruevaDB1.Components.Controllers
 
         /*esto es asi xq en login no puedo llevarlo a inscribirse lo tengo 
           que dejar en login para que pruebe denuevo*/
-         /*[HttpPost("Inscribirse")]
-          public async Task<IActionResult> Inscribirse(int idAtleta, int idCarrera)
-              Atleta atleta = await _context.Atleta.FindAsync(idAtleta);
-              Carrera carrera = await _context.Carrera.FindAsync(idCarrera);
-              Inscripcion ins = new Inscripcion
-              {
-                  AtletaId = idAtleta,
-                  CarreraId = idCarrera,
-                  NumeroDorsal = carrera.Inscripciones.Count + 100, 
-                  ChipId = atleta.ChipID
-              };
-              _context.Inscripciones.Add(ins);
-              return Ok("Inscripción exitosa");
-          }*/
+         [HttpPost("Inscribirse")]
+          public async Task<IActionResult> Inscribirse(int idAtleta, int idCarrera) 
+        { 
+            Atleta atleta = await _context.Atletas.FindAsync(idAtleta);
+            Carrera carrera = await _context.Carreras.FindAsync(idCarrera);
+            Inscripcion ins = new Inscripcion
+            {
+                AtletaId = idAtleta,
+                CarreraId = idCarrera,
+                NumeroDorsal = carrera.Inscripciones.Count + 100, 
+                ChipId = atleta.ChipID
+            };
+            _context.Inscripciones.Add(ins);
+            carrera.Inscripciones.Add(ins);
+            atleta.Inscripciones.Add(ins);
+            await _context.SaveChangesAsync();
+            return Ok("Inscripción exitosa");
+          }
 
         [HttpGet("GetCarreras")]
         public async Task<IActionResult> GetCarreras(int idAtleta)
@@ -44,20 +48,24 @@ namespace pruevaDB1.Components.Controllers
             {
                 if (car.Fecha > DateTime.Now)
                 {
-                    bool estaInscrito = false;
-                    foreach (var ins in atleta.Inscripciones)
+                    if(car.Cupos > car.Inscripciones.Count)
                     {
-                        if (ins.CarreraId == car.IdCarrera)
+                        bool yaInscripto = false;
+                        foreach (var ins in atleta.Inscripciones)
                         {
-                            estaInscrito = true;
-                            break;
+                            if (ins.CarreraId == car.IdCarrera)
+                            {
+                                yaInscripto = true;
+                                break;
+                            }
+                        }
+                        if(!yaInscripto)
+                        {
+                            carreritas.Add(car);
                         }
                     }
-                    if (!estaInscrito)
-                    {
-                        carreritas.Add(car);
-                    }
                 }
+                carreritas.Add(car);
             }
             return Ok(carreritas);
         }

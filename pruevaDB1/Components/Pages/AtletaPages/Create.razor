@@ -62,32 +62,10 @@
         Atleta.NumeroDorsal = GenerarNumeroDorsal();
         Atleta.ChipID = GenerarChipId();
 
-        // 1️⃣ Agregamos el atleta primero
+        
         context.Atletas.Add(Atleta);
-        await context.SaveChangesAsync(); // Aquí se genera el IdAtleta
-
-        // 2️⃣ Ahora sí, creamos la inscripción asociada al atleta guardado
-        var inscripcion = new Inscripcion
-        {
-            NumeroDorsal = Atleta.NumeroDorsal,
-            AtletaId = Atleta.IdAtleta,      // Ya tiene Id
-            ChipId = Atleta.ChipID,
-            CarreraId = await ObtenerPrimeraCarreraIdAsync(context)
-        };
-
-        if (inscripcion.CarreraId == 0)
-            throw new Exception("No hay ninguna carrera registrada en la base de datos.");
-
-        // Relación bidireccional
-        Atleta.Inscripciones ??= new List<Inscripcion>();
-        Atleta.Inscripciones.Add(inscripcion);
-
-        context.Inscripciones.Add(inscripcion);
         await context.SaveChangesAsync();
 
-        // 3️⃣ Limpiar formulario
-        Atleta = new Atleta();
-        StateHasChanged();
     }
 
     private async Task<int> ObtenerPrimeraCarreraIdAsync(pruevaDB1Context context)

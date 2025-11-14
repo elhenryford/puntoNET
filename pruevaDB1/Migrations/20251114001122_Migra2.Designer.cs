@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using pruevaDB1.Data;
 
@@ -11,9 +12,11 @@ using pruevaDB1.Data;
 namespace pruevaDB1.Migrations
 {
     [DbContext(typeof(pruevaDB1Context))]
-    partial class pruevaDB1ContextModelSnapshot : ModelSnapshot
+    [Migration("20251114001122_Migra2")]
+    partial class Migra2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,9 +69,6 @@ namespace pruevaDB1.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCarrera"));
-
-                    b.Property<int>("Cupos")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");

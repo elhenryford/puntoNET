@@ -12,15 +12,15 @@ using pruevaDB1.Data;
 namespace pruevaDB1.Migrations
 {
     [DbContext(typeof(pruevaDB1Context))]
-    [Migration("20251104201914_Migra1")]
-    partial class Migra1
+    [Migration("20251114004035_Migra3")]
+    partial class Migra3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.14")
+                .HasAnnotation("ProductVersion", "9.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -33,27 +33,33 @@ namespace pruevaDB1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAtleta"));
 
+                    b.Property<int>("ChipID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Discapacidades")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Edad")
                         .HasColumnType("int");
 
+                    b.Property<string>("Mail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("mail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("NumeroDorsal")
+                        .HasColumnType("int");
 
-                    b.Property<string>("password")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdAtleta");
 
-                    b.ToTable("Atleta");
+                    b.ToTable("Atletas");
                 });
 
             modelBuilder.Entity("pruevaDB1.Components.Model.Carrera", b =>
@@ -64,7 +70,13 @@ namespace pruevaDB1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCarrera"));
 
+                    b.Property<int>("Cupos")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("HoraInicio")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
@@ -75,9 +87,15 @@ namespace pruevaDB1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("cantSensores")
+                        .HasColumnType("int");
+
+                    b.Property<int>("inscGanador")
+                        .HasColumnType("int");
+
                     b.HasKey("IdCarrera");
 
-                    b.ToTable("Carrera");
+                    b.ToTable("Carreras");
                 });
 
             modelBuilder.Entity("pruevaDB1.Components.Model.Inscripcion", b =>
@@ -88,56 +106,34 @@ namespace pruevaDB1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdInscripcion"));
 
-                    b.Property<int>("Atleta")
+                    b.Property<int>("AtletaId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AtletaIdAtleta")
+                    b.Property<int>("CarreraId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Carrera")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CarreraIdCarrera")
+                    b.Property<int>("ChipId")
                         .HasColumnType("int");
 
                     b.Property<int>("NumeroDorsal")
                         .HasColumnType("int");
 
+                    b.Property<int>("Posicion")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("TiempoTotal")
+                        .HasColumnType("time");
+
                     b.HasKey("IdInscripcion");
 
-                    b.HasIndex("AtletaIdAtleta");
+                    b.HasIndex("AtletaId");
 
-                    b.HasIndex("CarreraIdCarrera");
+                    b.HasIndex("CarreraId");
 
-                    b.ToTable("Participacion");
+                    b.ToTable("Inscripcion");
                 });
 
-            modelBuilder.Entity("pruevaDB1.Components.Model.PuntosdeControl", b =>
-                {
-                    b.Property<int>("IdPunto")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPunto"));
-
-                    b.Property<int>("CarreraIdIdCarrera")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Orden")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdPunto");
-
-                    b.HasIndex("CarreraIdIdCarrera");
-
-                    b.ToTable("PuntosdeControl");
-                });
-
-            modelBuilder.Entity("pruevaDB1.Components.Model.TiemposParciales", b =>
+            modelBuilder.Entity("pruevaDB1.Components.Model.TiempoParcial", b =>
                 {
                     b.Property<int>("IdTiempo")
                         .ValueGeneratedOnAdd()
@@ -145,85 +141,67 @@ namespace pruevaDB1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTiempo"));
 
-                    b.Property<DateTime>("HoraPaso")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("InscripcionIdIdInscripcion")
+                    b.Property<int>("ChipID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PuntoControlIdIdPunto")
+                    b.Property<TimeSpan>("HoraPaso")
+                        .HasColumnType("time");
+
+                    b.Property<int>("InscripcionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumeroDorsal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Puesto")
                         .HasColumnType("int");
 
                     b.HasKey("IdTiempo");
 
-                    b.HasIndex("InscripcionIdIdInscripcion");
+                    b.HasIndex("InscripcionId");
 
-                    b.HasIndex("PuntoControlIdIdPunto");
-
-                    b.ToTable("TiemposParciales");
+                    b.ToTable("TiempoParcial");
                 });
 
             modelBuilder.Entity("pruevaDB1.Components.Model.Inscripcion", b =>
                 {
                     b.HasOne("pruevaDB1.Components.Model.Atleta", null)
-                        .WithMany("Participaciones")
-                        .HasForeignKey("AtletaIdAtleta");
+                        .WithMany("Inscripciones")
+                        .HasForeignKey("AtletaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("pruevaDB1.Components.Model.Carrera", null)
-                        .WithMany("Corredores")
-                        .HasForeignKey("CarreraIdCarrera");
+                        .WithMany("Inscripciones")
+                        .HasForeignKey("CarreraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("pruevaDB1.Components.Model.PuntosdeControl", b =>
+            modelBuilder.Entity("pruevaDB1.Components.Model.TiempoParcial", b =>
                 {
-                    b.HasOne("pruevaDB1.Components.Model.Carrera", "CarreraId")
-                        .WithMany("PuntosControl")
-                        .HasForeignKey("CarreraIdIdCarrera")
+                    b.HasOne("pruevaDB1.Components.Model.Inscripcion", "Inscripcion")
+                        .WithMany("TiemposParciales")
+                        .HasForeignKey("InscripcionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CarreraId");
-                });
-
-            modelBuilder.Entity("pruevaDB1.Components.Model.TiemposParciales", b =>
-                {
-                    b.HasOne("pruevaDB1.Components.Model.Inscripcion", "InscripcionId")
-                        .WithMany("TiempoParcial")
-                        .HasForeignKey("InscripcionIdIdInscripcion")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("pruevaDB1.Components.Model.PuntosdeControl", "PuntoControlId")
-                        .WithMany("Tiempos")
-                        .HasForeignKey("PuntoControlIdIdPunto")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("InscripcionId");
-
-                    b.Navigation("PuntoControlId");
+                    b.Navigation("Inscripcion");
                 });
 
             modelBuilder.Entity("pruevaDB1.Components.Model.Atleta", b =>
                 {
-                    b.Navigation("Participaciones");
+                    b.Navigation("Inscripciones");
                 });
 
             modelBuilder.Entity("pruevaDB1.Components.Model.Carrera", b =>
                 {
-                    b.Navigation("Corredores");
-
-                    b.Navigation("PuntosControl");
+                    b.Navigation("Inscripciones");
                 });
 
             modelBuilder.Entity("pruevaDB1.Components.Model.Inscripcion", b =>
                 {
-                    b.Navigation("TiempoParcial");
-                });
-
-            modelBuilder.Entity("pruevaDB1.Components.Model.PuntosdeControl", b =>
-                {
-                    b.Navigation("Tiempos");
+                    b.Navigation("TiemposParciales");
                 });
 #pragma warning restore 612, 618
         }
