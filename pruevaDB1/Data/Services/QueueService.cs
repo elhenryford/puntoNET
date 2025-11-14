@@ -70,7 +70,15 @@ public class QueueService : BackgroundService
         {
             Console.WriteLine($"🔄 Procesando evento -> ChipId: {evento.ChipId}");
 
-            var inscripcion = context.Inscripciones.FirstOrDefault(i => i.ChipId == evento.ChipId);
+            int idCarrera = evento.CarreraId;
+
+            var carrera = await context.Carreras
+                .Include(c => c.Inscripciones)
+                .FirstOrDefaultAsync(c => c.IdCarrera == idCarrera);
+
+            var inscripcion = carrera?.Inscripciones
+                .FirstOrDefault(i => i.ChipId == evento.ChipId);
+
 
             if (inscripcion == null)
             {
@@ -83,8 +91,6 @@ public class QueueService : BackgroundService
                 Console.WriteLine(" HoraLectura inválida. Se omite.");
                 return;
             }
-            int idCarrera = inscripcion.CarreraId;
-            Carrera carrrera = await context.Carreras.FindAsync(idCarrera);
 
             TiempoParcial nuevoTiempo = new TiempoParcial
             {
@@ -92,19 +98,19 @@ public class QueueService : BackgroundService
                 Puesto = inscripcion.TiemposParciales.Count + 1,
                 NumeroDorsal = inscripcion.NumeroDorsal,
                 ChipID = inscripcion.ChipId,
-                HoraPaso = DateTime.Now - carrrera.HoraInicio
+                HoraPaso = DateTime.Now - carrera.HoraInicio
             };
             inscripcion.TiemposParciales.Add(nuevoTiempo);
-            if (nuevoTiempo.Puesto == carrrera.cantSensores)
+            if (nuevoTiempo.Puesto == carrera.cantSensores)
             {
-                if (carrrera.inscGanador == null)
+                if (carrera.inscGanador == null)
                 {
-                    carrrera.inscGanador = inscripcion.IdInscripcion;
+                    carrera.inscGanador = inscripcion.IdInscripcion;
                     //cartel de ganador
                 }
                 inscripcion.TiempoTotal = nuevoTiempo.HoraPaso;
                 int pos = 0;
-                foreach (var ins in carrrera.Inscripciones)
+                foreach (var ins in carrera.Inscripciones)
                 {
                     if (ins.Posicion > pos)
                     {
