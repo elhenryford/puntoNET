@@ -58,6 +58,7 @@ else
 
         if (response.IsSuccessStatusCode)
         {
+            NavigationManager.NavigateTo($"/atleta/inscribirse/{idAtleta}");
             mensaje = "Inscripción exitosa!";
         }
         else
