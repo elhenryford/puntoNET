@@ -22,7 +22,7 @@
             </div>        
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha:</label> 
-                <InputDate id="fecha" @bind-Value="Carrera.Fecha" class="form-control" min="@DateTime.Today.AddDays(1).ToString("dd-MM-yyyy")" />
+                <InputDate id="fecha" @bind-Value="Carrera.Fecha" class="form-control" min="@DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")" />
                 <ValidationMessage For="() => Carrera.Fecha" class="text-danger" /> 
             </div>        
             <div class="mb-3">
@@ -31,10 +31,15 @@
                 <ValidationMessage For="() => Carrera.Ubicacion" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="cantsensores" class="form-label">cantSensores:</label> 
-                <InputNumber id="cantsensores" @bind-Value="Carrera.cantSensores" class="form-control" /> 
-                <ValidationMessage For="() => Carrera.cantSensores" class="text-danger" /> 
-            </div>       
+                <label for="cupos" class="form-label">Cupos:</label> 
+                <InputNumber id="cupos" @bind-Value="Carrera.Cupos" class="form-control" /> 
+                <ValidationMessage For="() => Carrera.Cupos" class="text-danger" /> 
+            </div>
+            <div class="mb-3">
+                <label for="cantsensores" class="form-label">cantSensores:</label>
+                <InputNumber id="cantsensores" @bind-Value="Carrera.cantSensores" class="form-control" />
+                <ValidationMessage For="() => Carrera.cantSensores" class="text-danger" />
+            </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
     </div>
@@ -47,6 +52,11 @@
 @code {
     [SupplyParameterFromForm]
     private Carrera Carrera { get; set; } = new();
+    protected override async Task OnInitializedAsync()
+    {
+        Carrera.Fecha = DateTime.Today.AddDays(1);
+    }
+
 
     // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddCarrera()

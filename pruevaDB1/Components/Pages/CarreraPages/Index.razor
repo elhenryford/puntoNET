@@ -15,6 +15,7 @@
     <PropertyColumn Property="carrera => carrera.Nombre" />
     <PropertyColumn Property="carrera => carrera.Fecha" />
     <PropertyColumn Property="carrera => carrera.Ubicacion" />
+    <PropertyColumn Property="carrera => carrera.Cupos" />
 
     <TemplateColumn Context="carrera">
         <a href="@($"carreras/details?idcarrera={carrera.IdCarrera}")">Details</a>

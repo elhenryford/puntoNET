@@ -68,6 +68,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcRGV0YWlscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/DetailsAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcRGV0YWlsc0FkbWluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/franc/Documents/GitHub/puntoNET/pruevaDB1/Components/Pages/CarreraPages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJyZXJhUGFnZXNcRWRpdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

@@ -41,34 +41,33 @@ namespace pruevaDB1.Components.Controllers
         [HttpGet("GetCarreras")]
         public async Task<IActionResult> GetCarreras(int idAtleta)
         {
-            List<Model.Carrera> carreras = await _context.Carreras.ToListAsync();
-            List<Model.Carrera> carreritas = new List<Model.Carrera>();
-            Atleta atleta = await _context.Atletas.FindAsync(idAtleta);
+            var carreras = await _context.Carreras
+                .Include(c => c.Inscripciones)
+                .ToListAsync();
+
+            var atleta = await _context.Atletas
+                .Include(a => a.Inscripciones)
+                .FirstOrDefaultAsync(a => a.IdAtleta == idAtleta);
+
+            List<Model.Carrera> carreritas = new();
+
             foreach (var car in carreras)
             {
-                if (car.Fecha > DateTime.Now)
+                if (car.Fecha > DateTime.Now && car.Cupos > car.Inscripciones.Count)
                 {
-                    if(car.Cupos > car.Inscripciones.Count)
+                    bool yaInscripto = atleta.Inscripciones
+                        .Any(ins => ins.CarreraId == car.IdCarrera);
+
+                    if (!yaInscripto)
                     {
-                        bool yaInscripto = false;
-                        foreach (var ins in atleta.Inscripciones)
-                        {
-                            if (ins.CarreraId == car.IdCarrera)
-                            {
-                                yaInscripto = true;
-                                break;
-                            }
-                        }
-                        if(!yaInscripto)
-                        {
-                            carreritas.Add(car);
-                        }
+                        carreritas.Add(car);
                     }
                 }
-                carreritas.Add(car);
             }
+
             return Ok(carreritas);
         }
+
 
         private static readonly ConcurrentDictionary<int, SemaphoreSlim> _locks = new();
         [HttpPost("LlamarSensor")]

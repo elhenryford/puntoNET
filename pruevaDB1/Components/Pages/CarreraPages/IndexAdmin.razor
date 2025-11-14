@@ -18,9 +18,13 @@
     <PropertyColumn Property="carrera => carrera.Nombre" />
     <PropertyColumn Property="carrera => carrera.Fecha" />
     <PropertyColumn Property="carrera => carrera.Ubicacion" />
+    <PropertyColumn Property="carrera => carrera.Cupos" />
+    <PropertyColumn Property="carrera => carrera.cantSensores" />
 
     <TemplateColumn Context="carrera">
-        <a href="@($"carreras/details?idcarrera={carrera.IdCarrera}")">Details</a>
+        <a href="@($"inscripcions/edit?idcarrera={carrera.IdCarrera}")" > Edit</a> |
+        <a href="@($"carreras/detailsAdmin?idcarrera={carrera.IdCarrera}")">Details</a> |
+        <a href="@($"inscripcions/delete?idcarrera={carrera.IdCarrera}")">Delete</a>
     </TemplateColumn>
 </QuickGrid>
 
