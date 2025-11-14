@@ -22,14 +22,20 @@ namespace pruevaDB1.Components.Controllers
          [HttpPost("Inscribirse")]
           public async Task<IActionResult> Inscribirse(int idAtleta, int idCarrera) 
         { 
-            Atleta atleta = await _context.Atletas.FindAsync(idAtleta);
-            Carrera carrera = await _context.Carreras.FindAsync(idCarrera);
+            Atleta atleta = await _context.Atletas
+                .Include(a => a.Inscripciones)
+                .FirstOrDefaultAsync(a => a.IdAtleta == idAtleta);
+
+            Carrera carrera = await _context.Carreras
+                .Include(c => c.Inscripciones)
+                .FirstOrDefaultAsync(c => c.IdCarrera == idCarrera);
+
             Inscripcion ins = new Inscripcion
             {
                 AtletaId = idAtleta,
                 CarreraId = idCarrera,
                 NumeroDorsal = carrera.Inscripciones.Count + 100, 
-                ChipId = atleta.ChipID
+                ChipId = carrera.Inscripciones.Count + 100
             };
             _context.Inscripciones.Add(ins);
             carrera.Inscripciones.Add(ins);
