@@ -34,8 +34,8 @@ namespace pruevaDB1.Components.Controllers
             {
                 AtletaId = idAtleta,
                 CarreraId = idCarrera,
-                NumeroDorsal = carrera.Inscripciones.Count + 100, 
-                ChipId = carrera.Inscripciones.Count + 100
+                NumeroDorsal = carrera.Inscripciones.Count + 101, 
+                ChipId = carrera.Inscripciones.Count + 101
             };
             _context.Inscripciones.Add(ins);
             carrera.Inscripciones.Add(ins);
