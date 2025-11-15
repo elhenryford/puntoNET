@@ -17,16 +17,24 @@
     }
     else {
         <dl class="row">
-            <dt class="col-sm-2">Mail</dt>
-            <dd class="col-sm-10">@atleta.Mail</dd>
-            <dt class="col-sm-2">Password</dt>
-            <dd class="col-sm-10">@atleta.Password</dd>
             <dt class="col-sm-2">Nombre</dt>
             <dd class="col-sm-10">@atleta.Nombre</dd>
+            <dt class="col-sm-2">Mail</dt>
+            <dd class="col-sm-10">@atleta.Mail</dd>
             <dt class="col-sm-2">Edad</dt>
             <dd class="col-sm-10">@atleta.Edad</dd>
             <dt class="col-sm-2">Discapacidades</dt>
             <dd class="col-sm-10">@atleta.Discapacidades</dd>
+            @if(carreras != null)
+            {
+                // Mostrar las carreras terminadas con tiempo y posicion
+                <QuickGrid Class="table" Items="carreras">
+                    <PropertyColumn Property="c => c.NomCarrera" Title="Carrera" />
+                    <PropertyColumn Property="c => c.Dorsal" Title="Numero" />
+                    <PropertyColumn Property="c => c.Tiempo" Title="Tiempo Total" />
+                    <PropertyColumn Property="c => c.Posicion" Title="Posicion"/>
+                </QuickGrid>
+            }
         </dl>
         <div>
             <a href="@($"/atleta/edit?idatleta={atleta.IdAtleta}")">Edit</a> |
@@ -37,18 +45,53 @@
 
 @code {
     private Atleta? atleta;
+    private List<DataCarrera>? carreras;
 
     [SupplyParameterFromQuery]
     private int IdAtleta { get; set; }
 
+
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        atleta = await context.Atletas.FirstOrDefaultAsync(m => m.IdAtleta == IdAtleta);
+        atleta = await context.Atletas
+                .Include(a => a.Inscripciones)
+                .FirstOrDefaultAsync(a => a.IdAtleta == IdAtleta);
 
         if (atleta is null)
         {
             NavigationManager.NavigateTo("notfound");
         }
+
+        foreach (var ins in atleta.Inscripciones)
+        {
+            if(ins.Posicion > 0)
+            {
+                Carrera carrera = await context.Carreras
+                    .FirstOrDefaultAsync(c => c.IdCarrera == ins.CarreraId);
+                DataCarrera dc = new DataCarrera {
+                    NomCarrera = carrera.Nombre,
+                    Dorsal = ins.NumeroDorsal,
+                    Posicion = ins.Posicion,
+                    Tiempo = ins.TiempoTotal
+                };
+                if(carreras == null)
+                {
+                    carreras = new List<DataCarrera>();
+                }
+                carreras.Add(dc);
+            }
+        }
+
+    }
+    public class DataCarrera
+    {
+        public string? NomCarrera { get; set; }
+
+        public TimeSpan? Tiempo  { get; set; }
+
+        public int? Dorsal { get; set; }
+
+        public int? Posicion { get; set; }
     }
 }
