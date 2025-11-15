@@ -83,6 +83,7 @@ namespace pruevaDB1.Components.Controllers
                 .FirstOrDefault(i => i.AtletaId == idAtleta);
             ins.NumeroDorsal = carrera.Inscripciones.Count + 101;
             ins.ChipId = ins.NumeroDorsal;
+            await _context.SaveChangesAsync();
             return Ok();
         }
 
