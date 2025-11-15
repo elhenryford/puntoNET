@@ -84,7 +84,7 @@ namespace pruevaDB1.Components.Controllers
             List<Inscripcion> inscripcioncitas = new();
             foreach (var insc in carrera.Inscripciones)
             {
-                if(insc.NumeroDorsal == 0)
+                if(insc.NumeroDorsal != 0)
                 {
                     inscripcioncitas.Add(insc);
                 }
