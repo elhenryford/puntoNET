@@ -1,6 +1,6 @@
 ﻿@page "/atleta"
-@using Microsoft.AspNetCore.Components.QuickGrid
 @using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
 @using pruevaDB1.Components.Model
 @using pruevaDB1.Data
 @implements IAsyncDisposable
@@ -14,15 +14,17 @@
     <a href="atleta/create">Create New</a>
 </p>
 
-<QuickGrid Class="table" Items="context.Atleta">
+<QuickGrid Class="table" Items="context.Atletas">
+    <PropertyColumn Property="atleta => atleta.Mail" />
+    <PropertyColumn Property="atleta => atleta.Password" />
     <PropertyColumn Property="atleta => atleta.Nombre" />
     <PropertyColumn Property="atleta => atleta.Edad" />
+    <PropertyColumn Property="atleta => atleta.NumeroDorsal" />
+    <PropertyColumn Property="atleta => atleta.ChipID" />
     <PropertyColumn Property="atleta => atleta.Discapacidades" />
 
     <TemplateColumn Context="atleta">
-        <a href="@($"atleta/edit?idatleta={atleta.IdAtleta}")">Edit</a> |
-        <a href="@($"atleta/details?idatleta={atleta.IdAtleta}")">Details</a> |
-        <a href="@($"atleta/delete?idatleta={atleta.IdAtleta}")">Delete</a>
+        <a href="@($"atleta/details?idatleta={atleta.IdAtleta}")">Details</a>
     </TemplateColumn>
 </QuickGrid>
 

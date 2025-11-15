@@ -1,7 +1,6 @@
 ﻿@page "/atleta/delete"
 @using Microsoft.EntityFrameworkCore
 @using pruevaDB1.Components.Model
-@using pruevaDB1.Components.Model
 @inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
 @inject NavigationManager NavigationManager
 
@@ -19,15 +18,31 @@
     }
     else {
         <dl class="row">
-            <dt class="col-sm-2">nombre</dt>
+            <dt class="col-sm-2">Mail</dt>
+            <dd class="col-sm-10">@atleta.Mail</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Password</dt>
+            <dd class="col-sm-10">@atleta.Password</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Nombre</dt>
             <dd class="col-sm-10">@atleta.Nombre</dd>
         </dl>
         <dl class="row">
-            <dt class="col-sm-2">edad</dt>
+            <dt class="col-sm-2">Edad</dt>
             <dd class="col-sm-10">@atleta.Edad</dd>
         </dl>
         <dl class="row">
-            <dt class="col-sm-2">discapacidades</dt>
+            <dt class="col-sm-2">NumeroDorsal</dt>
+            <dd class="col-sm-10">@atleta.NumeroDorsal</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">ChipID</dt>
+            <dd class="col-sm-10">@atleta.ChipID</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Discapacidades</dt>
             <dd class="col-sm-10">@atleta.Discapacidades</dd>
         </dl>
         <EditForm method="post" Model="atleta" OnValidSubmit="DeleteAtleta" FormName="delete" Enhance>
@@ -41,12 +56,12 @@
     private Atleta? atleta;
 
     [SupplyParameterFromQuery]
-    private int idAtleta { get; set; }
+    private int IdAtleta { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        atleta = await context.Atleta.FirstOrDefaultAsync(m => m.IdAtleta == idAtleta);
+        atleta = await context.Atletas.FirstOrDefaultAsync(m => m.IdAtleta == IdAtleta);
 
         if (atleta is null)
         {
@@ -57,7 +72,7 @@
     private async Task DeleteAtleta()
     {
         using var context = DbFactory.CreateDbContext();
-        context.Atleta.Remove(atleta!);
+        context.Atletas.Remove(atleta!);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/atleta");
     }

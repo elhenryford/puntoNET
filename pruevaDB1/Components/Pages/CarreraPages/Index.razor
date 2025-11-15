@@ -1,6 +1,7 @@
 ﻿@page "/carreras"
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
+@using pruevaDB1.Components.Model
 @using pruevaDB1.Data
 @implements IAsyncDisposable
 @inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
@@ -9,21 +10,15 @@
 
 <h1>Index</h1>
 
-<p>
-    <a href="carreras/create">Create New</a>
-</p>
 
-<QuickGrid Class="table" Items="context.Carrera">
+<QuickGrid Class="table" Items="context.Carreras">
     <PropertyColumn Property="carrera => carrera.Nombre" />
     <PropertyColumn Property="carrera => carrera.Fecha" />
-    <PropertyColumn Property="carrera => carrera.CantidadPuntosControl" />
-    <PropertyColumn Property="carrera => carrera.CuposDisponibles" />
-    <PropertyColumn Property="carrera => carrera.Mapa" />
+    <PropertyColumn Property="carrera => carrera.Ubicacion" />
+    <PropertyColumn Property="carrera => carrera.Cupos" />
 
     <TemplateColumn Context="carrera">
-        <a href="@($"carreras/edit?idcarrera={carrera.IdCarrera}")">Edit</a> |
-        <a href="@($"carreras/details?idcarrera={carrera.IdCarrera}")">Details</a> |
-        <a href="@($"carreras/delete?idcarrera={carrera.IdCarrera}")">Delete</a>
+        <a href="@($"carreras/details?idcarrera={carrera.IdCarrera}")">Details</a>
     </TemplateColumn>
 </QuickGrid>
 
