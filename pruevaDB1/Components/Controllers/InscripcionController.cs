@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using pruevaDB1.Components.Model;
 using pruevaDB1.Data;
 using System.Collections.Concurrent;
+using static pruevaDB1.Components.Pages.AtletaPages.Inscribirse;
 
 namespace pruevaDB1.Components.Controllers
 {
@@ -26,7 +27,7 @@ namespace pruevaDB1.Components.Controllers
                 .Include(a => a.Inscripciones)
                 .FirstOrDefaultAsync(a => a.IdAtleta == idAtleta);
 
-            Carrera carrera = await _context.Carreras
+            var carrera = await _context.Carreras
                 .Include(c => c.Inscripciones)
                 .FirstOrDefaultAsync(c => c.IdCarrera == idCarrera);
 
@@ -34,8 +35,6 @@ namespace pruevaDB1.Components.Controllers
             {
                 AtletaId = idAtleta,
                 CarreraId = idCarrera,
-                NumeroDorsal = carrera.Inscripciones.Count + 101, 
-                ChipId = carrera.Inscripciones.Count + 101
             };
             _context.Inscripciones.Add(ins);
             carrera.Inscripciones.Add(ins);
@@ -74,6 +73,19 @@ namespace pruevaDB1.Components.Controllers
             return Ok(carreritas);
         }
 
+        [HttpPost("DarNumero")]
+        public async Task<IActionResult> DarNumero(int idAtleta, int idCarrera)
+        {
+            var carrera = await _context.Carreras
+                .Include(c => c.Inscripciones)
+                .FirstOrDefaultAsync(c => c.IdCarrera == idCarrera);
+            Inscripcion ins = carrera?.Inscripciones
+                .FirstOrDefault(i => i.AtletaId == idAtleta);
+            ins.NumeroDorsal = carrera.Inscripciones.Count + 101;
+            ins.ChipId = ins.NumeroDorsal;
+            return Ok();
+        }
+
 
         private static readonly ConcurrentDictionary<int, SemaphoreSlim> _locks = new();
         [HttpPost("LlamarSensor")]
@@ -94,7 +106,7 @@ namespace pruevaDB1.Components.Controllers
 
         public async Task<IActionResult> LlamarSensor(int idChip, int idCarrera)
         {
-            Carrera carrrera = await _context.Carreras.FindAsync(idCarrera);
+            var carrrera = await _context.Carreras.FindAsync(idCarrera);
             Inscripcion inscripcion = null;
             //encuentra la inscripcion del chip
             foreach (var ins in carrrera.Inscripciones)

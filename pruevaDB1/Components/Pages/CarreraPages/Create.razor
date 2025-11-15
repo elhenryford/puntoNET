@@ -52,6 +52,7 @@
 @code {
     [SupplyParameterFromForm]
     private Carrera Carrera { get; set; } = new();
+
     protected override async Task OnInitializedAsync()
     {
         Carrera.Fecha = DateTime.Today.AddDays(1);
@@ -62,6 +63,7 @@
     private async Task AddCarrera()
     {
         using var context = DbFactory.CreateDbContext();
+        Carrera.HoraInicio = Carrera.Fecha.Date.AddHours(15);
         context.Carreras.Add(Carrera);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/carrerasAdmin");
