@@ -81,8 +81,16 @@ namespace pruevaDB1.Components.Controllers
                 .FirstOrDefaultAsync(c => c.IdCarrera == idCarrera);
             Inscripcion ins = carrera?.Inscripciones
                 .FirstOrDefault(i => i.AtletaId == idAtleta);
+            List<Inscripcion> inscripcioncitas = new();
+            foreach (var insc in carrera.Inscripciones)
+            {
+                if(insc.NumeroDorsal == 0)
+                {
+                    inscripcioncitas.Add(insc);
+                }
+            }
             ins.NumeroDorsal = inscripcioncitas.Count + 101;
-            ins.ChipId = ins.NumeroDorsal - 100;
+            ins.ChipId = inscripcioncitas.Count;
             await _context.SaveChangesAsync();
             return Ok();
         }
