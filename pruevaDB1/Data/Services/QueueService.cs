@@ -100,7 +100,7 @@ public class QueueService : BackgroundService
             Console.WriteLine($"1 - carrera.cantSensores = {carrera?.cantSensores}"); ;
             if (nuevoTiempo.Puesto == carrera.cantSensores)
             {
-                if (carrera.inscGanador == null)
+                if (carrera.inscGanador == 0)
                 {
                     carrera.inscGanador = inscripcion.IdInscripcion;
                     //cartel de ganador
