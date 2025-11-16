@@ -44,13 +44,13 @@
     private LoginData loginData = new();
     private pruevaDB1Context context = default!;
     private string? ErrorMessage;
-    
+
 
     private async Task HandleLogin()
     {
         if (loginData.Username == "admin" && loginData.Password == "1234")
         {
-            NavigationManager.NavigateTo("/carreras");
+            NavigationManager.NavigateTo("/carrerasAdmin");
             return;
         }
 
@@ -62,16 +62,7 @@
 
         if (atleta != null)
         {
-            // Buscar inscripción asociada (si existe)
-            var inscripcion = await context.Inscripciones
-                .FirstOrDefaultAsync(i => i.AtletaId == atleta.IdAtleta);
-
-            if (inscripcion != null)
-            {
-                // Redirigir a la inscripción existente
-                NavigationManager.NavigateTo("/login");
-                // $"/api/inscripcion/Inscribirse?idAtleta={atleta.IdAtleta}&idCarrera={inscripcion.CarreraId}");
-            }
+            NavigationManager.NavigateTo($"/atleta/inscribirse/{atleta.IdAtleta}");
         }
         else
         {

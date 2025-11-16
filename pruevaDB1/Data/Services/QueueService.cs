@@ -1,12 +1,16 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using pruevaDB1.Data;
+using Microsoft.Extensions.Hosting;
 using pruevaDB1.Components.Model;
+using pruevaDB1.Data;
 using System;
 using System.Collections.Concurrent;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
+//using static pruevaDB1.Components.Pages.AtletaPages.Inscribirse;
+using static pruevaDB1.Components.Model.Carrera;
+using static pruevaDB1.Components.Model.Inscripcion;
 
 public class QueueService : BackgroundService
 {
@@ -66,7 +70,15 @@ public class QueueService : BackgroundService
         {
             Console.WriteLine($"🔄 Procesando evento -> ChipId: {evento.ChipId}");
 
-            var inscripcion = context.Inscripciones.FirstOrDefault(i => i.ChipId == evento.ChipId);
+            int idCarrera = evento.CarreraId;
+
+            var carrera = await context.Carreras
+                .Include(c => c.Inscripciones)
+                .FirstOrDefaultAsync(c => c.IdCarrera == idCarrera);
+
+            var inscripcion = carrera?.Inscripciones
+                .FirstOrDefault(i => i.ChipId == evento.ChipId);
+
 
             if (inscripcion == null)
             {
@@ -80,17 +92,33 @@ public class QueueService : BackgroundService
                 return;
             }
 
-            var nuevoTiempo = new TiempoParcial
+            TiempoParcial nuevoTiempo = new TiempoParcial
             {
                 InscripcionId = inscripcion.IdInscripcion,
-                HoraPaso = evento.HoraLectura,
-                Puesto = evento.PuntoControlId,
-                Inscripcion = inscripcion,
-                ChipID = evento.ChipId,
-                NumeroDorsal = inscripcion.NumeroDorsal
+                Puesto = inscripcion.TiemposParciales.Count + 1,
+                NumeroDorsal = inscripcion.NumeroDorsal,
+                ChipID = inscripcion.ChipId,
+                HoraPaso = DateTime.Now - carrera.HoraInicio
             };
             inscripcion.TiemposParciales.Add(nuevoTiempo);
-            // Usar el DbSet que coincide con tu tabla: "TiempoParcial"
+            if (nuevoTiempo.Puesto == carrera.cantSensores)
+            {
+                if (carrera.inscGanador == null)
+                {
+                    carrera.inscGanador = inscripcion.IdInscripcion;
+                    //cartel de ganador
+                }
+                inscripcion.TiempoTotal = nuevoTiempo.HoraPaso;
+                int pos = 0;
+                foreach (var ins in carrera.Inscripciones)
+                {
+                    if (ins.Posicion > pos)
+                    {
+                        pos = ins.Posicion;
+                    }
+                }
+                inscripcion.Posicion = pos + 1;
+            }
             context.TiempoParcial.Add(nuevoTiempo);
             await context.SaveChangesAsync();
         }

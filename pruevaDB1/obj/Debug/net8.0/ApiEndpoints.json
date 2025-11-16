@@ -27,6 +27,11 @@
         "Name": "idChip",
         "Type": "System.Int32",
         "IsRequired": false
+      },
+      {
+        "Name": "idCarrera",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -41,6 +46,27 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "pruevaDB1.Components.Controllers.InscripcionController",
+    "Method": "DarNumero",
+    "RelativePath": "Inscripcion/DarNumero",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAtleta",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idCarrera",
         "Type": "System.Int32",
         "IsRequired": false
       }
@@ -65,6 +91,27 @@
   },
   {
     "ContainingType": "pruevaDB1.Components.Controllers.InscripcionController",
+    "Method": "Inscribirse",
+    "RelativePath": "Inscripcion/Inscribirse",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAtleta",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idCarrera",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "pruevaDB1.Components.Controllers.InscripcionController",
     "Method": "LlamarSensorLocked",
     "RelativePath": "Inscripcion/LlamarSensor",
     "HttpMethod": "POST",
@@ -73,6 +120,11 @@
     "Parameters": [
       {
         "Name": "idChip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idCarrera",
         "Type": "System.Int32",
         "IsRequired": false
       }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace pruevaDB1.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Migra1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -38,7 +38,9 @@ namespace pruevaDB1.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ubicacion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Ubicacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    cantSensores = table.Column<int>(type: "int", nullable: false),
+                    inscGanador = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,7 +56,8 @@ namespace pruevaDB1.Migrations
                     AtletaId = table.Column<int>(type: "int", nullable: false),
                     CarreraId = table.Column<int>(type: "int", nullable: false),
                     NumeroDorsal = table.Column<int>(type: "int", nullable: false),
-                    ChipId = table.Column<int>(type: "int", nullable: false)
+                    ChipId = table.Column<int>(type: "int", nullable: false),
+                    posicion = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

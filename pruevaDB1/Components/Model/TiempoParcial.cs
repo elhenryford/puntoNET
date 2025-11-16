@@ -17,7 +17,7 @@ namespace pruevaDB1.Components.Model
         public int ChipID { get; set; }
         public Inscripcion? Inscripcion { get; set; }
 
-        public DateTime HoraPaso { get; set; }
+        public TimeSpan HoraPaso { get; set; }
 
     }
 }

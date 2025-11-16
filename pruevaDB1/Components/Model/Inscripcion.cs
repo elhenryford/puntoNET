@@ -11,9 +11,11 @@ namespace pruevaDB1.Components.Model
         public int IdInscripcion { get; set; }
         public int AtletaId { get; set; }
         public int CarreraId { get; set; }
-        public int NumeroDorsal { get; set; }
-        public int ChipId { get; set; } // Nuevo campo
+        public int NumeroDorsal { get; set; } = 0;
+        public int ChipId { get; set; } = 0;
+        public int Posicion { get; set; } = 0;
         public List<TiempoParcial> TiemposParciales { get; set; } = new List<TiempoParcial>();
+        public TimeSpan TiempoTotal { get; set; }
 
     }
 

@@ -12,8 +12,8 @@ using pruevaDB1.Data;
 namespace pruevaDB1.Migrations
 {
     [DbContext(typeof(pruevaDB1Context))]
-    [Migration("20251111122912_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20251114004035_Migra3")]
+    partial class Migra3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,7 +70,13 @@ namespace pruevaDB1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCarrera"));
 
+                    b.Property<int>("Cupos")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("HoraInicio")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
@@ -80,6 +86,12 @@ namespace pruevaDB1.Migrations
                     b.Property<string>("Ubicacion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("cantSensores")
+                        .HasColumnType("int");
+
+                    b.Property<int>("inscGanador")
+                        .HasColumnType("int");
 
                     b.HasKey("IdCarrera");
 
@@ -106,6 +118,12 @@ namespace pruevaDB1.Migrations
                     b.Property<int>("NumeroDorsal")
                         .HasColumnType("int");
 
+                    b.Property<int>("Posicion")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("TiempoTotal")
+                        .HasColumnType("time");
+
                     b.HasKey("IdInscripcion");
 
                     b.HasIndex("AtletaId");
@@ -126,8 +144,8 @@ namespace pruevaDB1.Migrations
                     b.Property<int>("ChipID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("HoraPaso")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("HoraPaso")
+                        .HasColumnType("time");
 
                     b.Property<int>("InscripcionId")
                         .HasColumnType("int");

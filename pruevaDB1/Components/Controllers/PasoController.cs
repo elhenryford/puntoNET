@@ -19,12 +19,12 @@ public class PasoController : ControllerBase
         {
             ChipId = request.ChipId,
             PuntoControlId = request.PuntoId,
-            HoraLectura = DateTime.Now
+            CarreraId = request.CarreraId
         };
 
         _queueService.Enqueue(evento); // <-- aquí usás Enqueue del servicio
         return Ok(new { message = "Evento encolado correctamente" });
     }
 
-    public record RegistroPasoRequest(int ChipId, int PuntoId);
+    public record RegistroPasoRequest(int ChipId, int PuntoId, int CarreraId);
 }
