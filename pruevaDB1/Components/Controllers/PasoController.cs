@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using pruevaDB1.Components.Model;
+using static pruevaDB1.Components.Pages.AtletaPages.Inscribirse;
 
 [ApiController]
 [Route("api/paso")]
@@ -19,7 +20,8 @@ public class PasoController : ControllerBase
         {
             ChipId = request.ChipId,
             PuntoControlId = request.PuntoId,
-            HoraLectura = DateTime.Now.TimeOfDay
+            HoraLectura = DateTime.Now,
+            CarreraId = request.CarreraId
 
         };
 
@@ -27,5 +29,5 @@ public class PasoController : ControllerBase
         return Ok(new { message = "Evento encolado correctamente" });
     }
 
-    public record RegistroPasoRequest(int ChipId, int PuntoId);
+    public record RegistroPasoRequest(int ChipId, int PuntoId, DateTime HoraLectura, int CarreraId);
 }
