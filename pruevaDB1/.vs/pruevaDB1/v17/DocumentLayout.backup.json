@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\data\\services\\queueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:data\\services\\queueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\migrations\\20251117031342_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:migrations\\20251117031342_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,14 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "QueueService.cs",
-              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Data\\Services\\QueueService.cs",
-              "RelativeDocumentMoniker": "Data\\Services\\QueueService.cs",
-              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Data\\Services\\QueueService.cs",
-              "RelativeToolTip": "Data\\Services\\QueueService.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAswHQAAAAOAAAAAAAAAA==",
+              "Title": "20251117031342_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Migrations\\20251117031342_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251117031342_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Migrations\\20251117031342_InitialCreate.cs",
+              "RelativeToolTip": "Migrations\\20251117031342_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T19:35:35.178Z",
+              "WhenOpened": "2025-11-17T03:13:43.432Z",
               "EditorCaption": ""
             }
           ]

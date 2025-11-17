@@ -12,8 +12,8 @@ using pruevaDB1.Data;
 namespace pruevaDB1.Migrations
 {
     [DbContext(typeof(pruevaDB1Context))]
-    [Migration("20251116045518_mssql.local_migration_864")]
-    partial class mssqllocal_migration_864
+    [Migration("20251117031342_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

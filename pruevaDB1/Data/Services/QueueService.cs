@@ -68,11 +68,12 @@ public class QueueService : BackgroundService
         {
             Console.WriteLine($"🔄 Procesando evento -> ChipId: {evento.ChipId}");
 
-            var inscripcion = context.Inscripciones.FirstOrDefault(i => i.ChipId == evento.ChipId);
-            var atleta = context.Atletas.FirstOrDefault(a => a.ChipID == evento.ChipId);
             var carrera = await context.Carreras
                 .Include(c => c.Inscripciones)
                 .FirstOrDefaultAsync(c => c.IdCarrera == evento.CarreraId);
+            var inscripcion = await context.Inscripciones
+    .FirstOrDefaultAsync(i => i.ChipId == evento.ChipId && i.CarreraId == evento.CarreraId);
+            var atleta = context.Atletas.FirstOrDefault(a => a.ChipID == evento.ChipId);
             if (inscripcion == null)
             {
                 Console.WriteLine($" No se encontró Inscripción con ChipId={evento.ChipId}");
@@ -88,7 +89,7 @@ public class QueueService : BackgroundService
             var nuevoTiempo = new TiempoParcial
             {
                 InscripcionId = inscripcion.IdInscripcion,
-                HoraPaso = evento.HoraLectura,
+                HoraPaso = evento.HoraLectura - carrera.HoraInicio,
                 Puesto = evento.PuntoControlId,
                 Inscripcion = inscripcion,
                 NumeroDorsal = atleta?.NumeroDorsal ?? 0,
@@ -96,9 +97,10 @@ public class QueueService : BackgroundService
 
             };
             //Da null en este if
-           /* if (nuevoTiempo.Puesto == carrera.cantSensores)
+            Console.WriteLine($"1 - carrera.cantSensores = {carrera?.cantSensores}"); ;
+            if (nuevoTiempo.Puesto == carrera.cantSensores)
             {
-                if (carrera.inscGanador == null)
+                if (carrera.inscGanador == 0)
                 {
                     carrera.inscGanador = inscripcion.IdInscripcion;
                     //cartel de ganador
@@ -114,7 +116,6 @@ public class QueueService : BackgroundService
                 }
                 inscripcion.Posicion = pos + 1;
             }
-            */
             inscripcion.TiemposParciales.Add(nuevoTiempo);
             context.TiemposParciales.Add(nuevoTiempo);
             await context.SaveChangesAsync();
