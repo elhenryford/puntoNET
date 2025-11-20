@@ -192,3 +192,22 @@ h1:focus {
     .back-link:hover {
         text-decoration: underline;
     }
+    /*letras del menu blancas*/
+/* ====== Sidebar Modern - Texto blanco ====== */
+
+.sidebar-modern .menu-items .nav-link {
+    color: #ffffff !important; /* texto blanco */
+    font-weight: 500;
+}
+
+    .sidebar-modern .menu-items .nav-link i {
+        color: #ffffff !important; /* iconos blancos */
+    }
+
+    .sidebar-modern .menu-items .nav-link.active {
+        color: #ffffff !important;
+    }
+
+.sidebar-modern .brand {
+    color: #ffffff !important; /* título 'pruevaDB1' blanco */
+}

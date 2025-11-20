@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -13,14 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\components\\pages\\atletapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\pages\\atletapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DA80F7BB-97A9-47C2-9D2E-04F3038593AF}|pruevaDB1.csproj|c:\\users\\henry\\desktop\\pruevadb1\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Login.razor",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\Login.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Login.razor",
@@ -59,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Create.razor",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\CarreraPages\\Create.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\CarreraPages\\Create.razor",
@@ -67,12 +67,11 @@
               "RelativeToolTip": "Components\\Pages\\CarreraPages\\Create.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T04:25:38.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T04:25:38.185Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Create.razor",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Pages\\AtletaPages\\Create.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\AtletaPages\\Create.razor",
@@ -80,31 +79,30 @@
               "RelativeToolTip": "Components\\Pages\\AtletaPages\\Create.razor",
               "ViewState": "AgIAAEcAAAAAAAAAAAAowF0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T04:15:42.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T04:15:42.979Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "app.css",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\wwwroot\\app.css",
               "RelativeDocumentMoniker": "wwwroot\\app.css",
               "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\wwwroot\\app.css",
               "RelativeToolTip": "wwwroot\\app.css",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAYwMIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAcwNUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-11-19T22:00:42.468Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
               "ToolTip": "C:\\Users\\Henry\\Desktop\\pruevaDB1\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-19T21:59:58.763Z",
               "EditorCaption": ""
