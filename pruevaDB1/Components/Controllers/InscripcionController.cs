@@ -60,7 +60,7 @@ namespace pruevaDB1.Components.Controllers
 
             foreach (var car in carreras)
             {
-                if (car.Fecha >= DateTime.Now && car.Cupos > car.Inscripciones.Count)
+                if (car.Fecha.Date >= DateTime.Now.Date && car.Cupos > car.Inscripciones.Count)
                 {
                     bool yaInscripto = atleta.Inscripciones
                         .Any(ins => ins.CarreraId == car.IdCarrera);

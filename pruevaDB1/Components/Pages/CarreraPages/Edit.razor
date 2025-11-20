@@ -33,9 +33,24 @@ else
                     <ValidationMessage For="() => Carrera.Fecha" class="text-danger" />
                 </div>
                 <div class="mb-3">
+                    <label for="horainicio" class="form-label">Hora de Inicio:</label>
+                    <input type="time" id="hora" class="form-control" @bind="HoraInicioString" />
+                    <ValidationMessage For="() => Carrera.HoraInicio" class="text-danger" />
+                </div>
+                <div class="mb-3">
                     <label for="ubicacion" class="form-label">Ubicacion:</label>
                     <InputText id="ubicacion" @bind-Value="Carrera.Ubicacion" class="form-control" />
                     <ValidationMessage For="() => Carrera.Ubicacion" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="cupos" class="form-label">Cupos:</label>
+                    <InputNumber id="cupos" @bind-Value="Carrera.Cupos" class="form-control" />
+                    <ValidationMessage For="() => Carrera.Cupos" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="cantsensores" class="form-label">Cantidad de Sensores:</label>
+                    <InputNumber id="cantsensores" @bind-Value="Carrera.cantSensores" class="form-control" />
+                    <ValidationMessage For="() => Carrera.cantSensores" class="text-danger" />
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </EditForm>
@@ -44,7 +59,7 @@ else
 }
 
 <div>
-    <a href="/carrerasAdmin">Back to List</a>
+    <a href="/carreras">Back to List</a>
 </div>
 
 @code {
@@ -54,10 +69,13 @@ else
     [SupplyParameterFromForm]
     private Carrera? Carrera { get; set; }
 
+    private DateTime HoraInicioString { get; set; } = DateTime.Now;
+
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
         Carrera ??= await context.Carreras.FirstOrDefaultAsync(m => m.IdCarrera == IdCarrera);
+        HoraInicioString = Carrera.HoraInicio;
 
         if (Carrera is null)
         {

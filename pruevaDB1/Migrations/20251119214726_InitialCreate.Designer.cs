@@ -12,7 +12,7 @@ using pruevaDB1.Data;
 namespace pruevaDB1.Migrations
 {
     [DbContext(typeof(pruevaDB1Context))]
-    [Migration("20251117031342_InitialCreate")]
+    [Migration("20251119214726_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
