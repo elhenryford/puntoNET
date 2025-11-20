@@ -17,7 +17,7 @@ namespace pruevaDB1.Data
         public DbSet<Atleta> Atletas { get; set; } = default!;
         public DbSet<Carrera> Carreras { get; set; } = default!;
         public DbSet<Inscripcion> Inscripciones { get; set; } = default!;
-        public DbSet<TiempoParcial> TiempoParcial { get; set; } = default!;
+        public DbSet<TiempoParcial> TiemposParciales { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

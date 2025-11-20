@@ -12,8 +12,8 @@ using pruevaDB1.Data;
 namespace pruevaDB1.Migrations
 {
     [DbContext(typeof(pruevaDB1Context))]
-    [Migration("20251114004035_Migra3")]
-    partial class Migra3
+    [Migration("20251119214726_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -160,7 +160,7 @@ namespace pruevaDB1.Migrations
 
                     b.HasIndex("InscripcionId");
 
-                    b.ToTable("TiempoParcial");
+                    b.ToTable("TiemposParciales");
                 });
 
             modelBuilder.Entity("pruevaDB1.Components.Model.Inscripcion", b =>

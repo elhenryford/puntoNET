@@ -8,6 +8,15 @@
 
 <PageTitle>Index</PageTitle>
 
+<style>
+    .custom-class {
+        max-width: 120px; /* Restrict the maximum width to 100px */
+        word-wrap: break-word; /* Forces long words to break onto the next line */
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+</style>
+
 <h1>Index</h1>
 
 <p>
@@ -15,11 +24,11 @@
 </p>
 
 <QuickGrid Class="table" Items="context.Carreras">
-    <PropertyColumn Property="carrera => carrera.Nombre" />
-    <PropertyColumn Property="carrera => carrera.Fecha" />
-    <PropertyColumn Property="carrera => carrera.Ubicacion" />
-    <PropertyColumn Property="carrera => carrera.Cupos" />
-    <PropertyColumn Property="carrera => carrera.cantSensores" />
+    <PropertyColumn Property="carrera => carrera.Nombre" Class="custom-class" />
+    <PropertyColumn Property="carrera => carrera.HoraInicio" Title="Fecha" Class="custom-class" />
+    <PropertyColumn Property="carrera => carrera.Ubicacion" Class="custom-class" />
+    <PropertyColumn Property="carrera => carrera.Cupos" Class="custom-class" />
+    <PropertyColumn Property="carrera => carrera.cantSensores" Title="Cantidad de Sensores" Class="custom-class" />
 
     <TemplateColumn Context="carrera">
         <a href="@($"inscripcions/edit?idcarrera={carrera.IdCarrera}")" > Edit</a> |

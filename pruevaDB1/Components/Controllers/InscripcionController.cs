@@ -20,9 +20,9 @@ namespace pruevaDB1.Components.Controllers
 
         /*esto es asi xq en login no puedo llevarlo a inscribirse lo tengo 
           que dejar en login para que pruebe denuevo*/
-         [HttpPost("Inscribirse")]
-          public async Task<IActionResult> Inscribirse(int idAtleta, int idCarrera) 
-        { 
+        [HttpPost("Inscribirse")]
+        public async Task<IActionResult> Inscribirse(int idAtleta, int idCarrera)
+        {
             Atleta atleta = await _context.Atletas
                 .Include(a => a.Inscripciones)
                 .FirstOrDefaultAsync(a => a.IdAtleta == idAtleta);
@@ -35,13 +35,15 @@ namespace pruevaDB1.Components.Controllers
             {
                 AtletaId = idAtleta,
                 CarreraId = idCarrera,
+                NumeroDorsal = atleta.NumeroDorsal,
+                ChipId = atleta.ChipID
             };
             _context.Inscripciones.Add(ins);
             carrera.Inscripciones.Add(ins);
             atleta.Inscripciones.Add(ins);
             await _context.SaveChangesAsync();
             return Ok("Inscripción exitosa");
-          }
+        }
 
         [HttpGet("GetCarreras")]
         public async Task<IActionResult> GetCarreras(int idAtleta)
@@ -58,7 +60,7 @@ namespace pruevaDB1.Components.Controllers
 
             foreach (var car in carreras)
             {
-                if (car.Fecha > DateTime.Now && car.Cupos > car.Inscripciones.Count)
+                if (car.Fecha.Date >= DateTime.Now.Date && car.Cupos > car.Inscripciones.Count)
                 {
                     bool yaInscripto = atleta.Inscripciones
                         .Any(ins => ins.CarreraId == car.IdCarrera);

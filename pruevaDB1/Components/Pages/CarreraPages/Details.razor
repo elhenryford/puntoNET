@@ -1,6 +1,7 @@
 ﻿@page "/carreras/details"
 @using Microsoft.EntityFrameworkCore
 @using pruevaDB1.Components.Model
+@using Microsoft.AspNetCore.Components.QuickGrid
 @inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
 @inject NavigationManager NavigationManager
 
@@ -20,19 +21,33 @@
             <dt class="col-sm-2">Nombre</dt>
             <dd class="col-sm-10">@carrera.Nombre</dd>
             <dt class="col-sm-2">Fecha</dt>
-            <dd class="col-sm-10">@carrera.Fecha</dd>
-            <dt class="col-sm-2">HoraInicio</dt>
             <dd class="col-sm-10">@carrera.HoraInicio</dd>
             <dt class="col-sm-2">Ubicacion</dt>
             <dd class="col-sm-10">@carrera.Ubicacion</dd>
             <dt class="col-sm-2">Cupos</dt>
             <dd class="col-sm-10">@carrera.Cupos</dd>
-            <dt class="col-sm-2">cantSensores</dt>
+            <dt class="col-sm-2">Cantidad de Sensores</dt>
             <dd class="col-sm-10">@carrera.cantSensores</dd>
             @if(atleta != null)
             {
                 <dt class="col-sm-2">Ganador</dt>
                 <dd class="col-sm-10">@atleta.Nombre</dd>
+            }
+            @if (corredores.Any())
+            {
+                <QuickGrid TGridItem="DataAtleta" Items="@corredores.AsQueryable()" Class="table table-striped">
+                    <PropertyColumn Property="c => c.Nombre" Title="Nombre" Sortable="true" />
+                    <PropertyColumn Property="c => c.Numero" Title="Número" Sortable="true" />
+                    <PropertyColumn Property="c => c.Posicion" Title="Posición" Sortable="true" />
+                    <PropertyColumn Property="c => c.Tiempo" Title="Tiempo Total" />
+                    <TemplateColumn Context="corredor">
+                        <a href="@($"atleta/details?idatleta={corredor.Id}")">Details</a>
+                    </TemplateColumn>
+                </QuickGrid>
+            }
+            else
+            {
+                <p><em>Nadie ha finalizado esta carrera aún.</em></p>
             }
         </dl>
         <div>
@@ -45,6 +60,7 @@
     private Carrera? carrera;
     private Atleta? atleta = null;
     private Inscripcion? inscgan;
+    private List<DataAtleta> corredores = new();
 
     [SupplyParameterFromQuery]
     private int IdCarrera { get; set; }
@@ -52,16 +68,41 @@
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        carrera = await context.Carreras.FirstOrDefaultAsync(m => m.IdCarrera == IdCarrera);
-        if(carrera.inscGanador != 0)
+        carrera = await context.Carreras.Include(m => m.Inscripciones).FirstOrDefaultAsync(m => m.IdCarrera == IdCarrera);
+        if (carrera.inscGanador != 0)
         {
             inscgan = await context.Inscripciones.FirstOrDefaultAsync(i => i.IdInscripcion == carrera.inscGanador);
             atleta = await context.Atletas.FirstOrDefaultAsync(a => a.IdAtleta == inscgan.AtletaId);
+        }
+
+        foreach (var insc in carrera.Inscripciones)
+        {
+            if (insc.Posicion > 0)
+            {
+                var atletaFinal = await context.Atletas.FirstOrDefaultAsync(a => a.IdAtleta == insc.AtletaId);
+                corredores.Add(new DataAtleta
+                {
+                    Id = atletaFinal.IdAtleta,
+                    Nombre = atletaFinal.Nombre,
+                    Numero = insc.NumeroDorsal,
+                    Tiempo = insc.TiempoTotal,
+                    Posicion = insc.Posicion
+                });
+            }
         }
 
         if (carrera is null)
         {
             NavigationManager.NavigateTo("notfound");
         }
+    }
+
+    public class DataAtleta
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; } = string.Empty;
+        public TimeSpan Tiempo { get; set; }
+        public int Numero { get; set; }
+        public int Posicion { get; set; }
     }
 }

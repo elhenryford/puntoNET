@@ -157,7 +157,7 @@ namespace pruevaDB1.Migrations
 
                     b.HasIndex("InscripcionId");
 
-                    b.ToTable("TiempoParcial");
+                    b.ToTable("TiemposParciales");
                 });
 
             modelBuilder.Entity("pruevaDB1.Components.Model.Inscripcion", b =>

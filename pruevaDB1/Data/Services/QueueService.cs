@@ -8,9 +8,7 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-//using static pruevaDB1.Components.Pages.AtletaPages.Inscribirse;
-using static pruevaDB1.Components.Model.Carrera;
-using static pruevaDB1.Components.Model.Inscripcion;
+using static pruevaDB1.Components.Pages.AtletaPages.Inscribirse;
 
 public class QueueService : BackgroundService
 {
@@ -64,22 +62,18 @@ public class QueueService : BackgroundService
     {
         using var scope = _scopeFactory.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<pruevaDB1Context>();
-        
+
 
         try
         {
             Console.WriteLine($"🔄 Procesando evento -> ChipId: {evento.ChipId}");
 
-            int idCarrera = evento.CarreraId;
-
             var carrera = await context.Carreras
                 .Include(c => c.Inscripciones)
-                .FirstOrDefaultAsync(c => c.IdCarrera == idCarrera);
-
-            var inscripcion = carrera?.Inscripciones
-                .FirstOrDefault(i => i.ChipId == evento.ChipId);
-
-
+                .FirstOrDefaultAsync(c => c.IdCarrera == evento.CarreraId);
+            var inscripcion = await context.Inscripciones
+    .FirstOrDefaultAsync(i => i.ChipId == evento.ChipId && i.CarreraId == evento.CarreraId);
+            var atleta = context.Atletas.FirstOrDefault(a => a.ChipID == evento.ChipId);
             if (inscripcion == null)
             {
                 Console.WriteLine($" No se encontró Inscripción con ChipId={evento.ChipId}");
@@ -92,18 +86,21 @@ public class QueueService : BackgroundService
                 return;
             }
 
-            TiempoParcial nuevoTiempo = new TiempoParcial
+            var nuevoTiempo = new TiempoParcial
             {
                 InscripcionId = inscripcion.IdInscripcion,
-                Puesto = inscripcion.TiemposParciales.Count + 1,
-                NumeroDorsal = inscripcion.NumeroDorsal,
-                ChipID = inscripcion.ChipId,
-                HoraPaso = DateTime.Now - carrera.HoraInicio
+                HoraPaso = evento.HoraLectura - carrera.HoraInicio,
+                Puesto = evento.PuntoControlId,
+                Inscripcion = inscripcion,
+                NumeroDorsal = atleta?.NumeroDorsal ?? 0,
+                ChipID = evento.ChipId,
+
             };
-            inscripcion.TiemposParciales.Add(nuevoTiempo);
+            //Da null en este if
+            Console.WriteLine($"1 - carrera.cantSensores = {carrera?.cantSensores}"); ;
             if (nuevoTiempo.Puesto == carrera.cantSensores)
             {
-                if (carrera.inscGanador == null)
+                if (carrera.inscGanador == 0)
                 {
                     carrera.inscGanador = inscripcion.IdInscripcion;
                     //cartel de ganador
@@ -119,7 +116,8 @@ public class QueueService : BackgroundService
                 }
                 inscripcion.Posicion = pos + 1;
             }
-            context.TiempoParcial.Add(nuevoTiempo);
+            inscripcion.TiemposParciales.Add(nuevoTiempo);
+            context.TiemposParciales.Add(nuevoTiempo);
             await context.SaveChangesAsync();
         }
         catch (Exception ex)

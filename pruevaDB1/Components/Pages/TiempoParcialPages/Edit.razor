@@ -67,7 +67,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        TiempoParcial ??= await context.TiempoParcial.FirstOrDefaultAsync(m => m.IdTiempo == IdTiempo);
+        TiempoParcial ??= await context.TiemposParciales.FirstOrDefaultAsync(m => m.IdTiempo == IdTiempo);
 
         if (TiempoParcial is null)
         {
@@ -104,6 +104,6 @@ else
     private bool TiempoParcialExists(int idtiempo)
     {
         using var context = DbFactory.CreateDbContext();
-        return context.TiempoParcial.Any(e => e.IdTiempo == idtiempo);
+        return context.TiemposParciales.Any(e => e.IdTiempo == idtiempo);
     }
 }

@@ -10,9 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Base de datos
 builder.Services.AddDbContextFactory<pruevaDB1Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-// Cola registrada correctamente
+
+// 🟢 Cola registrada correctamente (solo una vez y sin duplicar HostedService)
 builder.Services.AddSingleton<QueueService>();
-builder.Services.AddHostedService(provider => provider.GetRequiredService<QueueService>());
+builder.Services.AddHostedService(provider =>provider.GetRequiredService<QueueService>());
+builder.Services.AddHostedService<QueueService>();
 
 builder.Services.AddControllers();
 
@@ -33,8 +35,6 @@ builder.Services.AddHttpClient("API", client =>
 builder.Services.AddScoped(sp =>
     sp.GetRequiredService<IHttpClientFactory>().CreateClient("API"));
 
-
-
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -46,9 +46,9 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAntiforgery();
 
-// ✅ ÚNICO estilo Blazor en .NET 8
+// Blazor
 app.MapRazorComponents<pruevaDB1.Components.App>()
     .AddInteractiveServerRenderMode();
-app.MapControllers();
 
+app.MapControllers();
 app.Run();

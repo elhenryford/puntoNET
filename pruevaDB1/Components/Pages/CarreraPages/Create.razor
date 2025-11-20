@@ -4,68 +4,84 @@
 @inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
 @inject NavigationManager NavigationManager
 
-<PageTitle>Create</PageTitle>
+<PageTitle>Create Carrera</PageTitle>
 
-<h1>Create</h1>
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+        <div class="form-card">
 
-<h2>Carrera</h2>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <EditForm method="post" Model="Carrera" OnValidSubmit="AddCarrera" FormName="create" Enhance>
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert"/>
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre:</label> 
-                <InputText id="nombre" @bind-Value="Carrera.Nombre" class="form-control" aria-required="true"/> 
-                <ValidationMessage For="() => Carrera.Nombre" class="text-danger" /> 
-            </div>        
-            <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha:</label> 
-                <InputDate id="fecha" @bind-Value="Carrera.Fecha" class="form-control" min="@DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")" />
-                <ValidationMessage For="() => Carrera.Fecha" class="text-danger" /> 
-            </div>        
-            <div class="mb-3">
-                <label for="ubicacion" class="form-label">Ubicacion:</label> 
-                <InputText id="ubicacion" @bind-Value="Carrera.Ubicacion" class="form-control" /> 
-                <ValidationMessage For="() => Carrera.Ubicacion" class="text-danger" /> 
-            </div>        
-            <div class="mb-3">
-                <label for="cupos" class="form-label">Cupos:</label> 
-                <InputNumber id="cupos" @bind-Value="Carrera.Cupos" class="form-control" /> 
-                <ValidationMessage For="() => Carrera.Cupos" class="text-danger" /> 
-            </div>
-            <div class="mb-3">
-                <label for="cantsensores" class="form-label">cantSensores:</label>
-                <InputNumber id="cantsensores" @bind-Value="Carrera.cantSensores" class="form-control" />
-                <ValidationMessage For="() => Carrera.cantSensores" class="text-danger" />
-            </div>
-            <button type="submit" class="btn btn-primary">Create</button>
-        </EditForm>
+            <h2 class="form-title">Crear Carrera</h2>
+
+            <EditForm method="post" Model="Carrera" OnValidSubmit="AddCarrera" FormName="create" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger" role="alert" />
+
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <InputText id="nombre" @bind-Value="Carrera.Nombre" class="form-control" aria-required="true" />
+                    <ValidationMessage For="() => Carrera.Nombre" class="text-danger" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="fecha" class="form-label">Fecha</label>
+                    <InputDate id="fecha" @bind-Value="Carrera.Fecha" class="form-control"
+                               min="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                    <ValidationMessage For="() => Carrera.Fecha" class="text-danger" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="hora" class="form-label">Hora de Inicio</label>
+                    <input type="time" id="hora" class="form-control" @bind="HoraInicioString" />
+                    <ValidationMessage For="() => Carrera.HoraInicio" class="text-danger" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="ubicacion" class="form-label">Ubicación</label>
+                    <InputText id="ubicacion" @bind-Value="Carrera.Ubicacion" class="form-control" />
+                    <ValidationMessage For="() => Carrera.Ubicacion" class="text-danger" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="cupos" class="form-label">Cupos</label>
+                    <InputNumber id="cupos" @bind-Value="Carrera.Cupos" class="form-control" />
+                    <ValidationMessage For="() => Carrera.Cupos" class="text-danger" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="cantsensores" class="form-label">Cantidad de Sensores</label>
+                    <InputNumber id="cantsensores" @bind-Value="Carrera.cantSensores" class="form-control" />
+                    <ValidationMessage For="() => Carrera.cantSensores" class="text-danger" />
+                </div>
+
+                <button type="submit" class="btn-submit">Crear</button>
+            </EditForm>
+
+            <a href="/carreras" class="back-link">← Volver a la lista</a>
+
+        </div>
     </div>
-</div>
-
-<div>
-    <a href="/carrerasAdmin">Back to List</a>
 </div>
 
 @code {
     [SupplyParameterFromForm]
     private Carrera Carrera { get; set; } = new();
 
+    private DateTime HoraInicioString { get; set; } = DateTime.Now;
+
     protected override async Task OnInitializedAsync()
     {
-        Carrera.Fecha = DateTime.Today.AddDays(1);
+        Carrera.Fecha = DateTime.Today;
     }
 
-
-    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddCarrera()
     {
         using var context = DbFactory.CreateDbContext();
-        Carrera.HoraInicio = Carrera.Fecha.Date.AddHours(15);
+
+        Carrera.HoraInicio = Carrera.Fecha + HoraInicioString.TimeOfDay;
+
         context.Carreras.Add(Carrera);
         await context.SaveChangesAsync();
+
         NavigationManager.NavigateTo("/carrerasAdmin");
     }
 }

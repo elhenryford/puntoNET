@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace pruevaDB1.Migrations
 {
     /// <inheritdoc />
-    public partial class Migra1 : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -38,7 +38,9 @@ namespace pruevaDB1.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    HoraInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Ubicacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cupos = table.Column<int>(type: "int", nullable: false),
                     cantSensores = table.Column<int>(type: "int", nullable: false),
                     inscGanador = table.Column<int>(type: "int", nullable: false)
                 },
@@ -57,7 +59,8 @@ namespace pruevaDB1.Migrations
                     CarreraId = table.Column<int>(type: "int", nullable: false),
                     NumeroDorsal = table.Column<int>(type: "int", nullable: false),
                     ChipId = table.Column<int>(type: "int", nullable: false),
-                    posicion = table.Column<int>(type: "int", nullable: false)
+                    Posicion = table.Column<int>(type: "int", nullable: false),
+                    TiempoTotal = table.Column<TimeSpan>(type: "time", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -77,7 +80,7 @@ namespace pruevaDB1.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TiempoParcial",
+                name: "TiemposParciales",
                 columns: table => new
                 {
                     IdTiempo = table.Column<int>(type: "int", nullable: false)
@@ -86,13 +89,13 @@ namespace pruevaDB1.Migrations
                     Puesto = table.Column<int>(type: "int", nullable: false),
                     NumeroDorsal = table.Column<int>(type: "int", nullable: false),
                     ChipID = table.Column<int>(type: "int", nullable: false),
-                    HoraPaso = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    HoraPaso = table.Column<TimeSpan>(type: "time", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TiempoParcial", x => x.IdTiempo);
+                    table.PrimaryKey("PK_TiemposParciales", x => x.IdTiempo);
                     table.ForeignKey(
-                        name: "FK_TiempoParcial_Inscripcion_InscripcionId",
+                        name: "FK_TiemposParciales_Inscripcion_InscripcionId",
                         column: x => x.InscripcionId,
                         principalTable: "Inscripcion",
                         principalColumn: "IdInscripcion",
@@ -110,8 +113,8 @@ namespace pruevaDB1.Migrations
                 column: "CarreraId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TiempoParcial_InscripcionId",
-                table: "TiempoParcial",
+                name: "IX_TiemposParciales_InscripcionId",
+                table: "TiemposParciales",
                 column: "InscripcionId");
         }
 
@@ -119,7 +122,7 @@ namespace pruevaDB1.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TiempoParcial");
+                name: "TiemposParciales");
 
             migrationBuilder.DropTable(
                 name: "Inscripcion");

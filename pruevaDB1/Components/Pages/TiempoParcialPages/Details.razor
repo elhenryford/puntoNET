@@ -44,7 +44,7 @@
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        tiempoparcial = await context.TiempoParcial.FirstOrDefaultAsync(m => m.IdTiempo == IdTiempo);
+        tiempoparcial = await context.TiemposParciales.FirstOrDefaultAsync(m => m.IdTiempo == IdTiempo);
 
         if (tiempoparcial is null)
         {
