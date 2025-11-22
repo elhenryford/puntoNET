@@ -35,8 +35,22 @@
                 <QuickGrid TGridItem="DataCarrera" Items="@carreras.AsQueryable()" Class="table table-striped">
                     <PropertyColumn Property="c => c.NomCarrera" Title="Carrera" Sortable="true" />
                     <PropertyColumn Property="c => c.Dorsal" Title="Número" Sortable="true" />
-                    <PropertyColumn Property="c => c.Posicion" Title="Posición" Sortable="true" />
+
+                    <TemplateColumn Title="Posición" Context="carrera">
+                        @if (carrera.Posicion == 0)
+                        {
+                            <a href="@($"/atleta/seguimiento?IdAtleta={carrera.IdAtleta}&IdCarrera={carrera.IdCarrera}")">
+                                Seguimiento
+                            </a>
+                        }
+                        else
+                        {
+                            @carrera.Posicion
+                        }
+                    </TemplateColumn>
+
                     <PropertyColumn Property="c => c.Tiempo" Title="Tiempo Total" />
+
                     <TemplateColumn Context="carrera">
                         <a href="@($"carreras/details?idcarrera={carrera.IdCarrera}")">Details</a>
                     </TemplateColumn>
@@ -80,29 +94,29 @@
 
         foreach (var ins in atleta.Inscripciones)
         {
-            if (ins.Posicion > 0)
-            {
-                var carrera = await context.Carreras
-                    .FirstOrDefaultAsync(c => c.IdCarrera == ins.CarreraId);
+            var carrera = await context.Carreras
+                .FirstOrDefaultAsync(c => c.IdCarrera == ins.CarreraId);
 
-                if (carrera != null)
+            if (carrera != null)
+            {
+                carreras.Add(new DataCarrera
                 {
-                    carreras.Add(new DataCarrera
-                    {
-                        IdCarrera = carrera.IdCarrera,
-                        NomCarrera = carrera.Nombre,
-                        Dorsal = ins.NumeroDorsal,
-                        Posicion = ins.Posicion,
-                        Tiempo = ins.TiempoTotal
-                    });
-                }
+                    IdCarrera = carrera.IdCarrera,
+                    IdAtleta = atleta.IdAtleta,
+                    NomCarrera = carrera.Nombre,
+                    Dorsal = ins.NumeroDorsal,
+                    Posicion = ins.Posicion,
+                    Tiempo = ins.TiempoTotal
+                });
             }
+            
         }
     }
 
     public class DataCarrera
     {
         public int IdCarrera { get; set; }
+        public int IdAtleta { get; set; }
         public string? NomCarrera { get; set; }
         public TimeSpan? Tiempo { get; set; }
         public int? Dorsal { get; set; }

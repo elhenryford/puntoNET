@@ -13,7 +13,8 @@
           "Microsoft.Data.Sqlite": "9.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.10",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
+          "Radzen.Blazor": "8.3.2"
         },
         "runtime": {
           "pruevaDB1.dll": {}
@@ -1862,6 +1863,18 @@
           }
         }
       },
+      "Radzen.Blazor/8.3.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "8.0.11",
+          "Microsoft.AspNetCore.Components.Web": "8.0.11"
+        },
+        "runtime": {
+          "lib/net8.0/Radzen.Blazor.dll": {
+            "assemblyVersion": "8.3.2.0",
+            "fileVersion": "8.3.2.0"
+          }
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.10": {
         "dependencies": {
           "SQLitePCLRaw.lib.e_sqlite3": "2.1.10",
@@ -3258,6 +3271,13 @@
       "sha512": "sha512-v/GGlIj2dd7svplFmASWEueu62veKW0MrMtBaZ7QG8aJTSGv2yE+pgUGhXRcQ4nxNOEq/wLBrz1vkth/1SND7A==",
       "path": "nuget.versioning/6.11.0",
       "hashPath": "nuget.versioning.6.11.0.nupkg.sha512"
+    },
+    "Radzen.Blazor/8.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hiPy/RNjfwdnYK5m7nP5CYKUzROF+ky5ywPcK2BeJI3FvKjkIqav4xSHAvTthOjH6PqNmYafVjffXB5QCacXhA==",
+      "path": "radzen.blazor/8.3.2",
+      "hashPath": "radzen.blazor.8.3.2.nupkg.sha512"
     },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.10": {
       "type": "package",

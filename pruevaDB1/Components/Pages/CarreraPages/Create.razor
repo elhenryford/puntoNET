@@ -36,6 +36,16 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="imagen" class="form-label">Imagen</label>
+                    <InputFile id="imagen" OnChange="HandleImageUpload" accept="image/png, image/jpeg" class="form-control" />
+
+                    @if (PreviewImage != null)
+                    {
+                        <img src="@PreviewImage" class="img-thumbnail mt-2" style="max-height:150px" />
+                    }
+                </div>
+
+                <div class="mb-3">
                     <label for="ubicacion" class="form-label">Ubicación</label>
                     <InputText id="ubicacion" @bind-Value="Carrera.Ubicacion" class="form-control" />
                     <ValidationMessage For="() => Carrera.Ubicacion" class="text-danger" />
@@ -66,17 +76,51 @@
     [SupplyParameterFromForm]
     private Carrera Carrera { get; set; } = new();
 
+    private IBrowserFile? UploadedImage { get; set; }
+    private string? PreviewImage { get; set; }
+
     private DateTime HoraInicioString { get; set; } = DateTime.Now;
 
-    protected override async Task OnInitializedAsync()
+    protected override Task OnInitializedAsync()
     {
         Carrera.Fecha = DateTime.Today;
+        return Task.CompletedTask;
+    }
+
+    private async Task HandleImageUpload(InputFileChangeEventArgs e)
+    {
+        UploadedImage = e.File;
+
+        // Crear preview básico
+        using var ms = new MemoryStream();
+        await UploadedImage.OpenReadStream(5_000_000).CopyToAsync(ms);
+        var base64 = Convert.ToBase64String(ms.ToArray());
+
+        PreviewImage = $"data:{UploadedImage.ContentType};base64,{base64}";
     }
 
     private async Task AddCarrera()
     {
         using var context = DbFactory.CreateDbContext();
 
+        // Copiar imagen si hay
+        if (UploadedImage != null)
+        {
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(UploadedImage.Name)}";
+            var folderPath = Path.Combine(Environment.CurrentDirectory, "wwwroot", "images");
+
+            if (!Directory.Exists(folderPath))
+                Directory.CreateDirectory(folderPath);
+
+            var filePath = Path.Combine(folderPath, fileName);
+
+            using var fs = new FileStream(filePath, FileMode.Create);
+            await UploadedImage.OpenReadStream(10_000_000).CopyToAsync(fs);
+
+            Carrera.ImagenRuta = $"images/{fileName}";
+        }
+
+        // Guardar hora combinada
         Carrera.HoraInicio = Carrera.Fecha + HoraInicioString.TimeOfDay;
 
         context.Carreras.Add(Carrera);
@@ -85,3 +129,4 @@
         NavigationManager.NavigateTo("/carrerasAdmin");
     }
 }
+

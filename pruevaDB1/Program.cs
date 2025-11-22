@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using pruevaDB1.Components.Model;
 using pruevaDB1.Data;
+using Radzen;
+using Radzen.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +37,8 @@ builder.Services.AddHttpClient("API", client =>
 builder.Services.AddScoped(sp =>
     sp.GetRequiredService<IHttpClientFactory>().CreateClient("API"));
 
+builder.Services.AddRadzenComponents();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -45,6 +49,8 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAntiforgery();
+
+app.UseStaticFiles();
 
 // Blazor
 app.MapRazorComponents<pruevaDB1.Components.App>()

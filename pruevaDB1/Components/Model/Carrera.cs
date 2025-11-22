@@ -11,6 +11,7 @@ namespace pruevaDB1.Components.Model
         public string Nombre { get; set; } = string.Empty;
         public DateTime Fecha { get; set; }
         public DateTime HoraInicio { get; set; }
+        public string ImagenRuta { get; set; } = string.Empty;
         public string Ubicacion { get; set; } = string.Empty;
         public int Cupos { get; set; }
         public int cantSensores { get; set; }

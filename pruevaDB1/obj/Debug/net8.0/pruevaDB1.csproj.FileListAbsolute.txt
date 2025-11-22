@@ -642,4 +642,5 @@ C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\pruevaDB1.Ra
 C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\pruevaDB1.RazorAssemblyInfo.cache
 C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\pruevaDB1.RazorAssemblyInfo.cs
 C:\Users\Henry\Desktop\pruevaDB1\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\bin\Debug\net8.0\Radzen.Blazor.dll
 C:\Users\franc\Documents\GitHub\puntoNET\pruevaDB1\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

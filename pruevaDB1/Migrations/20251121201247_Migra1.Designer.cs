@@ -12,8 +12,8 @@ using pruevaDB1.Data;
 namespace pruevaDB1.Migrations
 {
     [DbContext(typeof(pruevaDB1Context))]
-    [Migration("20251119214726_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20251121201247_Migra1")]
+    partial class Migra1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,6 +78,10 @@ namespace pruevaDB1.Migrations
 
                     b.Property<DateTime>("HoraInicio")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ImagenRuta")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()

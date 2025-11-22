@@ -1,0 +1,98 @@
+@page "/atleta/seguimiento"
+@using Microsoft.EntityFrameworkCore
+@using pruevaDB1.Components.Model
+@using pruevaDB1.Data
+@using Radzen
+@inject IDbContextFactory<pruevaDB1.Data.pruevaDB1Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Seguir Atleta</PageTitle>
+
+<h1>Seguimiento de: @atleta?.Nombre</h1>
+<h2>en la carrera: @la_carrera?.Nombre</h2>
+
+<div class="row">
+
+    <div class="rz-m-12">
+        <RadzenProgressBar @bind-Value="@ultimo_punto_de_control_crusado"
+                           Max="@( (double)(la_carrera?.cantSensores ?? 0) )"
+                           Unit=@($" / {numero_de_puntos_de_control}")
+                           AriaLabel="Recorrido" />
+    </div>
+
+    @if (la_carrera is not null)
+    {
+        <img src="@la_carrera.ImagenRuta">
+    }
+
+</div>
+
+@code {
+
+    double ultimo_punto_de_control_crusado = -1;
+    double numero_de_puntos_de_control = 0;
+
+    private Atleta? atleta;
+
+    [SupplyParameterFromQuery]
+    private int IdAtleta { get; set; }
+
+    [SupplyParameterFromQuery]
+    private int IdCarrera { get; set; }
+
+    private Carrera? la_carrera;
+
+    private Inscripcion? la_inscripcion;
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+
+        // Carrera
+        la_carrera = await context.Carreras
+            .FirstOrDefaultAsync(c => c.IdCarrera == IdCarrera);
+
+        if (la_carrera is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+            return;
+        }
+
+        // Atleta
+        atleta = await context.Atletas
+            .FirstOrDefaultAsync(m => m.IdAtleta == IdAtleta);
+
+        if (atleta is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+            return;
+        }
+
+        // Inscripción
+        la_inscripcion = await context.Inscripciones
+            .FirstOrDefaultAsync(i => i.AtletaId == IdAtleta && i.CarreraId == IdCarrera);
+
+        if (la_inscripcion is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+            return;
+        }
+
+        // Último puesto cruzado
+        ultimo_punto_de_control_crusado =
+            (await context.TiemposParciales
+                .Where(x => x.InscripcionId == la_inscripcion.IdInscripcion)
+                .MaxAsync(x => (int?)x.Puesto)) ?? -1;
+
+        if (ultimo_punto_de_control_crusado == -1)
+        {
+            // Si no tiene tiempos parciales registrados
+            ultimo_punto_de_control_crusado = 0;
+        }
+
+        // Si querés mostrar cuántos sensores tiene
+        numero_de_puntos_de_control = la_carrera.cantSensores;
+    }
+
+}
